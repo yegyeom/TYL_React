@@ -1,14 +1,16 @@
 import './App.css';
-import MenuBar from './components/navigation/MenuBar';
+import './styles/sass/main.css';
+import Page from './components/navigation/Page';
 import { BrowserRouter } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <MenuBar />
-      </div>
-    </BrowserRouter>
+    <div className="container">
+      <BrowserRouter>
+        <Page />
+      </BrowserRouter>
+    </div>
   );
 }
 
