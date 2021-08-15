@@ -13,7 +13,7 @@ const Tablet = () => {
         <h2>LOGO</h2>
         <ul className="tabs">
           <li id="top">
-            <NavLink to="/" activeClassName="active-home">
+            <NavLink to="/" activeClassName="active-style">
               홈
             </NavLink>
           </li>
