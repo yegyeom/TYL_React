@@ -10,25 +10,54 @@
     border: 5px solid greenyellow
   }
 
+  .tablet-menu-bar {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    box-sizing: border-box;
+    height:20%;
+    width:100%;
+    border: 5px solid greenyellow
+  }
+
   ul.tabs {
     display: inline-block;
-    width: 50%;
+    width: 70%;
     background-color: #fff;
     border: 1px solid #c4c4c4;
     border-radius: 10px 10px 10px 10px;
-    padding-right: 35px;
+    padding-left: 0;
     box-shadow: 0px -1px 1px 6px rgba(0,0,0, 0.02);
 }
 
 .tabs li {
     display:block;
+    width: 100%;
     box-sizing: border-box;
     text-align: left;
     padding: 15px;
+    padding-left: 30px;
     border-bottom: 1px solid #ccc;
     color:black;
 }
 
-.tabs li:focus {
+.tabs li:focus, .tabs li:hover{
     cursor: pointer;
+    // border-bottom: $selectedcomponent;
+    // font-weight: bold;
 }
+
+.active{
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #bottom {
+      border-bottom: none;
+  }

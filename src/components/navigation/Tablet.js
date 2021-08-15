@@ -6,44 +6,35 @@ import Asset from '../asset/index.js';
 import Profile from '../profile/index.js';
 import '../../styles/sass/main.css';
 
-const Page = () => {
+const Tablet = () => {
   return (
-    <div className="page">
-      <div className="menu-bar">
+    <div className="tablet">
+      <div className="tablet-menu-bar">
         <h2>LOGO</h2>
         <ul className="tabs">
           <li id="top">
-            <NavLink to="/" activeClassName="active">
+            <NavLink to="/" activeClassName="active-home">
               홈
             </NavLink>
           </li>
-
           <li>
-            <NavLink to="/Investment" activeClassName="active">
-              투자
-            </NavLink>
+            <NavLink to="/Investment">투자</NavLink>
           </li>
           <li id="bottom">
-            <NavLink to="/Ranking" activeClassName="active">
-              랭킹
-            </NavLink>
+            <NavLink to="/Ranking">랭킹</NavLink>
           </li>
         </ul>
         <ul className="tabs">
           <li id="top">
-            <NavLink to="/Asset" activeClassName="active">
-              내 자산
-            </NavLink>
+            <NavLink to="/Asset">내 자산</NavLink>
           </li>
           <li id="bottom">
-            <NavLink to="/Profile" activeClassName="active">
-              내 정보
-            </NavLink>
+            <NavLink to="/Profile">내 정보</NavLink>
           </li>
         </ul>
       </div>
 
-      <div className="content">
+      <div className="tablet-content">
         <Route path="/" component={Home} exact />
         <Route path="/Investment" component={Investment} />
         <Route path="/Ranking" component={Ranking} />
@@ -54,4 +45,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Tablet;
