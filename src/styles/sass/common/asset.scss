@@ -1,0 +1,39 @@
+@import './color.scss';
+
+.total-asset-container{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.asset-box{
+    padding-left: 0px;
+    padding: 5px;
+    display: inline-flex;
+    width: 80%;
+    background-color: #ffffff;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px -1px 1px 6px rgba(0,0,0, 0.02);
+}
+
+.asset-box li{
+    display:block;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 15px;
+    border-right: 1px solid #ccc;
+    color:black;
+    letter-spacing: 2px;
+}
+
+#right {
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+    border-right: none;
+}
+
+.graph-container{
+    width: 100%;
+}
