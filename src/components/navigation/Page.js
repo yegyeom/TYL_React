@@ -7,40 +7,38 @@ import Profile from '../profile/index.js';
 import '../../styles/sass/main.css';
 
 const Page = () => {
+  const topMenuBox = [
+    { link: '/', title: '홈' },
+    { link: '/Investment', title: '투자' },
+    { link: '/Ranking', title: '랭킹' },
+  ];
+  const bottomMenuBox = [
+    { link: '/Asset', title: '내 자산' },
+    { link: '/Profile', title: '내 정보' },
+  ];
+
+  const topMenuList = topMenuBox.map((menu, idx) => (
+    <li>
+      <NavLink exact to={menu.link} activeClassName="active">
+        {menu.title}
+      </NavLink>
+    </li>
+  ));
+
+  const bottomMenuList = bottomMenuBox.map((menu, idx) => (
+    <li>
+      <NavLink exact to={menu.link} activeClassName="active">
+        {menu.title}
+      </NavLink>
+    </li>
+  ));
+
   return (
     <div className="page">
       <div className="menu-bar">
         <h2>LOGO</h2>
-        <ul className="tabs">
-          <li id="top">
-            <NavLink to="/" activeClassName="active-style">
-              홈
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/Investment" activeClassName="active">
-              투자
-            </NavLink>
-          </li>
-          <li id="bottom">
-            <NavLink to="/Ranking" activeClassName="active">
-              랭킹
-            </NavLink>
-          </li>
-        </ul>
-        <ul className="tabs">
-          <li id="top">
-            <NavLink to="/Asset" activeClassName="active">
-              내 자산
-            </NavLink>
-          </li>
-          <li id="bottom">
-            <NavLink to="/Profile" activeClassName="active">
-              내 정보
-            </NavLink>
-          </li>
-        </ul>
+        <ul className="tabs">{topMenuList}</ul>
+        <ul className="tabs">{bottomMenuList}</ul>
       </div>
 
       <div className="content">
