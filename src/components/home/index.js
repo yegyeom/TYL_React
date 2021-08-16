@@ -1,12 +1,16 @@
 import React from 'react';
 import GoogleButton from '../auth/GoogleButton';
+import AssetRank from './container/AssetRank';
 
 const index = () => {
   return (
-    <div>
-      <h1>Home 페이지 입니다</h1>
+    <>
+      <ul className="homeRank">
+        <h5>틸러들의 자산 순위</h5>
+        <AssetRank />
+      </ul>
       <GoogleButton />
-    </div>
+    </>
   );
 };
 
