@@ -1,5 +1,6 @@
 @import './common/menu.scss';
 @import './common/content.scss';
+@import './common/modal.scss';
 @import './common/home.scss';
 
 .container {
@@ -16,5 +17,12 @@
     width: 70%;
     height: 100vh;
     margin: 0;
-    border: 5px solid black;
+}
+
+.tablet{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 70%;
+    height: 100vh;
+    margin: 0;
 }

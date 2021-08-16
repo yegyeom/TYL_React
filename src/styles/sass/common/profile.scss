@@ -1,0 +1,30 @@
+.profile-info{
+    width: 100%;
+    height: 20%;
+}
+
+.profile-tabs {
+    width: 70%;
+    height: 80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.info{
+    font-size: larger;
+    padding-top: 12%;
+}
+
+ul#profile-menu li{
+    border-bottom: 1px solid #c4c4c4;
+    color: $font-color
+}
+
+ul#profile-menu li a:hover{
+    cursor: auto;
+    font-weight:normal;
+    text-decoration: none;
+    color: $font-color;
+}
