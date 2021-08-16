@@ -55,14 +55,14 @@ a:hover{
     font-weight: bold;
     text-decoration: underline;
     text-underline-position: under;
-    color: #6C6FC6;
+    color: $selected-menu;
 }
 
 .active{
     font-weight: bold;
     text-decoration: underline;
     text-underline-position: under;
-    color: #6C6FC6;
+    color: $selected-menu;
 }
 
 a {
