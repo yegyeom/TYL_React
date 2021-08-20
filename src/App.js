@@ -16,16 +16,18 @@ function App() {
 
   return (
     <div className="container">
-      {isPc && (
-        <BrowserRouter>
-          <Pc />
-        </BrowserRouter>
-      )}
-      {isTablet && (
-        <BrowserRouter>
-          <Tablet />
-        </BrowserRouter>
-      )}
+      <div className="main-layout">
+        {isPc && (
+          <BrowserRouter>
+            <Pc />
+          </BrowserRouter>
+        )}
+        {isTablet && (
+          <BrowserRouter>
+            <Tablet />
+          </BrowserRouter>
+        )}
+      </div>
     </div>
   );
 }
