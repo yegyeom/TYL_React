@@ -1,12 +1,11 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, useRouteMatch } from 'react-router-dom';
 import '../../../styles/sass/main.css';
 import stock_icon from '../../../styles/images/stock_icon.png';
 import btc_icon from '../../../styles/images/btc_icon.png';
-import MyStock from './MyStock';
-import MyBtc from './MyBtc';
 
 const AssetList = () => {
+  let match = useRouteMatch();
   const AssetBox = [
     {
       title: '주식',
@@ -29,8 +28,8 @@ const AssetList = () => {
   ];
 
   const AssetList = AssetBox.map((menu, idx) => (
-    <li>
-      <Link exact to={menu.link}>
+    <li key={idx}>
+      <Link to={`${match.url}/${menu.link}`}>
         <div className="asset-tabs-img">
           <img src={menu.img} width="100%" />
         </div>
@@ -53,9 +52,6 @@ const AssetList = () => {
       <div className="asset-list-container">
         <ul id="asset">{AssetList}</ul>
       </div>
-
-      <Route path="/stock" component={MyStock} />
-      <Route path="/btc" component={MyBtc} />
     </>
   );
 };

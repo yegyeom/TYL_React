@@ -5,6 +5,7 @@ import Ranking from '../ranking/index';
 import Asset from '../asset/index.js';
 import Profile from '../profile/index.js';
 import '../../styles/sass/main.css';
+import MyAsset from '../asset/components/MyAsset';
 
 const Page = () => {
   const topMenuBox = [
@@ -18,7 +19,7 @@ const Page = () => {
   ];
 
   const topMenuList = topMenuBox.map((menu, idx) => (
-    <li>
+    <li key={idx}>
       <NavLink exact to={menu.link} activeClassName="active">
         {menu.title}
       </NavLink>
@@ -26,7 +27,7 @@ const Page = () => {
   ));
 
   const bottomMenuList = bottomMenuBox.map((menu, idx) => (
-    <li>
+    <li key={idx}>
       <NavLink exact to={menu.link} activeClassName="active">
         {menu.title}
       </NavLink>
@@ -45,8 +46,10 @@ const Page = () => {
         <Route path="/" component={Home} exact />
         <Route path="/Investment" component={Investment} />
         <Route path="/Ranking" component={Ranking} />
-        <Route path="/Asset" component={Asset} />
+        <Route exact path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
+        <Route path="/Asset/stock" component={MyAsset} />
+        <Route path="/Asset/btc" component={MyAsset} />
       </div>
     </div>
   );

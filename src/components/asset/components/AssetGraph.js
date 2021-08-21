@@ -53,7 +53,7 @@ const AssetGraph = () => {
           colors={['#5673EB']}
           colorBy="index"
           data={data}
-          margin={{ top: 20, right: 20, bottom: 50, left: 60 }}
+          margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
           xScale={{ type: 'point' }}
           yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
           //yFormat=" >-f"
