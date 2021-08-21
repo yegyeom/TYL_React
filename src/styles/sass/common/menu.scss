@@ -6,7 +6,7 @@
     align-items: center;
     box-sizing: border-box;
     height:100%;
-    width:30%;
+    width:40%;
     border: 5px solid greenyellow
   }
 
@@ -46,20 +46,19 @@ ul.tabs li:last-child {
     box-sizing: border-box;
     text-align: left;
     padding: 15px;
-    padding-left: 30px;
+    padding-left: 25px;
+    font-size:smaller;
+    font-weight: bolder;
 }
-
 
 a:hover{
     cursor: pointer;
-    font-weight: bold;
     text-decoration: underline;
     text-underline-position: under;
     color: $selected-menu;
 }
 
 .active{
-    font-weight: bold;
     text-decoration: underline;
     text-underline-position: under;
     color: $selected-menu;
@@ -69,3 +68,39 @@ a {
     color: $font-color;
     text-decoration: none;
   }
+
+  .tabs li.user-profile{
+      display: inline-flex;
+      padding-left: 8px;
+      padding-right: 0px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #c4c4c4;
+  }
+
+.user-name{
+    font-size:13.5px;
+    font-weight: bolder;
+    padding-left: 5px;
+    padding-right: 0px;
+    line-height: 39px;
+  }
+
+ .user-ment{
+      font-size: 12px;
+      font-weight: normal;
+      padding-left: 0px;
+      line-height: 40px;
+  }
+
+  .profile-img-box{
+        width: 38px;
+        height: 38px; 
+        border-radius: 70%;
+        overflow: hidden;
+    }
+    .profile {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
