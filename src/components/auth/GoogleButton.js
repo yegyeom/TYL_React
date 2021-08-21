@@ -2,18 +2,35 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import dotenv from 'dotenv';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { login } from './userSlice';
+import { onLoginSuccess, onSilentRefresh } from './auth';
 dotenv.config();
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_KEY;
+axios.defaults.baseURL = process.env.REACT_APP_HOST;
 
-export default function oogleButton({ onSocial }) {
-  const onSuccess = async response => {
+export default function googleButton() {
+  const dispatch = useDispatch();
+
+  const handleLogin = async data => {
     const {
-      googleId,
       profileObj: { email, name },
-    } = response;
+    } = data;
+    const body = JSON.stringify({
+      email: email,
+      name: name,
+    });
+    const headers = {
+      'Content-Type': 'application/json',
+    };
 
-    console.log(`아이디값 : ${googleId} 이메일 : ${email} 이름 : ${name}`);
+    axios
+      .post('/auth/login', body, { headers })
+      .then(onLoginSuccess)
+      .then(user => dispatch(login(user)))
+      .catch(onFailure);
   };
 
   const onFailure = error => {
@@ -25,8 +42,10 @@ export default function oogleButton({ onSocial }) {
       <GoogleLogin
         clientId={clientId}
         responseType={'id_token'}
-        onSuccess={onSuccess}
+        onSuccess={handleLogin}
         onFailure={onFailure}
+        buttonText="구글로 로그인하기"
+        // cookiePolicy={'single_host_origin'}
       />
     </div>
   );

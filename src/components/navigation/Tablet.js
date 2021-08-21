@@ -4,6 +4,8 @@ import Investment from '../investment/index';
 import Ranking from '../ranking/index';
 import Asset from '../asset/index.js';
 import Profile from '../profile/index.js';
+import Auth from '../auth/index.js';
+
 import '../../styles/sass/main.css';
 
 const Tablet = () => {
@@ -40,6 +42,7 @@ const Tablet = () => {
         <Route path="/Ranking" component={Ranking} />
         <Route path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
+        <Route path="/login" component={Auth} />
       </div>
     </div>
   );
