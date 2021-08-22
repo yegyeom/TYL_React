@@ -60,7 +60,7 @@
     //border: 3px solid salmon;
 }
 
-ul#asset {
+#asset {
     display: inline-block;
     width: 80%;
     background-color: #fff;
@@ -149,13 +149,14 @@ color: #5673EB;
 color : #EB5374;
 }
 
-.my-asset-box{
-    padding: 5px;
-    width: 80%;
-    margin: 5%;
-    margin-bottom: 0%;
-    background-color: #ffffff;
-    border: 1px solid #c4c4c4;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px -1px 1px 6px rgba(0,0,0, 0.02);
+.my-asset-container{
+    width:100%;
+    margin-top: 5%;
+    box-sizing: border-box;
+}
+
+.my-asset{
+    display: inline-flex;
+    width: 100%;
+    box-sizing: border-box;
 }

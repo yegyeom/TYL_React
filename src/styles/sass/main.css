@@ -106,6 +106,7 @@ a {
 
 .profile-info {
   width: 100%;
+  padding-top: 15%;
 }
 
 .profile-tabs {
@@ -116,8 +117,11 @@ a {
 }
 
 .info {
+  display: flex;
+  width: 100%;
+  padding-left: 24%;
   font-size: larger;
-  padding-top: 15%;
+  text-align: left;
 }
 
 ul#profile-menu li {
@@ -130,6 +134,13 @@ ul#profile-menu li a:hover {
   font-weight: normal;
   text-decoration: none;
   color: #464D52;
+}
+
+.profile-img-box-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 70%;
+  overflow: hidden;
 }
 
 .total-asset-container {
@@ -188,7 +199,7 @@ ul#profile-menu li a:hover {
   box-sizing: border-box;
 }
 
-ul#asset {
+#asset {
   display: inline-block;
   width: 80%;
   background-color: #fff;
@@ -275,15 +286,16 @@ ul.asset-tabs-right {
   color: #EB5374;
 }
 
-.my-asset-box {
-  padding: 5px;
-  width: 80%;
-  margin: 5%;
-  margin-bottom: 0%;
-  background-color: #ffffff;
-  border: 1px solid #c4c4c4;
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px -1px 1px 6px rgba(0, 0, 0, 0.02);
+.my-asset-container {
+  width: 100%;
+  margin-top: 5%;
+  box-sizing: border-box;
+}
+
+.my-asset {
+  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .content {
