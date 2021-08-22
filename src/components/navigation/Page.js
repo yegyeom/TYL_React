@@ -9,6 +9,8 @@ import Auth from '../auth/index.js';
 import '../../styles/sass/main.css';
 import { useSelector } from 'react-redux';
 import { checkValidity, selectUser } from '../auth/userSlice';
+import MyAsset from '../asset/components/MyAsset';
+import profile_img from '../../styles/images/profile_img.png';
 
 const Page = () => {
   const validity = useSelector(checkValidity);
@@ -18,6 +20,7 @@ const Page = () => {
   useEffect(() => {
     if (validity) {
       setBottomMenuBox([
+        { link: '', title: user.nickname },
         { link: '/Asset', title: '내 자산' },
         { link: '/Profile', title: '내 정보' },
       ]);
@@ -38,19 +41,32 @@ const Page = () => {
     </li>
   ));
 
-  const bottomMenuList = bottomMenuBox.map((menu, idx) => (
-    <li key={idx}>
-      <NavLink exact to={menu.link} activeClassName="active">
-        {menu.title}
-      </NavLink>
-    </li>
-  ));
+  const bottomMenuList = bottomMenuBox.map((menu, idx) => {
+    if (menu.title != '내 자산' && menu.title != '내 정보' && menu.title != '로그인') {
+      return (
+        <li className="user-profile">
+          <div className="profile-img-box">
+            <img src={profile_img} className="profile" />
+          </div>
+          <span className="user-name">{menu.title}</span>
+          <span className="user-ment">님, 반가워요!</span>
+        </li>
+      );
+    }
+    return (
+      <li key={idx}>
+        <NavLink exact to={menu.link} activeClassName="active">
+          {menu.title}
+        </NavLink>
+      </li>
+    );
+  });
 
   return (
     <div className="page">
       <div className="menu-bar">
         <h2>LOGO</h2>
-        <h4>{user}</h4>
+        <h4>{user.nickname}</h4>
         <ul className="tabs">{topMenuList}</ul>
         <ul className="tabs">{bottomMenuList}</ul>
       </div>
@@ -59,9 +75,11 @@ const Page = () => {
         <Route path="/" component={Home} exact />
         <Route path="/Investment" component={Investment} />
         <Route path="/Ranking" component={Ranking} />
-        <Route path="/Asset" component={Asset} />
+        <Route exact path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
         <Route path="/login" component={Auth} />
+        <Route path="/Asset/stock" component={MyAsset} />
+        <Route path="/Asset/btc" component={MyAsset} />
       </div>
     </div>
   );

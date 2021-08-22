@@ -1,12 +1,19 @@
 import React from 'react';
 import Tabs from './components/Tabs.js';
 import Info from './components/Info.js';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../auth/userSlice';
 
-const index = () => {
+const index = ({ match }) => {
+  const user = useSelector(selectUser);
   return (
     <>
-      <Info name="틸틸" />
-      <Tabs />
+      <div className="profile-info">
+        <Info name={user.nickname} email={user.email} />
+      </div>
+      <div className="profile-tabs">
+        <Tabs url={`${match.url}`} />
+      </div>
     </>
   );
 };
