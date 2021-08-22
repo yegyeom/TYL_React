@@ -10,9 +10,7 @@ export const onLoginSuccess = response => {
   const { code, accessToken, message } = response.data;
 
   console.log(code, message);
-  if (code === 999) {
-    // 회원가입 로직
-  } else if (code === 401) {
+  if (code === 401) {
     // alert('토큰이 만료되었습니다.');
     console.log('토큰이 만료되었습니다.');
   } else if (code === 200) {

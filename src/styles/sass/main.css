@@ -481,4 +481,12 @@ ul.frameList {
   margin: 0;
 }
 
+.tablet {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 70%;
+  height: 100vh;
+  margin: 0;
+}
+
 /*# sourceMappingURL=main.css.map */
