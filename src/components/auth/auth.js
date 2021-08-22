@@ -27,7 +27,7 @@ export const onLoginSuccess = response => {
 
 export const onSilentRefresh = async () => {
   return await axios
-    .post('/auth/slient-refresh', '')
+    .get('/auth/slient-refresh')
     .then(onLoginSuccess)
     .catch(error => {});
 };
