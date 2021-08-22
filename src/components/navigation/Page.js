@@ -48,8 +48,8 @@ const Page = () => {
           <div className="profile-img-box">
             <img src={profile_img} className="profile" />
           </div>
-          <td className="user-name">{menu.title}</td>
-          <td className="user-ment">님, 반가워요!</td>
+          <span className="user-name">{menu.title}</span>
+          <span className="user-ment">님, 반가워요!</span>
         </li>
       );
     }
