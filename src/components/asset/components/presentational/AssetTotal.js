@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../../styles/sass/main.css';
+import '../../../../styles/sass/main.css';
 
-const TotalAsset = ({ asset }) => {
+const AssetTotal = ({ asset }) => {
   return (
     <div className="total-asset-container">
       <ul className="total-asset-box">
@@ -12,4 +12,4 @@ const TotalAsset = ({ asset }) => {
   );
 };
 
-export default TotalAsset;
+export default AssetTotal;

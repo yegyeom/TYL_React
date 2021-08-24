@@ -8,39 +8,7 @@ import { ResponsiveLine } from '@nivo/line';
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
-const AssetGraph = () => {
-  const data = [
-    {
-      id: 'TYL',
-      data: [
-        {
-          x: '20.3',
-          y: 1000000,
-        },
-        {
-          x: '20.4',
-          y: 150000,
-        },
-        {
-          x: '20.5',
-          y: 27000,
-        },
-        {
-          x: '20.6',
-          y: 14100000,
-        },
-        {
-          x: '20.7',
-          y: 54600,
-        },
-        {
-          x: '20.8',
-          y: 160,
-        },
-      ],
-    },
-  ];
-
+const AssetGraph = ({ data }) => {
   return (
     <div className="graph-container">
       <div

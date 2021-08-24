@@ -9,7 +9,7 @@ import Auth from '../auth/index.js';
 import '../../styles/sass/main.css';
 import { useSelector } from 'react-redux';
 import { checkValidity, selectUser } from '../auth/userSlice';
-import MyAsset from '../asset/components/MyAsset';
+import MyAssetContainer from '../asset/components/container/MyAssetContainer';
 import profile_img from '../../styles/images/profile_img.png';
 
 const Page = () => {
@@ -66,7 +66,6 @@ const Page = () => {
     <div className="page">
       <div className="menu-bar">
         <h2>LOGO</h2>
-        <h4>{user.nickname}</h4>
         <ul className="tabs">{topMenuList}</ul>
         <ul className="tabs">{bottomMenuList}</ul>
       </div>
@@ -78,8 +77,8 @@ const Page = () => {
         <Route exact path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
         <Route path="/login" component={Auth} />
-        <Route path="/Asset/stock" component={MyAsset} />
-        <Route path="/Asset/btc" component={MyAsset} />
+        <Route path="/Asset/stock" component={MyAssetContainer} />
+        <Route path="/Asset/btc" component={MyAssetContainer} />
       </div>
     </div>
   );

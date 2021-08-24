@@ -1,28 +1,8 @@
 import React from 'react';
-import '../../../styles/sass/main.css';
+import '../../../../styles/sass/main.css';
 
-const DetailMyAsset = ({ asset_name }) => {
-  const AssetBox = [
-    {
-      title: '주식',
-      link: 'stock',
-      total: '190,000 TYL',
-      today: '+',
-      value: '4,580',
-      percent: '5.1',
-    },
-    {
-      title: '비트코인',
-      link: 'btc',
-      total: '111,000 TYL',
-      today: '-',
-      value: '10,580',
-      percent: '8.4',
-    },
-  ];
-
+const DetailAsset = ({ asset_name, AssetBox }) => {
   const TotalAsset = AssetBox.map((menu, idx) => {
-    console.log(menu.link, asset_name);
     if (menu.title === asset_name) {
       return (
         <>
@@ -53,4 +33,4 @@ const DetailMyAsset = ({ asset_name }) => {
   );
 };
 
-export default DetailMyAsset;
+export default DetailAsset;
