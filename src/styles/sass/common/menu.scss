@@ -7,7 +7,7 @@
     box-sizing: border-box;
     height:100%;
     width:40%;
-    border: 5px solid greenyellow
+    border: 5px solid greenyellow;
   }
 
   .tablet-menu-bar {
@@ -22,12 +22,12 @@
 
   ul.tabs {
     display: inline-block;
-    width: 70%;
+    width: 95%;
     background-color: #fff;
     border: 1px solid #c4c4c4;
     border-radius: 10px 10px 10px 10px;
     padding-left: 0;
-    box-shadow: 0px -1px 1px 6px rgba(0,0,0, 0.02);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 ul.tabs li:first-child {
@@ -41,6 +41,8 @@ ul.tabs li:last-child {
 }
 
 .tabs li {
+    font-family: "Noto Sans KR";
+
     display:block;
     width: 100%;
     box-sizing: border-box;
@@ -83,7 +85,7 @@ a {
     font-weight: bolder;
     padding-left: 5px;
     padding-right: 0px;
-    line-height: 39px;
+    line-height: 40px;
   }
 
  .user-ment{
@@ -97,10 +99,27 @@ a {
         width: 38px;
         height: 38px; 
         border-radius: 70%;
-        overflow: hidden;
+        overflow:hidden;
     }
+
     .profile {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit:cover;
+    }
+
+    .logo{
+        box-sizing: border-box;
+        display: inline-block;
+        width: 95%;
+        background-color: #fff;
+        border: 1px solid #c4c4c4;
+        border-radius: 10px 10px 10px 10px;
+        padding-left: 0;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        margin-top: 14%;
+        margin-bottom: 16px;
+        padding: 10px;
+        color: #5673EB;
+        font-weight: bolder;
     }

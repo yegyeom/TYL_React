@@ -65,7 +65,7 @@ const Page = () => {
   return (
     <div className="page">
       <div className="menu-bar">
-        <h2>LOGO</h2>
+        <div className="logo">Test Your Life</div>
         <ul className="tabs">{topMenuList}</ul>
         <ul className="tabs">{bottomMenuList}</ul>
       </div>
