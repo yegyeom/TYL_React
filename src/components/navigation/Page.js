@@ -66,7 +66,6 @@ const Page = () => {
     <div className="page">
       <div className="menu-bar">
         <h2>LOGO</h2>
-        <h4>{user.nickname}</h4>
         <ul className="tabs">{topMenuList}</ul>
         <ul className="tabs">{bottomMenuList}</ul>
       </div>
