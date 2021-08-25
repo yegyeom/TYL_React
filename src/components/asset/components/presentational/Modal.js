@@ -10,22 +10,14 @@ const Modal = props => {
     <div className={open ? 'openModal modal' : 'modal'}>
       {open ? (
         <section>
-          <header style={{ paddingLeft: '60px' }}>
+          <header style={{ paddingLeft: '60px', fontSize: '16px' }}>
             {header}
             <button className="close" onClick={close}>
               &times;
             </button>
           </header>
-          <main>{props.children}</main>
-          <footer>
-            <button className="close" onClick={onAccept}>
-              예
-            </button>
-            <span> </span>
-            <button className="close" onClick={close}>
-              아니오
-            </button>
-          </footer>
+          {props.children}
+          <footer></footer>
         </section>
       ) : null}
     </div>
