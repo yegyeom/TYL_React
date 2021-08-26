@@ -17,7 +17,7 @@ html{
 }
 
 .main-layout{
-    width: 55%;
+    width: 720px;
     height: fit-content;
     margin: 0;
     background-color: $background;
@@ -27,7 +27,7 @@ html{
 .page{
     display: inline-flex;
     box-sizing: border-box;
-    width: 100%;
+    width: 720px;
     height: fit-content;
     margin: 0;
 }
