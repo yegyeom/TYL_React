@@ -1,13 +1,16 @@
 @import './color.scss';
 
 .menu-bar {
+    position: sticky;
+    top:0px;
+    left:0px;
     display:flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    height:100%;
     width:40%;
-    border: 5px solid greenyellow
+    height: fit-content;
+    // border: 5px solid greenyellow
   }
 
   .tablet-menu-bar {
