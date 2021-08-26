@@ -6,19 +6,21 @@ const AssetList = ({ AssetBox, match }) => {
   const AssetList = AssetBox.map((menu, idx) => (
     <li key={idx}>
       <Link to={`${match.url}/${menu.link}`}>
-        <div className="asset-tabs-img">
+        <div style={{ width: '15%' }}>
           <img src={menu.img} width="100%" />
         </div>
-        <ul className="asset-tabs-left">
-          <li>{menu.title}</li>
-          <li>{menu.total}</li>
-        </ul>
-        <ul className="asset-tabs-right">
-          <li className={menu.today === '+' ? 'increase' : 'decrease'}>
-            {menu.today} {menu.value}
-          </li>
-          <li className={menu.today === '+' ? 'increase' : 'decrease'}>({menu.percent}%)</li>
-        </ul>
+        <div className="gang" style={{ paddingLeft: '10px' }}>
+          <ul className="asset-tabs-left">
+            <li>{menu.title}</li>
+            <li>{menu.total.toLocaleString('ko-KR')} TYL</li>
+          </ul>
+          <ul className="asset-tabs-right">
+            <li className={menu.today === '+' ? 'increase' : 'decrease'}>
+              {menu.today} {menu.value.toLocaleString('ko-KR')}
+            </li>
+            <li className={menu.today === '+' ? 'increase' : 'decrease'}>({menu.percent}%)</li>
+          </ul>
+        </div>
       </Link>
     </li>
   ));

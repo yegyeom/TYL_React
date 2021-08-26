@@ -67,7 +67,7 @@ const MyAssetContainer = () => {
       today: '+',
       value: 91000,
       percent: 20.3,
-      img: 'https://lh3.googleusercontent.com/proxy/KTDCJHtswb41QbsHV9qhnx59EmyF2mynvcQAgSnPNFETneJh7aza5SY3TD0184CkDZe6pHOVsgvMnDzLs5WlgRSY0FKVbsLo6zfFSsZVKy2IWAazB5-0tDwvQJHIPc9XYS_dgLEOtdQNf-9NDfz6sh6uTl8wsI3gd0KNTe40VIrZeqYV8kLLLxMbGnVClYeeBSk1L61IDxUnpBhdG1IiDVypxJyHdTRnYFU',
+      img: 'https://lh3.googleusercontent.com/proxy/342EjDROOwAH38_-FUAmb5xtCdBrVjtX8g6UHSior6ImAafNBSJqKFNcpxK0FCUPPNdaWXOlxNgf_tAPJJD3Zh2J4aFwiivJizQevqn-BJCiZcCsATd84TjtJJeJqCd0lJScYpnVYG5vgJVC4H1DnuRDE-xrroCkTLdUqbW-qLs8U7oQjqnDXaDmnT_JaISbaOhGU7n_tyrJlVQ-S0PDf47D-NrYtdWzq74',
     },
     {
       title: '대한항공',
