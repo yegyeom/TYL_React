@@ -45,6 +45,7 @@ const MyAssetContainer = () => {
     {
       title: '카카오뱅크',
       qty: 12, //현재 보유 수량
+      //구매 시 가격 추가
       total: 302200, //총 가격
       today: '+', //증감
       value: 91000, //오늘 증감량
