@@ -6,6 +6,7 @@ import { checkValidity } from '../../../auth/userSlice';
 import AssetTotal from '../presentational/AssetTotal';
 import AssetGraph from '../presentational/AssetGraph';
 import AssetList from '../presentational/AssetList';
+import cash_icon from '../../../../styles/images/cash_icon.png';
 import stock_icon from '../../../../styles/images/stock_icon.png';
 import btc_icon from '../../../../styles/images/btc_icon.png';
 
@@ -31,19 +32,19 @@ const AssetConatiner = () => {
         },
         {
           x: '20.4',
-          y: 556000,
+          y: 756000,
         },
         {
           x: '20.5',
-          y: 2700000,
+          y: 870000,
         },
         {
           x: '20.6',
-          y: 1410000,
+          y: 1010000,
         },
         {
           x: '20.7',
-          y: 94600,
+          y: 946000,
         },
         {
           x: '20.8',
@@ -54,6 +55,15 @@ const AssetConatiner = () => {
   ];
 
   const AssetBox = [
+    {
+      title: '현금',
+      link: 'cash',
+      img: cash_icon,
+      total: 500000,
+      today: '',
+      value: '',
+      percent: '',
+    },
     {
       title: '주식',
       link: 'stock',
