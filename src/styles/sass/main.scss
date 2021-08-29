@@ -3,12 +3,13 @@
 @import './common/modal.scss';
 @import './common/home.scss';
 @import './common/investment.scss';
+@import './common/color.scss';
 
-html {
+html{
     background-color: $background;
 }
+
 .container {
-    height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -17,7 +18,7 @@ html {
 }
 
 .main-layout{
-    width:55%;
+    width: 720px;
     height: fit-content;
     margin: 0;
     background-color: $background;
@@ -27,7 +28,7 @@ html {
 .page{
     display: inline-flex;
     box-sizing: border-box;
-    width: 100%;
+    width: 720px;
     height: fit-content;
     margin: 0;
 }
