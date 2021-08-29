@@ -84,6 +84,10 @@
     padding-bottom: 0.5%;
 }
 
+#asset li#detail-asset:hover{
+    cursor: pointer;
+}
+
 #asset li a{
     width: 100%;
     display: inline-flex;

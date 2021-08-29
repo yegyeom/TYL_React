@@ -21,7 +21,7 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
     if (menu.title === assetName && menu.total > 0) {
       return (
         <>
-          <div className="total-my-asset">
+          <div className="total-my-asset" key={idx}>
             <div className="gang" style={{ paddingLeft: '25px' }}>
               <ul className="asset-tabs-left">
                 <li>내 {menu.title}</li>
@@ -56,7 +56,7 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
     };
 
     const openModal = e => {
-      if (e.target.id == idx) {
+      if (e.currentTarget.id == 'detail-asset') {
         setModalData({
           header: menu.title,
           onAccept: closeModal,
@@ -68,26 +68,19 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
     return (
       <>
         <li key={idx} id="detail-asset" onClick={openModal}>
-          <div className="asset-img-box" id={idx}>
-            <img id={idx} className="profile" src={menu.img} />
+          <div className="asset-img-box">
+            <img className="profile" src={menu.img} />
           </div>
-          <div className="gang" id={idx}>
-            <ul className="asset-tabs-left" id={idx}>
-              <li style={{ fontSize: '12px' }} id={idx}>
-                {menu.title}
-              </li>
-              <li style={{ fontSize: '11px', color: '#747474' }} id={idx}>
-                {menu.qty}주
-              </li>
+          <div className="gang">
+            <ul className="asset-tabs-left">
+              <li style={{ fontSize: '12px' }}>{menu.title}</li>
+              <li style={{ fontSize: '11px', color: '#747474' }}>{menu.qty}주</li>
             </ul>
-            <ul className="asset-tabs-right" id={idx}>
-              <li style={{ fontSize: '13px' }} id={idx}>
-                {menu.total.toLocaleString('ko-KR')} TYL
-              </li>
+            <ul className="asset-tabs-right">
+              <li style={{ fontSize: '13px' }}>{menu.total.toLocaleString('ko-KR')} TYL</li>
               <li
                 className={menu.today === '+' ? 'increase' : 'decrease'}
                 style={{ fontSize: '11px' }}
-                id={idx}
               >
                 {menu.today}
                 {menu.value.toLocaleString('ko-KR')} ({menu.percent}%)
