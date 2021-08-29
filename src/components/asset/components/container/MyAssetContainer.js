@@ -45,7 +45,6 @@ const MyAssetContainer = () => {
     {
       title: '카카오뱅크',
       qty: 12, //현재 보유 수량
-      //구매 시 가격 추가
       total: 302200, //총 가격
       today: '+', //증감
       value: 91000, //오늘 증감량
@@ -68,7 +67,7 @@ const MyAssetContainer = () => {
       today: '+',
       value: 91000,
       percent: 20.3,
-      img: 'https://lh3.googleusercontent.com/proxy/342EjDROOwAH38_-FUAmb5xtCdBrVjtX8g6UHSior6ImAafNBSJqKFNcpxK0FCUPPNdaWXOlxNgf_tAPJJD3Zh2J4aFwiivJizQevqn-BJCiZcCsATd84TjtJJeJqCd0lJScYpnVYG5vgJVC4H1DnuRDE-xrroCkTLdUqbW-qLs8U7oQjqnDXaDmnT_JaISbaOhGU7n_tyrJlVQ-S0PDf47D-NrYtdWzq74',
+      img: 'https://lh3.googleusercontent.com/proxy/YQj9sIMGgiuFOg5RAt1aA0UmAKNDIcoTdZx0CvFR6xfr2MurFu6VIPMMHPT8hw617baosotKw4PI01-bVAtPC3iF3d26rG3aQarLrNfVJHipBg5VtZSpY9Bny2DNnR-ftE5PmCjRYtDN_22mKg2fAs04U0vmnp0pYoPVCkwL4CsPnZlPhCCaIBq_z-a0szx4UHfIAFzc_04O3RUpZl8Qlf82RFvwI7jj0s0',
     },
     {
       title: '대한항공',
