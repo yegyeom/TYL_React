@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../styles/sass/main.css';
 
-const Frame = ({ info }) => {
+const RankFrame = ({ info }) => {
   const { rank, nk_name, asset } = info;
 
   function Rank_123() {
@@ -27,4 +27,4 @@ const Frame = ({ info }) => {
   );
 };
 
-export default Frame;
+export default RankFrame;
