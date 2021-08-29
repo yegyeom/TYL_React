@@ -1,6 +1,9 @@
 @import './color.scss';
 
 .menu-bar {
+    position: sticky;
+    top:0px;
+    left:0px;
     display:flex;
     flex-direction: column;
     align-items: center;
