@@ -27,12 +27,16 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
                 <li>내 {menu.title}</li>
                 <li>{menu.total.toLocaleString('ko-KR')} TYL</li>
               </ul>
-              <ul className="asset-tabs-right">
-                <li className={menu.today === '+' ? 'increase' : 'decrease'}>
-                  {menu.today} {menu.value.toLocaleString('ko-KR')}
-                </li>
-                <li className={menu.today === '+' ? 'increase' : 'decrease'}>({menu.percent}%)</li>
-              </ul>
+              {menu.link === 'cash' ? null : (
+                <ul className="asset-tabs-right">
+                  <li className={menu.today === '+' ? 'increase' : 'decrease'}>
+                    {menu.today} {menu.value.toLocaleString('ko-KR')}
+                  </li>
+                  <li className={menu.today === '+' ? 'increase' : 'decrease'}>
+                    ({menu.percent}%)
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
           <hr width="380px" color="#c4c4c4" noshade="true" style={{ marginTop: '0px' }} />
@@ -79,11 +83,13 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
             <ul className="asset-tabs-right">
               <li style={{ fontSize: '13px' }}>{menu.total.toLocaleString('ko-KR')} TYL</li>
               <li
-                className={menu.today === '+' ? 'increase' : 'decrease'}
+                className={
+                  menu.today === '+' ? 'increase' : menu.today === '' ? 'maintain' : 'decrease'
+                }
                 style={{ fontSize: '11px' }}
               >
                 {menu.today}
-                {menu.value.toLocaleString('ko-KR')} ({menu.percent}%)
+                {menu.value.toLocaleString('ko-KR')} ({menu.percent.toFixed(1)}%)
               </li>
             </ul>
           </div>

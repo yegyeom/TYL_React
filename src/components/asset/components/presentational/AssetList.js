@@ -16,10 +16,20 @@ const AssetList = ({ AssetBox, match }) => {
           </ul>
           {menu.link === 'cash' ? null : (
             <ul className="asset-tabs-right">
-              <li className={menu.today === '+' ? 'increase' : 'decrease'}>
+              <li
+                className={
+                  menu.today === '+' ? 'increase' : menu.today === '' ? 'maintain' : 'decrease'
+                }
+              >
                 {menu.today} {menu.value.toLocaleString('ko-KR')}
               </li>
-              <li className={menu.today === '+' ? 'increase' : 'decrease'}>({menu.percent}%)</li>
+              <li
+                className={
+                  menu.today === '+' ? 'increase' : menu.today === '' ? 'maintain' : 'decrease'
+                }
+              >
+                ({menu.percent.toFixed(1)}%)
+              </li>
             </ul>
           )}
         </div>

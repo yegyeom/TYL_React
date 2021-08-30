@@ -60,9 +60,6 @@ const AssetConatiner = () => {
       link: 'cash',
       img: cash_icon,
       total: 500000,
-      today: '',
-      value: '',
-      percent: '',
     },
     {
       title: '주식',
@@ -73,8 +70,18 @@ const AssetConatiner = () => {
       value: 4580000,
       percent: 5.1,
     },
+    // AssetList maintain ver.
+    // {
+    //   title: '주식',
+    //   link: 'stock',
+    //   img: stock_icon,
+    //   total: 190000,
+    //   today: '',
+    //   value: 0,
+    //   percent: 0.0,
+    // },
     {
-      title: '비트코인',
+      title: '암호화폐',
       link: 'btc',
       img: btc_icon,
       total: 111000,
