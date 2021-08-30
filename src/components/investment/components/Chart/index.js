@@ -76,6 +76,7 @@ const Chart = () => {
             type: 'category',
 
             labels: {
+                show: false,
                 format: 'MM yyyy'
             },
 
@@ -90,11 +91,55 @@ const Chart = () => {
         yaxis: {
             legend: {
                 title: "dan"
-            }
+            },
+            labels: {
+                show: false,
+            },
+
         },
 
         // 툴팁 옵션
         tooltip: {
+            enabled: true,
+            enabledOnSeries: undefined,
+            shared: true,
+            followCursor: false,
+            intersect: false,
+            inverseOrder: false,
+            custom: undefined,
+            fillSeriesColor: false,
+            theme: true,
+            style: {
+                fontSize: '12px',
+                fontFamily: undefined
+            },
+            onDatasetHover: {
+                highlightDataSeries: false,
+            },
+            x: {
+                show: true,
+                format: 'dd MMM',
+                formatter: undefined,
+            },
+            y: {
+                formatter: undefined,
+                title: {
+                    formatter: (seriesName) => seriesName,
+                },
+            },
+            z: {
+                formatter: undefined,
+                title: 'Size: '
+            },
+            marker: {
+                show: true,
+            },
+            fixed: {
+                enabled: true,
+                position: 'bottomRight',
+                offsetX: 0,
+                offsetY: 0,
+            },
         },
 
         // 색깔 옵션
