@@ -77,6 +77,7 @@ const Page = () => {
         <Route exact path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
         <Route path="/login" component={Auth} />
+        <Route path="/Asset/cash" component={MyAssetContainer} />
         <Route path="/Asset/stock" component={MyAssetContainer} />
         <Route path="/Asset/btc" component={MyAssetContainer} />
       </div>

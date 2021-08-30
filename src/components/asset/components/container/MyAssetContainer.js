@@ -10,6 +10,7 @@ const MyAssetContainer = () => {
   const link = url[url.length - 1];
 
   const linkNameBox = [
+    { link: 'cash', title: '현금' },
     { link: 'stock', title: '주식' },
     { link: 'btc', title: '비트코인' },
   ];
@@ -23,6 +24,14 @@ const MyAssetContainer = () => {
   }
 
   const TotalAssetBox = [
+    {
+      title: '현금',
+      link: 'cash',
+      total: 500000,
+      today: '-',
+      value: '',
+      percent: '',
+    },
     {
       title: '주식',
       link: 'stock',
@@ -69,18 +78,29 @@ const MyAssetContainer = () => {
       percent: 20.3,
       img: 'https://lh3.googleusercontent.com/proxy/YQj9sIMGgiuFOg5RAt1aA0UmAKNDIcoTdZx0CvFR6xfr2MurFu6VIPMMHPT8hw617baosotKw4PI01-bVAtPC3iF3d26rG3aQarLrNfVJHipBg5VtZSpY9Bny2DNnR-ftE5PmCjRYtDN_22mKg2fAs04U0vmnp0pYoPVCkwL4CsPnZlPhCCaIBq_z-a0szx4UHfIAFzc_04O3RUpZl8Qlf82RFvwI7jj0s0',
     },
+    //Detail Asset List maintain ver.
+    // {
+    //   title: '대한항공',
+    //   qty: 5,
+    //   total: 1800200,
+    //   today: '-',
+    //   value: 3000,
+    //   percent: 5.4,
+    //   img: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA2MTJfNjEg/MDAxNTYwMzIzMjY5MTAw.WcW3L_E8WZc7HRijy7jbW63Tb41cXwX1oL_FGNMfDMog.YZiX7AD4wc75NH7LNLnR-Wjh3tY4enb2ftDmGGLwLBMg.PNG.ica366/B4EBC7D1C7%D7%B0F8_B7%CE%B0ED_(1).png?type=w800',
+    // },
     {
       title: '대한항공',
       qty: 5,
       total: 1800200,
-      today: '-',
-      value: 3000,
-      percent: 5.4,
+      today: '',
+      value: 0,
+      percent: 0.0,
       img: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA2MTJfNjEg/MDAxNTYwMzIzMjY5MTAw.WcW3L_E8WZc7HRijy7jbW63Tb41cXwX1oL_FGNMfDMog.YZiX7AD4wc75NH7LNLnR-Wjh3tY4enb2ftDmGGLwLBMg.PNG.ica366/B4EBC7D1C7%D7%B0F8_B7%CE%B0ED_(1).png?type=w800',
     },
   ];
 
   const BtcBox = [];
+  const CashBox = [];
   const BtcTradeBox = [];
 
   const StockTradeBox = [
