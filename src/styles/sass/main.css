@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .menu-bar {
   position: sticky;
   top: 0px;
@@ -686,9 +687,9 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
 
 #category-div {
   display: inline;
-  text-align: center;
+  white-space: nowrap;
   list-style: none;
-  padding: 0px 10px;
+  padding: 0px;
 }
 
 .selected-category {
@@ -704,7 +705,7 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
   display: inline;
   padding: 0 16px;
   font-weight: bold;
-  color: #464d52;
+  color: #C2C2C2;
   cursor: pointer;
 }
 
@@ -712,21 +713,53 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
   float: right;
 }
 
+#itemlist-searchform-input {
+  border-color: #C2C2C2;
+  border: 1px solid #C2C2C2;
+  border-radius: 10px;
+}
+
+#itemlist-searchform-img {
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+}
+
 div#items-container {
-  overflow: auto;
+  border-radius: 10px;
   height: 300px;
+  overflow-y: scroll;
+}
+
+/* 스크롤바 설정*/
+#items-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 스크롤바 막대 설정*/
+#items-container::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: #cccccc;
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;
+}
+
+/* 스크롤바 뒷 배경 설정*/
+#items-container::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 div#item-container {
+  margin: 3px 0px;
   display: flex;
   flex-direction: row;
   font-weight: bold;
-  font-size: large;
+  font-size: smaller;
 }
 
 div#item-img {
   padding: auto;
-  margin: auto;
+  margin: 15px;
   background: #BDBDBD;
   width: 40px;
   height: 40px;
@@ -760,6 +793,40 @@ img.item {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+#chartInfo-div {
+  font-weight: 550;
+  font-size: smaller;
+  margin: 15px;
+}
+
+div.chartInfo-date {
+  text-align: center;
+  color: #9c9c9c;
+  margin: 3px;
+}
+
+div.chartInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+div.chartInfo-container {
+  margin: 0px 5px;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+div.chartInfo-text {
+  width: 50%;
+  text-align: left;
+}
+
+div.chartInfo-data {
+  width: 50%;
+  text-align: right;
 }
 
 div.prediction-item-container {

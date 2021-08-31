@@ -72,14 +72,14 @@ const Modal = props => {
                     <div className="modal-item-info"><div className="modal-item-text">보유수량</div><div className="modal-item-myinfo">주</div></div>
 
                     <div className="modal-item-info">
-                        <div className="modal-item-text">{modalData.Deal == "purchase" ? "구매수량" : "판매수량"}</div>
+                        <div className="modal-item-text">{modalData.trsType == "purchase" ? "구매수량" : "판매수량"}</div>
                         <div className="modal-item-myinput">
                             <input id="modal-input" ref={inputRef} type="number" value={value} onChange={onChangeInput} placeholder="수량을 입력하세요" ></input>
                         </div>
                         <div>&nbsp;주</div>
                     </div>
 
-                    <div className="modal-item-info"><div className="modal-item-text">{modalData.Deal == "purchase" ? "구매총액" : "판매총액"}</div><div className="modal-item-myinfo">{parseInt(value * modalData.value).toLocaleString('ko-KR')} TYL</div></div>
+                    <div className="modal-item-info"><div className="modal-item-text">{modalData.trsType == "purchase" ? "구매총액" : "판매총액"}</div><div className="modal-item-myinfo">{parseInt(value * modalData.value).toLocaleString('ko-KR')} TYL</div></div>
                 </div>
             </section>
         </div >
