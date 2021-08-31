@@ -581,27 +581,111 @@ input::placeholder {
   font-size: 13px;
 }
 
+ul.home-best {
+  display: inline-block;
+  border: 1px solid #c4c4c4;
+  padding: 8px;
+  width: 70%;
+  background-color: #fff;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.profit-text-box {
+  padding: 0;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.profit-text {
+  font-weight: normal;
+  font-size: medium;
+}
+
+.etc-text {
+  width: 97%;
+  font-weight: lighter;
+  font-size: xx-small;
+  text-align: right;
+}
+
 ul.homeRank {
   display: inline-block;
   border: 1px solid #c4c4c4;
   padding: 10px;
-  margin: 100px auto;
+  margin-top: 10px auto;
   width: 70%;
+  background-color: #fff;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px -1px 1px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 ul.frameList {
   display: inline-flex;
   justify-content: space-between;
   width: 80%;
-  background-color: #fff;
+  margin-top: 8px;
+  background-color: #f1f1f1;
   border: 1px solid #c4c4c4;
   border-radius: 10px 10px 10px 10px;
-  padding: 10px;
-  box-shadow: 0px -1px 1px 6px rgba(0, 0, 0, 0.02);
+  padding: 8px;
 }
 
+.flexContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 40px;
+}
+
+.tickerWrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.best-ticker-text-name {
+  width: 100%;
+  font-weight: bolder;
+  margin-top: auto;
+  margin-bottom: auto;
+  animation: motion 0.5s;
+}
+
+.best-ticker-text-profit {
+  width: 100%;
+  font-weight: bolder;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #FF0000;
+  animation: motion 0.5s;
+}
+
+.worst-ticker-text-name {
+  width: 100%;
+  font-weight: bolder;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: transparent;
+  text-shadow: 0 0 5px #000;
+  transition: all 10ms ease-in;
+  animation: motion 0.5s;
+}
+
+.worst-ticker-text-profit {
+  width: 100%;
+  font-weight: bolder;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #001AFF;
+  animation: motion 0.5s;
+}
+
+@keyframes motion {
+  0% {
+    padding-top: 20px;
+  }
+}
 .gold {
   color: #DCC605;
 }
@@ -630,22 +714,37 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
   flex-direction: column;
 }
 
-#category-ul {
+#category-div {
   display: inline;
   text-align: center;
   list-style: none;
   padding: 0px 10px;
 }
 
-#category-li {
+.selected-category {
+  display: inline;
+  padding: 0 16px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #6C6FC6;
+  cursor: pointer;
+}
+
+.unSelected-category {
   display: inline;
   padding: 0 16px;
   font-weight: bold;
   color: #464d52;
+  cursor: pointer;
 }
 
 #itemlist-searchform {
   float: right;
+}
+
+div#items-container {
+  overflow: auto;
+  height: 300px;
 }
 
 div#item-container {
@@ -685,10 +784,6 @@ div#item-changed {
   display: flex;
   flex-direction: column;
   font-size: medium;
-}
-
-div#item-changedprice, #item-changedpercent {
-  color: #FF0000;
 }
 
 img.item {
@@ -735,28 +830,16 @@ div.trade-container {
   flex-direction: row;
 }
 
-div.trade-img {
-  padding: auto;
-  margin: auto;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-}
-
-img.trade-item {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: invert(85%) sepia(11%) saturate(123%) hue-rotate(201deg) brightness(107%) contrast(91%);
-}
-
 div.trade-item {
-  margin: 1px;
-  padding: 16px 70px;
+  width: 50%;
+  text-align: center;
+  padding: 16px;
+  margin: 10px;
   border-radius: 10px 10px 10px 10px;
   font-weight: bold;
   font-size: x-large;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 div#trade-purchase {
@@ -767,7 +850,7 @@ div#trade-purchase {
 }
 
 div#trade-sell {
-  background-color: #7181e9;
+  background-color: #3c52e2;
   color: #e3e3ec;
   overflow: hidden;
   object-fit: cover;
@@ -778,6 +861,153 @@ div#empty-space {
   padding: 16px 70px;
 }
 
+.trade-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.trade-modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+.trade-modal > section {
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  animation: trade-modal-show 0.3s;
+  overflow: hidden;
+}
+
+.trade-modal.trade-openModal {
+  display: flex;
+  align-items: center;
+  animation: trade-modal-bg-show 0.3s;
+}
+
+div.modal-item-img {
+  margin: 10px;
+  background: #BDBDBD;
+  width: 40px;
+  height: 40px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+div.modal-header-container {
+  display: flex;
+  flex-direction: row;
+}
+
+div.modal-body-container {
+  margin: 20px 0px;
+}
+
+div.modal-name-Btn {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+div.modal-item-name {
+  padding: 10px 10px 10px 0px;
+  margin: 10px 10px 10px 0px;
+  width: 50%;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: large;
+}
+
+div.modal-item-dealBtn {
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  width: 50%;
+  float: right;
+  text-align: right;
+  font-weight: bold;
+  text-align: right;
+  font-size: large;
+  color: #001AFF;
+  cursor: pointer;
+}
+
+#modal-deal-label {
+  cursor: pointer;
+}
+
+div.modal-item-info {
+  display: flex;
+  flex-direction: row;
+  background: #e2e2e2;
+  border-radius: 10px 10px 10px 10px;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 30px 10px 30px;
+  font-weight: bold;
+}
+
+div.modal-item-text {
+  width: 50%;
+  float: left;
+  text-align: left;
+}
+
+div.modal-item-myinfo {
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+
+input:focus {
+  outline: none;
+}
+
+div.modal-item-myinput {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#modal-input {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  text-align: right;
+}
+
+@keyframes trade-modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes trade-modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 html {
   background-color: #fafafa;
 }

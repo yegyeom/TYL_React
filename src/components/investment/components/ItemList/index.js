@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemStorage from './ItemStorage.js';
 
-const ItemList = () => {
+const ItemList = (props) => {
 
+    const getItem = (item) => {
+        props.getItem(item);
+    }
 
     const [value, setValue] = React.useState("");
     const inputRef = React.useRef();
@@ -27,8 +30,7 @@ const ItemList = () => {
     return (
         <div className="itemlist-container">
             {SearchForm}
-            <ItemStorage></ItemStorage>
-
+            <ItemStorage getItem={getItem}></ItemStorage>
         </div >
     );
 };

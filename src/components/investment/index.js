@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Category from './components/Category.js';
 import ItemList from './components/ItemList/index.js';
 import Chart from './components/Chart/index.js';
@@ -6,14 +6,22 @@ import Prediction from './components/Prediction/index.js';
 import Trade from './components/Trade/index.js';
 
 const index = () => {
+
+    const [selectedItem, setSelectedItem] = useState();
+
+
+
+    const getItem = (item) => {
+        setSelectedItem(item);
+    }
+
     return (
         <>
-            <h1>Investment 페이지 입니다</h1>
             <Category></Category>
-            <ItemList></ItemList>
-            <Chart></Chart>
+            <ItemList getItem={getItem}></ItemList>
+            <Chart ></Chart>
             <Prediction></Prediction>
-            <Trade></Trade>
+            <Trade sendItem={selectedItem}></Trade>
             <div id="empty-space"></div>
         </>
     );

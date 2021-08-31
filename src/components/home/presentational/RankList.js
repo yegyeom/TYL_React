@@ -1,9 +1,10 @@
 import React from 'react';
-import Frame from './RankFrame';
+import RankFrame from './RankFrame';
 
-const FrameList = ({ info }) => {
-  const list = info.map(people => <Frame info={people} key={people.name} />);
+const RankList = ({ info }) => {
+  const list = info.map(people => <RankFrame key={people.nk_name} info={people} />);
+
   return <div>{list}</div>;
 };
 
-export default FrameList;
+export default RankList;
