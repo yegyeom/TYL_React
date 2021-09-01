@@ -240,6 +240,12 @@ ul#profile-menu li a:hover {
   border-radius: 10px;
 }
 
+.button-click {
+  background-color: #c4c4c430;
+  color: #464D52;
+  border-radius: 10px;
+}
+
 .asset-list-container {
   width: 100%;
   box-sizing: border-box;

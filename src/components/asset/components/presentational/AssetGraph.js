@@ -1,6 +1,6 @@
 // install (please make sure versions match peerDependencies)
 // yarn add @nivo/core @nivo/line
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -9,6 +9,9 @@ import { ResponsiveLine } from '@nivo/line';
 // you'll often use just a few of them.
 
 const AssetGraph = ({ data }) => {
+  const clickButton = event => {
+  };
+
   return (
     <div className="graph-container">
       <div
@@ -59,10 +62,18 @@ const AssetGraph = ({ data }) => {
         />
         <hr width="380px" color="#c4c4c4" noshade="true" />
         <div className="graph-button">
-          <button>1주일</button>
-          <button>1개월</button>
-          <button>3개월</button>
-          <button>6개월</button>
+          <button className="button" onClick={clickButton}>
+            1주일
+          </button>
+          <button className="button" onClick={clickButton}>
+            1개월
+          </button>
+          <button className="button" onClick={clickButton}>
+            3개월
+          </button>
+          <button className="button" onClick={clickButton}>
+            6개월
+          </button>
         </div>
       </div>
     </div>
