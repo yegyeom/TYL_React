@@ -55,7 +55,7 @@ const Page = () => {
     }
     return (
       <li key={idx}>
-        <NavLink exact to={menu.link} activeClassName="active">
+        <NavLink to={menu.link} activeClassName="active">
           {menu.title}
         </NavLink>
       </li>
@@ -77,8 +77,9 @@ const Page = () => {
         <Route exact path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
         <Route path="/login" component={Auth} />
+        <Route path="/Asset/cash" component={MyAssetContainer} />
         <Route path="/Asset/stock" component={MyAssetContainer} />
-        <Route path="/Asset/btc" component={MyAssetContainer} />
+        <Route path="/Asset/coin" component={MyAssetContainer} />
       </div>
     </div>
   );

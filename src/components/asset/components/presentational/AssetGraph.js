@@ -1,6 +1,6 @@
 // install (please make sure versions match peerDependencies)
 // yarn add @nivo/core @nivo/line
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -9,11 +9,14 @@ import { ResponsiveLine } from '@nivo/line';
 // you'll often use just a few of them.
 
 const AssetGraph = ({ data }) => {
+  const clickButton = event => {
+  };
+
   return (
     <div className="graph-container">
       <div
         style={{
-          height: '100%',
+          height: '245px',
           width: '100%',
         }}
       >
@@ -37,6 +40,15 @@ const AssetGraph = ({ data }) => {
             legendPosition: 'middle',
           }}
           axisLeft={false}
+          // axisLeft={{
+          //   orient: 'left',
+          //   tickSize: 0,
+          //   tickPadding: 15,
+          //   tickRotation: 0,
+          //   legend: '',
+          //   legendOffset: -40,
+          //   legendPosition: 'middle',
+          // }}
           pointSize={10}
           pointColor={{ theme: 'background' }}
           pointBorderWidth={2}
@@ -48,6 +60,21 @@ const AssetGraph = ({ data }) => {
           enableCrosshair={false}
           enableSlices={'x'}
         />
+        <hr width="380px" color="#c4c4c4" noshade="true" />
+        <div className="graph-button">
+          <button className="button" onClick={clickButton}>
+            1주일
+          </button>
+          <button className="button" onClick={clickButton}>
+            1개월
+          </button>
+          <button className="button" onClick={clickButton}>
+            3개월
+          </button>
+          <button className="button" onClick={clickButton}>
+            6개월
+          </button>
+        </div>
       </div>
     </div>
   );

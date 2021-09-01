@@ -62,7 +62,7 @@ a:hover{
 }
 
 .active{
-    text-decoration: underline;
+    text-decoration: underline 1.5px;
     text-underline-position: under;
     color: $selected-menu;
 }
@@ -77,13 +77,13 @@ a {
       padding-left: 8px;
       padding-right: 0px;
       padding-top: 10px;
-      padding-bottom: 10px;
+      padding-bottom: 6px;
       border-bottom: 1px solid #c4c4c4;
   }
 
 .user-name{
     font-size:13.5px;
-    font-weight: bolder;
+    font-weight: bold;
     padding-left: 5px;
     padding-right: 0px;
     line-height: 40px;
@@ -93,7 +93,7 @@ a {
       font-size: 12px;
       font-weight: normal;
       padding-left: 0px;
-      line-height: 40px;
+      line-height: 42px;
   }
 
   .profile-img-box{
