@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import ChartStorage from './ChartStorage.js';
 // https://apexcharts.com/docs/chart-types/candlestick/ 참고
@@ -6,8 +6,9 @@ import ChartStorage from './ChartStorage.js';
 // 사용자가 커서에 항목을 클릭하지 않고 가리키면 조그마한 상자가 항목 위에 나타나서 보충 설명을 보여 준다.
 const Chart = () => {
 
-
-    const [series, setSeries] = React.useState([
+    const [tooltipData, setTooltipData] = useState({ open: '', high: '', low: '', close: '', date: '' });
+    let newArr = { open: '', high: '', low: '', close: '', date: '' };
+    const [series, setSeries] = useState([
         {
             name: "삼성전자",
             data: [
@@ -62,13 +63,25 @@ const Chart = () => {
 
     const [options, setOptions] = React.useState({
 
-
-
         title: {
             text: "삼성전자",
         },
 
         chart: {
+            toolbar: {
+                tools: {
+                    download: false,
+                    selection: false,
+                    zoom: false,
+                    zoomin: true,
+                    zoomout: true,
+                    pan: true,
+                    reset: false,
+                    customIcons: []
+                },
+                autoSelected: 'pan',
+            },
+
         },
 
         xaxis: {
@@ -82,8 +95,12 @@ const Chart = () => {
 
 
             axisBorder: {
-                show: true,
+                show: false,
                 color: "#FF0000",
+            },
+
+            tooltip: {
+                enabled: false,
             },
 
         },
@@ -100,45 +117,17 @@ const Chart = () => {
 
         // 툴팁 옵션
         tooltip: {
-            enabled: true,
-            enabledOnSeries: undefined,
-            shared: true,
-            followCursor: false,
-            intersect: false,
-            inverseOrder: false,
-            custom: undefined,
-            fillSeriesColor: false,
-            theme: true,
-            style: {
-                fontSize: '12px',
-                fontFamily: undefined
-            },
-            onDatasetHover: {
-                highlightDataSeries: false,
-            },
-            x: {
-                show: true,
-                format: 'dd MMM',
-                formatter: undefined,
-            },
-            y: {
-                formatter: undefined,
-                title: {
-                    formatter: (seriesName) => seriesName,
-                },
-            },
-            z: {
-                formatter: undefined,
-                title: 'Size: '
-            },
-            marker: {
-                show: true,
-            },
-            fixed: {
-                enabled: true,
-                position: 'bottomRight',
-                offsetX: 0,
-                offsetY: 0,
+            custom: function ({ seriesIndex, dataPointIndex, w }) {
+                const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
+                const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
+                const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
+                const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
+                const d = w.globals.categoryLabels[dataPointIndex];
+                newArr = { open: o, high: h, low: l, close: c, date: d };
+                setTooltipData({ open: o, high: h, low: l, close: c, date: d });
+                console.log(newArr);
+                return ('');
+
             },
         },
 
@@ -146,8 +135,8 @@ const Chart = () => {
         plotOptions: {
             candlestick: {
                 colors: {
-                    upward: '#FF0000',
-                    downward: '#001AFF'
+                    upward: '#EB5374',
+                    downward: '#5673EB'
                 },
                 wick: {
                     useFillColor: true,
@@ -162,8 +151,28 @@ const Chart = () => {
                 options={options}
                 series={series}
                 type="candlestick"
-                height={400}
+                height={300}
             />
+
+            <div id="chartInfo-div">
+
+                <div className="chartInfo-date">{tooltipData.date}</div>
+
+                <div className="chartInfo">
+                    <div className="chartInfo-container"><div className="chartInfo-text">시작</div><div className="chartInfo-data">{tooltipData.open}</div></div>
+                    <div className="chartInfo-container"> <div className="chartInfo-text">마지막</div><div className="chartInfo-data">{tooltipData.high}</div></div>
+                </div>
+
+                <div className="chartInfo">
+                    <div className="chartInfo-container"> <div className="chartInfo-text">최고</div><div className="chartInfo-data">{tooltipData.low}</div></div>
+                    <div className="chartInfo-container"> <div className="chartInfo-text">최저</div><div className="chartInfo-data">{tooltipData.close}</div></div>
+                </div>
+
+                <div className="chartInfo">
+                    <div className="chartInfo-container"> <div className="chartInfo-text">거래량</div><div className="chartInfo-data">{ }</div></div>
+                    <div className="chartInfo-container">  <div className="chartInfo-text">등락률</div><div className="chartInfo-data">{ }</div></div>
+                </div>
+            </div>
         </div >
     );
 };
