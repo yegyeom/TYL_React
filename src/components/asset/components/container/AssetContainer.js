@@ -8,17 +8,29 @@ import AssetGraph from '../presentational/AssetGraph';
 import AssetList from '../presentational/AssetList';
 import cash_icon from '../../../../styles/images/cash_icon.png';
 import stock_icon from '../../../../styles/images/stock_icon.png';
-import btc_icon from '../../../../styles/images/btc_icon.png';
+import coin_icon from '../../../../styles/images/coin_icon.png';
 
 const AssetConatiner = () => {
   const validity = useSelector(checkValidity);
   const [asset, setAsset] = useState(0);
+  const [cash, setCash] = useState(0);
+  const [coinAsset, setCoinAsset] = useState(0);
+  const [stockAsset, setStockAsset] = useState(0);
+  const [stockProfit, setStockProfit] = useState(0);
+  const [stockToday, setStockToday] = useState('');
   let match = useRouteMatch();
 
   useEffect(() => {
     if (validity)
       axios.get('asset').then(res => {
         setAsset(res.data.asset);
+        setCash(res.data.cash.amount);
+        setCoinAsset(res.data.coin.coinAsset);
+        setStockAsset(res.data.stock.stockAsset);
+        setStockProfit(res.data.stock.stockProfit);
+
+        if (res.data.stock.stockProfit < 0) setStockToday('-');
+        else if (res.data.stock.stockProfit > 0) setStockToday('+');
       });
   }, [validity]);
 
@@ -27,8 +39,12 @@ const AssetConatiner = () => {
       id: 'TYL',
       data: [
         {
-          x: '20.3',
+          x: '20.2',
           y: 1000000,
+        },
+        {
+          x: '20.3',
+          y: 1029420,
         },
         {
           x: '20.4',
@@ -59,15 +75,15 @@ const AssetConatiner = () => {
       title: '현금',
       link: 'cash',
       img: cash_icon,
-      total: 500000,
+      total: cash,
     },
     {
       title: '주식',
       link: 'stock',
       img: stock_icon,
-      total: 190000,
-      today: '+',
-      value: 4580000,
+      total: stockAsset,
+      today: stockToday,
+      value: stockProfit,
       percent: 5.1,
     },
     // AssetList maintain ver.
@@ -82,9 +98,9 @@ const AssetConatiner = () => {
     // },
     {
       title: '암호화폐',
-      link: 'btc',
-      img: btc_icon,
-      total: 111000,
+      link: 'coin',
+      img: coin_icon,
+      total: coinAsset,
       today: '-',
       value: 10580000,
       percent: 8.4,

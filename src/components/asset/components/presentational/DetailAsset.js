@@ -62,7 +62,7 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
     const openModal = e => {
       if (e.currentTarget.id == 'detail-asset') {
         setModalData({
-          header: menu.title,
+          header: menu.name,
           onAccept: closeModal,
         });
       }
@@ -73,23 +73,28 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
       <>
         <li key={idx} id="detail-asset" onClick={openModal}>
           <div className="asset-img-box">
-            <img className="profile" src={menu.img} />
+            <img
+              className="profile"
+              src={'https://t1.daumcdn.net/cfile/tistory/997BD7335D089C3023'}
+            />
           </div>
           <div className="gang">
             <ul className="asset-tabs-left">
-              <li style={{ fontSize: '12px' }}>{menu.title}</li>
-              <li style={{ fontSize: '11px', color: '#747474' }}>{menu.qty}주</li>
+              <li style={{ fontSize: '12px' }}>{menu.name}</li>
+              <li style={{ fontSize: '11px', color: '#747474' }}>{menu.quantity}주</li>
             </ul>
             <ul className="asset-tabs-right">
-              <li style={{ fontSize: '13px' }}>{menu.total.toLocaleString('ko-KR')} TYL</li>
+              <li style={{ fontSize: '13px' }}>
+                {(menu.price * menu.quantity).toLocaleString('ko-KR')} TYL
+              </li>
               <li
-                className={
-                  menu.today === '+' ? 'increase' : menu.today === '' ? 'maintain' : 'decrease'
-                }
+                className={menu.profit > 0 ? 'increase' : menu.profit < 0 ? 'decrease' : 'maintain'}
                 style={{ fontSize: '11px' }}
               >
-                {menu.today}
-                {menu.value.toLocaleString('ko-KR')} ({menu.percent.toFixed(1)}%)
+                {menu.profit > 0 ? '+' : ''}
+                {menu.profit.toLocaleString('ko-KR')}
+                {/* ({menu.percent.toFixed(1)}%) */}
+                &nbsp;(0.3%)
               </li>
             </ul>
           </div>
@@ -109,7 +114,17 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
     <div className="my-asset-container">
       <div id="asset" style={{ paddingBottom: '10px' }}>
         {TotalAsset}
-        <div>{DetailList.length == 0 ? <h3>보유한 {assetName}이 없습니다.</h3> : DetailList}</div>
+        <div>
+          {DetailList.length == 0 ? (
+            assetName === '암호화폐' ? (
+              <h3>보유한 {assetName}가 없습니다.</h3>
+            ) : (
+              <h3>보유한 {assetName}이 없습니다.</h3>
+            )
+          ) : (
+            DetailList
+          )}
+        </div>
       </div>
     </div>
   );
