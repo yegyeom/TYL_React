@@ -6,7 +6,7 @@ const AssetList = ({ AssetBox, match }) => {
   const AssetList = AssetBox.map((menu, idx) => (
     <li key={idx}>
       <Link to={`${match.url}/${menu.link}`}>
-        <div style={{ width: '15%' }}>
+        <div style={{ width: '65px' }}>
           <img src={menu.img} width="100%" />
         </div>
         <div className="gang" style={{ paddingLeft: '10px' }}>

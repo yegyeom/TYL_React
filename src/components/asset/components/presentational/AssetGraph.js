@@ -9,8 +9,7 @@ import { ResponsiveLine } from '@nivo/line';
 // you'll often use just a few of them.
 
 const AssetGraph = ({ data }) => {
-  const clickButton = event => {
-  };
+  const clickButton = event => {};
 
   return (
     <div className="graph-container">
@@ -60,7 +59,7 @@ const AssetGraph = ({ data }) => {
           enableCrosshair={false}
           enableSlices={'x'}
         />
-        <hr width="380px" color="#c4c4c4" noshade="true" />
+        <hr width="480px" color="#c4c4c4" noshade="true" />
         <div className="graph-button">
           <button className="button" onClick={clickButton}>
             1주일

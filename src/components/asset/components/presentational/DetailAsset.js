@@ -39,7 +39,7 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
               )}
             </div>
           </div>
-          <hr width="380px" color="#c4c4c4" noshade="true" style={{ marginTop: '0px' }} />
+          <hr width="480px" color="#c4c4c4" noshade="true" style={{ marginTop: '0px' }} />
           <div className="time">
             {todayTime().slice(0, 9)}
             <span>{todayTime().slice(9, 12)}</span>
@@ -80,16 +80,16 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
           </div>
           <div className="gang">
             <ul className="asset-tabs-left">
-              <li style={{ fontSize: '12px' }}>{menu.name}</li>
-              <li style={{ fontSize: '11px', color: '#747474' }}>{menu.quantity}주</li>
+              <li style={{ fontSize: '13px' }}>{menu.name}</li>
+              <li style={{ fontSize: '12px', color: '#747474' }}>{menu.quantity}주</li>
             </ul>
             <ul className="asset-tabs-right">
-              <li style={{ fontSize: '13px' }}>
+              <li style={{ fontSize: '14px' }}>
                 {(menu.price * menu.quantity).toLocaleString('ko-KR')} TYL
               </li>
               <li
                 className={menu.profit > 0 ? 'increase' : menu.profit < 0 ? 'decrease' : 'maintain'}
-                style={{ fontSize: '11px' }}
+                style={{ fontSize: '12px' }}
               >
                 {menu.profit > 0 ? '+' : ''}
                 {menu.profit.toLocaleString('ko-KR')} (

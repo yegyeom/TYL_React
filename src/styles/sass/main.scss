@@ -14,7 +14,12 @@ html{
     background-color: $background;
 }
 
+body{
+    margin: 0px;
+}
+
 .container {
+    padding: 40px 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
