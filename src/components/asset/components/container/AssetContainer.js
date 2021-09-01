@@ -18,6 +18,7 @@ const AssetConatiner = () => {
   const [stockAsset, setStockAsset] = useState(0);
   const [stockProfit, setStockProfit] = useState(0);
   const [stockToday, setStockToday] = useState('');
+  const [stockPercent, setStockPercent] = useState(0);
   let match = useRouteMatch();
 
   useEffect(() => {
@@ -28,6 +29,10 @@ const AssetConatiner = () => {
         setCoinAsset(res.data.coin.coinAsset);
         setStockAsset(res.data.stock.stockAsset);
         setStockProfit(res.data.stock.stockProfit);
+        setStockPercent(
+          (res.data.stock.stockProfit / (res.data.stock.stockAsset - res.data.stock.stockProfit)) *
+            100,
+        );
 
         if (res.data.stock.stockProfit < 0) setStockToday('-');
         else if (res.data.stock.stockProfit > 0) setStockToday('+');
@@ -84,7 +89,7 @@ const AssetConatiner = () => {
       total: stockAsset,
       today: stockToday,
       value: stockProfit,
-      percent: 5.1,
+      percent: stockPercent,
     },
     // AssetList maintain ver.
     // {

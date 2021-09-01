@@ -33,7 +33,7 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
                     {menu.today} {menu.value.toLocaleString('ko-KR')}
                   </li>
                   <li className={menu.today === '+' ? 'increase' : 'decrease'}>
-                    ({menu.percent}%)
+                    ({menu.percent.toFixed(1)}%)
                   </li>
                 </ul>
               )}
@@ -92,9 +92,9 @@ const DetailAsset = ({ assetName, TotalAssetBox, AssetBox, TradeBox }) => {
                 style={{ fontSize: '11px' }}
               >
                 {menu.profit > 0 ? '+' : ''}
-                {menu.profit.toLocaleString('ko-KR')}
-                {/* ({menu.percent.toFixed(1)}%) */}
-                &nbsp;(0.3%)
+                {menu.profit.toLocaleString('ko-KR')} (
+                {((menu.profit / (menu.price * menu.quantity - menu.profit)) * 100).toFixed(1)}
+                %)
               </li>
             </ul>
           </div>
