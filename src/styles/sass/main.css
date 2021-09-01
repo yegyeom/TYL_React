@@ -9,7 +9,7 @@
   align-items: center;
   box-sizing: border-box;
   height: 100%;
-  width: 300px;
+  width: 240px;
 }
 
 .tablet-menu-bar {
@@ -55,7 +55,7 @@ ul.tabs li:last-child {
 
 a:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: underline 1.5px;
   text-underline-position: under;
   color: #6C6FC6;
 }
@@ -1113,7 +1113,7 @@ html {
 }
 
 .main-layout {
-  width: 720px;
+  width: 830px;
   height: fit-content;
   margin: 0;
   background-color: #fafafa;
@@ -1121,9 +1121,10 @@ html {
 }
 
 .page {
+  position: relative;
   display: inline-flex;
   box-sizing: border-box;
-  width: 720px;
+  width: 100%;
   height: fit-content;
   margin: 0;
 }

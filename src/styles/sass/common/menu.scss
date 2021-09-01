@@ -9,7 +9,7 @@
     align-items: center;
     box-sizing: border-box;
     height:100%;
-    width:300px;
+    width:240px;
   }
 
   .tablet-menu-bar {
@@ -56,7 +56,7 @@ ul.tabs li:last-child {
 
 a:hover{
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: underline 1.5px;
     text-underline-position: under;
     color: $selected-menu;
 }
