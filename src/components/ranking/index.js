@@ -1,11 +1,12 @@
 import React from 'react';
+import Category from './component/Category';
 
 const index = () => {
-    return (
-        <div>
-            <h1>Ranking 페이지 입니다</h1>
-        </div>
-    );
+  return (
+    <>
+      <Category />
+    </>
+  );
 };
 
 export default index;
