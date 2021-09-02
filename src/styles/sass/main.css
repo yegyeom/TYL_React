@@ -226,29 +226,35 @@ ul#profile-menu li a:hover {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.graph-button {
+.graph-buttons {
   height: 35px;
   text-align: left;
   margin-left: 8px;
 }
 
-.graph-button > button {
+.graph-button {
   height: 100%;
-  width: 58px;
+  width: 55px;
   border: none;
   background-color: #fff;
   font-weight: bold;
   color: #BBBAB8;
+  margin: 0px 2px;
 }
 
-.graph-button > button:hover {
-  background-color: #c4c4c430;
+.selected-button {
+  height: 100%;
+  width: 55px;
+  border: none;
+  background-color: #c4c4c455;
+  font-weight: bold;
   color: #464D52;
   border-radius: 10px;
+  margin: 0px 2px;
 }
 
-.button-click {
-  background-color: #c4c4c430;
+.graph-buttons > button:hover {
+  background-color: #c4c4c455;
   color: #464D52;
   border-radius: 10px;
 }
