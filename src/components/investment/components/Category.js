@@ -6,7 +6,6 @@ const Category = () => {
 
 
     const onClick = (e) => {
-
         setSelected(e.target.id);
         console.log("클릭발생", e);
         console.log(e.target.id);

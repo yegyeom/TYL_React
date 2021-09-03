@@ -21,7 +21,7 @@ const Trade = (props) => {
 
     const openModal = e => {
         e.target.id === 'trade-purchase'
-            ? setModalData({ code: selectedItem.code, name: selectedItem.name, value: selectedItem.value, trsType: "purchase", assetType: 'STOCK', })
+            ? setModalData({ code: selectedItem.code, name: selectedItem.name, value: selectedItem.value, trsType: "buy", assetType: 'STOCK', })
             : setModalData({ code: selectedItem.code, name: selectedItem.name, value: selectedItem.value, trsType: "sell", assetType: 'STOCK', })
         setModalOpen(true);
     };

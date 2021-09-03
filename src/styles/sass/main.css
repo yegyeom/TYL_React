@@ -833,6 +833,11 @@ div#item-container {
   flex-direction: row;
   font-weight: bold;
   font-size: smaller;
+  cursor: pointer;
+  border-radius: 15px;
+}
+div#item-container:hover {
+  background: #e2e2e2;
 }
 
 div#item-img {
