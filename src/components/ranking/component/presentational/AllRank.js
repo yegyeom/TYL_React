@@ -25,9 +25,9 @@ const AllRank = ({ ainfo, yinfo, props }) => {
   // 선택된 아이템에 따라 값을 비교하고 데이타를 리턴
   function Inquiries() {
     if (selected == 'total-asset') {
-      return <RankList info={ainfo} />;
+      return <RankList info={ainfo} str="total-asset" />;
     } else if (selected == 'yield') {
-      return <RankList info={yinfo} />;
+      return <RankList info={yinfo} str="yield" />;
     }
   }
 
@@ -64,7 +64,9 @@ const AllRank = ({ ainfo, yinfo, props }) => {
       <ul className="ranking-container">
         <div>{SelectTag}</div>
         <div>{SearchForm}</div>
-        <div><Inquiries/></div>
+        <div>
+          <Inquiries />
+        </div>
       </ul>
     </>
   );
