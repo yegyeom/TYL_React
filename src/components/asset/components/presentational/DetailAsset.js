@@ -57,7 +57,7 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
                           : 'decrease'
                       }
                     >
-                      ({menu.percent.toFixed(1)}%)
+                      ({menu.percent.toFixed(2)}%)
                     </li>
                   </ul>
                 )}
@@ -106,7 +106,7 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
                 >
                   {menu.profit > 0 ? '+' : ''}
                   {menu.profit.toLocaleString('ko-KR')} (
-                  {((menu.profit / (menu.price * menu.quantity - menu.profit)) * 100).toFixed(1)}
+                  {((menu.profit / (menu.price * menu.quantity - menu.profit)) * 100).toFixed(2)}
                   %)
                 </li>
               </ul>

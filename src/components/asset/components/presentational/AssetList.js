@@ -28,7 +28,7 @@ const AssetList = ({ AssetBox, CashBox, match }) => {
                   menu.today === '+' ? 'increase' : menu.today === '' ? 'maintain' : 'decrease'
                 }
               >
-                ({menu.percent.toFixed(1)}%)
+                ({menu.percent.toFixed(2)}%)
               </li>
             </ul>
           }
