@@ -63,7 +63,7 @@ const Modal = props => {
         <div className="detail-trade-list" key={idx}>
           <div className="gang">
             <ul className="detail-trade-left">
-              <li style={list.trading === 'buy' ? { color: 'red' } : { color: 'blue' }}>
+              <li style={list.trading === 'buy' ? { color: '#EB5374' } : { color: '#5673EB' }}>
                 {list.trading === 'buy' ? '매수' : '매도'}
               </li>
               <li style={{ paddingTop: '0px' }}>{res}</li>

@@ -578,6 +578,7 @@ ul.asset-tabs-right {
   font-weight: bold;
   width: 100%;
   display: flex;
+  padding: 3px;
 }
 
 .detail-trade-list ul {
@@ -591,11 +592,12 @@ ul.asset-tabs-right {
 
 .detail-trade-left li:first-child {
   padding-bottom: 0px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .detail-trade-left li:last-child {
   padding-top: 0px;
+  font-size: 11.5px;
   color: #464D52;
 }
 
@@ -609,6 +611,7 @@ ul.detail-trade-right {
 
 .detail-trade-right li:last-child {
   color: #747474;
+  font-size: 12px;
 }
 
 .modal-input {
