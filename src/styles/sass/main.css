@@ -48,21 +48,21 @@ ul.tabs li:last-child {
   width: 100%;
   box-sizing: border-box;
   text-align: left;
-  padding: 15px;
+  padding: 12px;
   padding-left: 25px;
-  font-size: smaller;
+  font-size: 14px;
   font-weight: bolder;
 }
 
 a:hover {
   cursor: pointer;
-  text-decoration: underline 1.5px;
+  text-decoration: underline 2px;
   text-underline-position: under;
   color: #6C6FC6;
 }
 
 .active {
-  text-decoration: underline 1.5px;
+  text-decoration: underline 2px;
   text-underline-position: under;
   color: #6C6FC6;
 }

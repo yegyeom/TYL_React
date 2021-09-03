@@ -9,11 +9,27 @@ import { ResponsiveLine } from '@nivo/line';
 // you'll often use just a few of them.
 
 const AssetGraph = ({ data }) => {
+  const [selectedButton, setSelectButton] = useState('1-week');
+  const [graphData, setGraphData] = useState([]);
+  const [inProgress, setInProgress] = useState('1-week');
+
   const clickButton = event => {
     setSelectButton(event.target.id);
+    setInProgress(event.target.id);
   };
 
-  const [selectedButton, setSelectButton] = useState('6-month');
+  useEffect(() => {
+    if (inProgress) {
+      data.map(list => {
+        var arr = [];
+        if (list.title === inProgress) {
+          arr.push(list);
+          setGraphData(arr);
+        }
+        //console.log(arr);
+      });
+    }
+  }, [inProgress]);
 
   return (
     <div className="graph-container">
@@ -26,10 +42,10 @@ const AssetGraph = ({ data }) => {
         <ResponsiveLine
           colors={['#5673EB']}
           colorBy="index"
-          data={data}
+          data={graphData}
           margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
           xScale={{ type: 'point' }}
-          yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
+          yScale={{ type: 'linear', min: 500000, max: 1500000, stacked: true, reverse: false }}
           yFormat={value => `${Number(value).toLocaleString('ko-KR')}`}
           axisTop={null}
           axisRight={null}

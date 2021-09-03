@@ -20,6 +20,8 @@ export const onLoginSuccess = response => {
     // accessToken 설정
     axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
     return user;
+  } else if (code === 300) {
+    alert('회원가입이 완료되었습니다!');
   }
 };
 
