@@ -44,21 +44,25 @@ const AssetConatiner = () => {
 
         setCoinAsset(res.data.coin.coinAsset);
         setCoinProfit(res.data.coin.coinProfit);
-        if (coinProfit == 0 && coinAsset == 0) setCoinPercent(0);
-        else
+        if (res.data.coin.coinProfit === 0 && res.data.coin.coinAsset === 0) {
+          setCoinPercent(0);
+        } else {
           setCoinPercent(
             (res.data.coin.coinProfit / (res.data.coin.coinAsset - res.data.coin.coinProfit)) * 100,
           );
+        }
 
         setStockAsset(res.data.stock.stockAsset);
         setStockProfit(res.data.stock.stockProfit);
-        if (stockProfit == 0 && stockAsset == 0) setStockPercent(0);
-        else
+        if (res.data.stock.stockProfit === 0 && res.data.stock.stockAsset == 0) {
+          setStockPercent(0);
+        } else {
           setStockPercent(
             (res.data.stock.stockProfit /
               (res.data.stock.stockAsset - res.data.stock.stockProfit)) *
               100,
           );
+        }
 
         if (res.data.stock.stockProfit < 0) setStockToday('-');
         else if (res.data.stock.stockProfit > 0) setStockToday('+');
@@ -102,12 +106,6 @@ const AssetConatiner = () => {
 
   const AssetBox = [
     {
-      title: '현금',
-      link: 'cash',
-      img: cash_icon,
-      total: cash,
-    },
-    {
       title: '주식',
       link: 'stock',
       img: stock_icon,
@@ -127,11 +125,17 @@ const AssetConatiner = () => {
     },
   ];
 
+  const CashBox = {
+    title: '현금',
+    img: cash_icon,
+    total: cash,
+  };
+
   return (
     <>
       <AssetTotal asset={asset.toLocaleString('ko-KR')} />
       <AssetGraph data={data} />
-      <AssetList AssetBox={AssetBox} match={match} />
+      <AssetList AssetBox={AssetBox} CashBox={CashBox} match={match} />
     </>
   );
 };

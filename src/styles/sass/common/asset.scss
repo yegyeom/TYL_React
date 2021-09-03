@@ -118,6 +118,16 @@
     padding-bottom: 5px;
 }
 
+#asset li.list-cash{
+    cursor: pointer;
+    color: $font-color;
+}
+
+#asset li.list-cash:hover{
+    cursor: pointer;
+    color: $selected-menu;
+}
+
 #asset li#detail-asset{
     padding-top: 2.5px;
     padding-bottom: 2.5px;
