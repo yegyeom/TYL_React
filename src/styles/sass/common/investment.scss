@@ -29,7 +29,8 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
 .selected-category {
   display:inline;
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: underline 2px;
+  text-underline-position: under;
   color: #6C6FC6;
   cursor: pointer;
 }

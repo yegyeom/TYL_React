@@ -17,7 +17,8 @@ ul.category-container {
     display: inline;
     padding: 0 16px;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: underline 2px;
+    text-underline-position: under;
     color: #6C6FC6;
     cursor: pointer;
 }
