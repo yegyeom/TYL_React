@@ -19,7 +19,7 @@ const index = () => {
         <>
             <Category></Category>
             <ItemList getItem={getItem}></ItemList>
-            <Chart ></Chart>
+            <Chart sendItem={selectedItem}></Chart>
             <Prediction></Prediction>
             <Trade sendItem={selectedItem}></Trade>
             <div id="empty-space"></div>

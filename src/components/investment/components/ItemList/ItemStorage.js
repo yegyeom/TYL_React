@@ -23,6 +23,11 @@ const ItemStorage = (props) => {
         });
     }, []);
 
+    useEffect(() => {
+        console.log("setItem 끝났습니다. items[0]=> ", items[0]);
+        props.getItem(items[0]);
+    }, [items]);
+
     const fluctuationCal = (value, rate) => {
         let prevValue = value / (1 + (rate / 100))
         let result = value - prevValue
@@ -54,8 +59,7 @@ const ItemStorage = (props) => {
 
                     const positive = item.rate > 0 ? true : false
                     return (
-                        < div className="item" id="item-container" key={item.id} onClick={() => { onClick(item, item.name, item.value); }
-                        } >
+                        < div className="item" id="item-container" key={item.id} onClick={() => { onClick(item, item.name, item.value); }}>
 
                             <div className="item" id="item-img">
                                 {/* <img className="item" src={item.imageUrl} alt={item.name} /> */}
@@ -121,7 +125,6 @@ const ItemStorage = (props) => {
 
     return (
         <div id="items-container" onScroll={onScroll}>
-            {props.getItem(items[0])}
             {props.inputValue.length <= 0 ? allResult(items) : filteredResult(items)}
         </div >
     );

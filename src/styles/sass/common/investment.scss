@@ -93,8 +93,14 @@ div#item-container {
   flex-direction: row;
   font-weight: bold;
   font-size: smaller;
-  
+  cursor: pointer;
+  border-radius: 15px;
+
+  &:hover {
+    background: rgb(226, 226, 226);
+  }
 }
+
 
 div#item-img {
   padding: auto;

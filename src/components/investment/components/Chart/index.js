@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import ChartStorage from './ChartStorage.js';
 // https://apexcharts.com/docs/chart-types/candlestick/ 참고
 // 툴팁 : 마우스 포인터라 불리는 커서와 함께 동작한다. 
 // 사용자가 커서에 항목을 클릭하지 않고 가리키면 조그마한 상자가 항목 위에 나타나서 보충 설명을 보여 준다.
-const Chart = () => {
+const Chart = (props) => {
+
+    let itemName = "시발";
+    const [selectedItem, setSelectedItem] = useState();
 
     const [tooltipData, setTooltipData] = useState({ open: '', high: '', low: '', close: '', date: '' });
     let newArr = { open: '', high: '', low: '', close: '', date: '' };
+
+    useEffect(() => { // props.Name의 값이 변경될 때 마다 실행.
+        setSelectedItem(props.sendItem);
+    }, [props]);
+
+    useEffect(() => {
+
+        if (selectedItem != null) {
+            setOptions({
+                ...options, // 기존의 input 객체를 복사한 뒤
+                title: { text: selectedItem.name } // name 키를 가진 값을 value 로 설정
+            });
+        }
+
+    }, [selectedItem]);
+
     const [series, setSeries] = useState([
         {
             name: "삼성전자",
@@ -64,7 +83,12 @@ const Chart = () => {
     const [options, setOptions] = React.useState({
 
         title: {
-            text: "삼성전자",
+            text: '',
+            style: {
+                fontSize: '16px',
+                fontWeight: 'bold',
+                color: '#263238'
+            },
         },
 
         chart: {
@@ -108,6 +132,7 @@ const Chart = () => {
         yaxis: {
             legend: {
                 title: "dan"
+
             },
             labels: {
                 show: false,
@@ -144,6 +169,10 @@ const Chart = () => {
             }
         }
     });
+
+
+
+
 
     return (
         <div className="chart-container">
