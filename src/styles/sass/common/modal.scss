@@ -15,7 +15,7 @@
 }
 .modal > section {
     width: 90%;
-    max-width: 450px;
+    max-width: 420px;
     margin:0 auto;
     border-radius: .3rem;
     background-color: #fff;
@@ -135,7 +135,8 @@
 }
 
 .detail-trade-list ul li{
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
 }
 
 .detail-trade-left li:first-child{
@@ -148,8 +149,8 @@
     color: #464D52;
 }
 
-.detail-trade-right{
-    padding-left: 80px;
+ul.detail-trade-right{
+   margin-right: 60px;
 }
 
 .detail-trade-right li:first-child{
@@ -173,5 +174,4 @@
 
 input::placeholder{
     font-size: 13px;
-    //padding-left: 8px;
 }
