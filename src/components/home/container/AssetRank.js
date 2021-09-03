@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import RankList from '../presentational/RankList';
 import axios from 'axios';
-import '../../../styles/sass/main.css';
+import RankList from '../presentational/RankList';
 
 const AssetRank = () => {
+  const [inProgress, setInProgress] = useState(true);
   const [rank, setRank] = useState([]);
 
   useEffect(() => {
     axios.get('rank/asset').then(res => {
-      console.log(res);
       setRank(res.data.rank);
+      setInProgress(false);
+      //console.log(res.data.rank);
     });
   }, []);
 
-  // console.log('>>', rank);
+  if (inProgress) {
+    return <div></div>;
+  }
 
-  const peopleList = [
-    { rank: '1위', nk_name: 'KIM', asset: '400,000,000틸' },
-    { rank: '2위', nk_name: 'LEE', asset: '300,000,000틸' },
-    { rank: '3위', nk_name: 'LIM', asset: '200,000,000틸' },
-    { rank: '4위', nk_name: 'SON', asset: '80,000,000틸' },
-    { rank: '5위', nk_name: 'YUN', asset: '50,000,000틸' },
-    { rank: '6위', nk_name: 'PARK', asset: '10,000,000틸' },
-  ];
+  // json add data(ranking)
+  for (let i = 0; i < rank.length; i++) {
+    rank[i].ranking = i + 1;
+  }
 
-  return <RankList info={peopleList} />;
+  for (let i = 0; i < rank.length; i++) {
+    rank[i].asset = rank[i].asset.toLocaleString();
+  }
+
+  return <RankList info={rank} />;
 };
 
 export default AssetRank;

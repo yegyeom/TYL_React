@@ -1,26 +1,25 @@
-import React from 'react';
-import Ticker from '../presentational/Ticker';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../../../styles/sass/main.css';
+import Ticker from '../presentational/Ticker';
 
 const WorstRank = () => {
-  // https://testyourlife.kro.kr/preday-history
-  axios.get('rank/preday-history').then(res => {
-    console.log(res.data);
-  });
+  const [inProgress, setInProgress] = useState(true);
+  const [rank, setRank] = useState([]);
 
-  const peopleRank = [
-    { rank: '1위', nk_name: '김병준', profit: '-41.5%' },
-    { rank: '2위', nk_name: '임대호', profit: '-38.7%' },
-    { rank: '3위', nk_name: '김동규', profit: '-35.0%' },
-    { rank: '4위', nk_name: '김태성', profit: '-29.3%' },
-    { rank: '5위', nk_name: '김예겸', profit: '-28.4%' },
-    { rank: '6위', nk_name: '허예림', profit: '-23.2%' },
-    { rank: '7위', nk_name: '배지영', profit: '-18.0%' },
-    { rank: '8위', nk_name: '김재우', profit: '-14.6%' },
-  ];
+  useEffect(() => {
+    // https://testyourlife.kro.kr/preday-history
+    axios.get('rank/preday-history').then(res => {
+      setRank(res.data.lowerRank);
+      setInProgress(false);
+      // console.log(res.data);
+    });
+  }, []);
 
-  return <Ticker info={peopleRank} str="worst" />;
+  if (inProgress) {
+    return <div></div>;
+  }
+
+  return <Ticker info={rank} str="worst" />;
 };
 
 export default WorstRank;

@@ -19,6 +19,10 @@ body{
     margin: 0px;
 }
 
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
 .container {
     padding: 40px 0px;
     display: flex;

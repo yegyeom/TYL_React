@@ -2,9 +2,9 @@ import React from 'react';
 import RankFrame from './RankFrame';
 
 const RankList = ({ info }) => {
-  const list = info.map(people => <RankFrame key={people.nk_name} info={people} />);
+  const List = info.map((people, idx) => <RankFrame key={idx} info={people} />);
 
-  return <div>{list}</div>;
+  return <div>{List}</div>;
 };
 
 export default RankList;

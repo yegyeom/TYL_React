@@ -2,28 +2,30 @@ import React from 'react';
 import '../../../styles/sass/main.css';
 
 const RankFrame = ({ info }) => {
-  const { rank, nk_name, asset } = info;
+  const { nickname, asset, ranking } = info;
 
   function Rank_123() {
-    if (rank == '1위') {
-      return <div className="gold">{rank}</div>;
-    } else if (rank == '2위') {
-      return <div className="silver">{rank}</div>;
-    } else if (rank == '3위') {
-      return <div className="bronze">{rank}</div>;
+    if (ranking == '1') {
+      return <div className="gold">{ranking}위</div>;
+    } else if (ranking == '2') {
+      return <div className="silver">{ranking}위</div>;
+    } else if (ranking == '3') {
+      return <div className="bronze">{ranking}위</div>;
     } else {
-      return <div>{rank}</div>;
+      return <div>{ranking}위</div>;
     }
   }
 
   return (
-    <ul className="frameList">
-      <div>
-        <Rank_123 />
-      </div>
-      <div>{nk_name}</div>
-      <div>{asset}</div>
-    </ul>
+    <>
+      <ul className="ranking-list">
+          <div className="list-text">
+            <Rank_123 />
+          </div>
+        <div className="list-text">{nickname}</div>
+        <div className="list-text">{asset} 틸</div>
+      </ul>
+    </>
   );
 };
 

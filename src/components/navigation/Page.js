@@ -44,7 +44,7 @@ const Page = () => {
   const bottomMenuList = bottomMenuBox.map((menu, idx) => {
     if (menu.title != '내 자산' && menu.title != '내 정보' && menu.title != '로그인') {
       return (
-        <li className="user-profile">
+        <li key={idx} className="user-profile">
           <div className="profile-img-box">
             <img src={profile_img} className="profile" />
           </div>
