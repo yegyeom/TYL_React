@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useTransition, animated } from 'react-spring';
+import { animated, useTransition } from 'react-spring';
 import '../../../styles/sass/main.css';
 
-function Ticker({ info, str }) {
+const Ticker = ({ info, str }) => {
   const [index, setIndex] = useState(0);
+  let sign = '';
+  if (str == 'best') {
+    sign = '+';
+  } else {
+    sign = '-';
+  }
 
   useEffect(() => setInterval(() => setIndex(state => (state + 1) % info.length), 3000), []);
 
@@ -13,14 +19,15 @@ function Ticker({ info, str }) {
     //leave: { opacity: 0, },
   });
 
-  const tickerItems = info.map(item => ({ style }) => {
+  const tickerItems = info.map((item, idx) => ({ style }) => {
     return (
       <>
         <animated.div className={str + '-ticker-text-name'} style={{ ...style }}>
-          {item.nk_name}
+          {item.nickname}
         </animated.div>
         <animated.div className={str + '-ticker-text-profit'} style={{ ...style }}>
-          {item.profit}
+          {sign}
+          {item.profit}%
         </animated.div>
       </>
     );
@@ -28,8 +35,8 @@ function Ticker({ info, str }) {
 
   return (
     <>
-      <div className="flexContainer">
-        <div className="tickerWrapper">
+      <div className="tickerbox-container">
+        <div className="ticker-wrapper">
           {Transitions(({ opacity }, item) => {
             const TickerItem = tickerItems[item];
             return (
@@ -45,6 +52,6 @@ function Ticker({ info, str }) {
       </div>
     </>
   );
-}
+};
 
 export default Ticker;

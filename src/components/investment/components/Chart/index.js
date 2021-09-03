@@ -150,7 +150,6 @@ const Chart = (props) => {
                 const d = w.globals.categoryLabels[dataPointIndex];
                 newArr = { open: o, high: h, low: l, close: c, date: d };
                 setTooltipData({ open: o, high: h, low: l, close: c, date: d });
-                console.log(newArr);
                 return ('');
 
             },

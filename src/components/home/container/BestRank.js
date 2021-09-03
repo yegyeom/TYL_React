@@ -1,26 +1,26 @@
-import React from 'react';
-import Ticker from '../presentational/Ticker';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../../../styles/sass/main.css';
+import Ticker from '../presentational/Ticker';
 
 const BestRank = () => {
-  // https://testyourlife.kro.kr/preday-history
-  axios.get('rank/preday-history').then(res => {
-    console.log(res.data);
-  });
+  const [inProgress, setInProgress] = useState(true);
+  const [rank, setRank] = useState([]);
 
-  const peopleRank = [
-    { rank: '1위', nk_name: '나는야개미', profit: '+28.3%' },
-    { rank: '2위', nk_name: '주식부자', profit: '+26.1%' },
-    { rank: '3위', nk_name: '머스크', profit: '+22.9%' },
-    { rank: '4위', nk_name: '수박너무비싸', profit: '+16.3%' },
-    { rank: '5위', nk_name: '할수있다가즈아', profit: '+15.1%' },
-    { rank: '6위', nk_name: '주식이뭐지', profit: '+12.7%' },
-    { rank: '7위', nk_name: '신사임당999장', profit: '+8.3%' },
-    { rank: '8위', nk_name: '주식조식', profit: '+6.9%' },
-  ];
+  useEffect(() => {
+    // https://testyourlife.kro.kr/preday-history
+    axios.get('rank/preday-history').then(res => {
+      setRank(res.data.upperRank);
+      setInProgress(false);
+      //console.log(res.data.upperRank);
+    });
+  }, []);
 
-  return <Ticker info={peopleRank} str="best" />;
+  // 비동기 통신이라 필요없는 값 잡아줌
+  if (inProgress) {
+    return <div></div>;
+  }
+
+  return <Ticker info={rank} str="best" />;
 };
 
 export default BestRank;

@@ -6,22 +6,19 @@ import WorstRank from './container/WorstRank';
 const index = () => {
   return (
     <>
-      <ul className="home-best">
-        <ul className="profit-text-box">
-          <div className="etc-text">8/23(전일대비)</div>
-          <div className="profit-text">Best TYL Player</div>
-        </ul>
+      <ul className="home-tickerbox">
+        <div className="home-small-info-text">*전일대비</div>
+        <div className="home-ticker-title-text">전날 엄청난 수익률을 낸 틸러입니다!</div>
         <BestRank />
       </ul>
-      <ul className="home-best">
-        <ul className="profit-text-box">
-          <div className="etc-text">8/23(전일대비)</div>
-          <div className="profit-text">Worst TYL Player</div>
-        </ul>
+      <ul className="home-tickerbox">
+        <div className="home-small-info-text">*전일대비</div>
+        <div className="home-ticker-title-text">전날 아쉬웠던 수익률을 낸 틸러입니다..</div>
         <WorstRank />
       </ul>
-      <ul className="homeRank">
-        <h5>틸러들의 자산 순위</h5>
+      <ul className="home-rankbox">
+        <div className="home-small-info-text">*총자산 기준</div>
+        <div className="home-rankbox-title-text">틸러들의 자산 순위</div>
         <AssetRank />
       </ul>
     </>
