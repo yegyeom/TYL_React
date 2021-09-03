@@ -1,19 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { checkValidity } from '../../../auth/userSlice';
 import '../../../../styles/sass/main.css';
 
 const Modal = props => {
-  // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, header, onAccept, TradeBox } = props;
+  const { open, close, header } = props;
+  const validity = useSelector(checkValidity);
+  const [stockTradeBox, setStockTradeBox] = useState([]);
+  const [tradeList, setTradeList] = useState([]);
+  const [inProgress, setInProgress] = useState(true);
 
-  const TradeList = TradeBox.map(menu =>
-    menu.title === header
-      ? menu.order.map((list, idx) => (
-          <div className="detail-trade-list" key={idx}>
+  useEffect(() => {
+    if (!header) return;
+    if (validity) {
+      axios.get('asset').then(res => {
+        var arr = [];
+        res.data.stock.stockList.map((list, idx) => {
+          if (list.name === header) {
+            arr.push(list.code); //클릭한 종목 코드
+          }
+        });
+
+        axios.get(`asset/history?code=${arr[0]}&type=stock`).then(res => {
+          console.log('history', res.data.history);
+          var data = {
+            title: res.data.history[0].name,
+            order: [],
+          };
+
+          res.data.history.map((history, idx) => {
+            var detail = {
+              //주문내역 하나씩
+              date: history.date,
+              trading: history.type,
+              qty: history.amount,
+              one: history.price,
+              total: history.amount * history.price,
+            };
+            data.order.push(detail);
+          });
+
+          setStockTradeBox(data);
+          setInProgress(false);
+        });
+      });
+    }
+  }, [header]);
+
+  useEffect(() => {
+    if (inProgress) return;
+    const TradeList = stockTradeBox.order.map((list, idx) => {
+      var date = new Date(list.date);
+      var res =
+        date.getFullYear() +
+        '-' +
+        ('0' + (date.getMonth() + 1)).slice(-2) +
+        '-' +
+        ('0' + date.getDate()).slice(-2);
+
+      return (
+        <div className="detail-trade-list" key={idx}>
+          <div className="gang">
             <ul className="detail-trade-left">
-              <li style={list.trading === '매수' ? { color: 'red' } : { color: 'blue' }}>
-                {list.trading}
+              <li style={list.trading === 'buy' ? { color: '#EB5374' } : { color: '#5673EB' }}>
+                {list.trading === 'buy' ? '매수' : '매도'}
               </li>
-              <li style={{ paddingTop: '0px' }}>{list.date}</li>
+              <li style={{ paddingTop: '0px' }}>{res}</li>
             </ul>
             <ul className="detail-trade-right">
               <li>{list.total.toLocaleString('ko-KR')} TYL</li>
@@ -22,12 +75,13 @@ const Modal = props => {
               </li>
             </ul>
           </div>
-        ))
-      : null,
-  );
+        </div>
+      );
+    });
+    setTradeList(TradeList);
+  }, [inProgress]);
 
   return (
-    // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? 'openModal modal' : 'modal'}>
       {open ? (
         <section>
@@ -37,7 +91,7 @@ const Modal = props => {
               &times;
             </button>
           </header>
-          {TradeList}
+          {tradeList}
           <footer></footer>
         </section>
       ) : null}
