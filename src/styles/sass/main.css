@@ -56,13 +56,13 @@ ul.tabs li:last-child {
 
 a:hover {
   cursor: pointer;
-  text-decoration: underline 1.5px;
+  text-decoration: underline 2px;
   text-underline-position: under;
   color: #6C6FC6;
 }
 
 .active {
-  text-decoration: underline 1.5px;
+  text-decoration: underline 2px;
   text-underline-position: under;
   color: #6C6FC6;
 }
@@ -772,16 +772,17 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
 
 .selected-category {
   display: inline;
-  padding: 0 16px;
+  padding: 0px 20px;
   font-weight: bold;
   text-decoration: underline;
+  text-underline-position: under;
   color: #6C6FC6;
   cursor: pointer;
 }
 
 .unSelected-category {
   display: inline;
-  padding: 0 16px;
+  padding: 0px 20px;
   font-weight: bold;
   color: #C2C2C2;
   cursor: pointer;

@@ -57,13 +57,13 @@ ul.tabs li:last-child {
 
 a:hover{
     cursor: pointer;
-    text-decoration: underline 1.5px;
+    text-decoration: underline 2px;
     text-underline-position: under;
     color: $selected-menu;
 }
 
 .active{
-    text-decoration: underline 1.5px;
+    text-decoration: underline 2px;
     text-underline-position: under;
     color: $selected-menu;
 }
