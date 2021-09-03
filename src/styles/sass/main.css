@@ -748,14 +748,14 @@ ul.frameList {
 }
 
 div.category-container, .itemlist-container, .chart-container, .prediction-container {
-  width: 80%;
+  width: 510px;
   box-sizing: border-box;
   padding: 3%;
   margin: 5%;
   background-color: #ffffff;
   border: 1px solid #c4c4c4;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px -1px 1px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .itemlist-container {
@@ -772,7 +772,6 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
 
 .selected-category {
   display: inline;
-  padding: 0 16px;
   font-weight: bold;
   text-decoration: underline;
   color: #6C6FC6;
@@ -781,7 +780,6 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
 
 .unSelected-category {
   display: inline;
-  padding: 0 16px;
   font-weight: bold;
   color: #C2C2C2;
   cursor: pointer;
@@ -960,6 +958,7 @@ div.trade-item {
   font-size: x-large;
   white-space: nowrap;
   cursor: pointer;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 div#trade-purchase {
@@ -1012,6 +1011,47 @@ div#empty-space {
   display: flex;
   align-items: center;
   animation: trade-modal-bg-show 0.3s;
+}
+
+.message-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.message-modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+.message-modal > section {
+  width: 50%;
+  max-width: 250px;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  animation: trade-modal-show 0.3s;
+  overflow: hidden;
+}
+
+.message-modal.message-openModal {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-weight: 500;
+  animation: trade-modal-bg-show 0.3s;
+}
+
+.message-container {
+  padding: auto;
+  margin: auto;
 }
 
 div.modal-item-img {
