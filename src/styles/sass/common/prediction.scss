@@ -1,0 +1,97 @@
+@import './color.scss';
+
+ul.prediction-container {
+    width: 100%;
+    display: block;
+    padding: 3% 0% 3% 0%;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #c4c4c420;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+.searchform-container {
+    float: right;
+    padding: 0.5%;
+    margin: 0% 4% 8% 0%;
+    border: 1px solid #c4c4c420;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+.search-image {
+    width: 13%;
+    vertical-align: middle;
+    object-fit: cover;
+}
+  
+.searchform-input {
+    border: 0;
+}
+
+.prediction-textbox {
+    width: 100%;
+    margin: 0% 0% 0% 5%;
+    float: left;
+    text-align: left;
+}
+
+#prediction-title-text {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+#prediction-title-spantext {
+    font-weight: bolder;
+    font-size: larger;
+    color: $decrease;
+}
+
+#prediction-explain-text {
+    font-size: x-small;
+}
+
+#prediction-name-text {
+    font-weight: bolder;
+    color: $decrease;
+}
+
+.prediction-category-text {
+    width: 100%;
+    float: right;
+    text-align: right;
+    margin: 0% 0% 3% 0%;
+    font-weight: bolder;
+}
+
+
+.predict-name-text {
+    width: 20%;
+    float: left;
+    margin: 0% 0% 2% 7%;
+    padding: 1% 0% 1% 0%;
+    font-weight: bolder;
+    background-color: $background;
+    border: 1px solid #c4c4c420;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+.predict-listbox {
+    width: 45%;
+    float: right;
+    display:inline-flex;
+    justify-content: space-between;
+    margin: 0% 7% 2% 0%;
+    padding: 1% 7% 1% 7%;
+    font-weight: bolder;
+    background-color: $background;
+    border: 1px solid #c4c4c420;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+#predict-profit-text {
+    font-size: medium;
+}
