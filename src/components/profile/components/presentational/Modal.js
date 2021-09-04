@@ -11,13 +11,15 @@ const Modal = props => {
   };
 
   const [nickname, setNickname] = useState('');
-
+  const onChildClick = e => {
+    e.stopPropagation();
+  };
   if (id === 'out') {
     //로그아웃, 탈퇴
     return (
-      <div className={open ? 'openModal modal' : 'modal'}>
-        {open ? (
-          <section>
+      <div onClick={close}>
+        <div className={open ? 'openModal modal' : 'modal'}>
+          <section onClick={onChildClick}>
             <header style={{ paddingLeft: '60px' }}>
               {header}
               <button className="close" onClick={close}>
@@ -35,15 +37,15 @@ const Modal = props => {
               </button>
             </footer>
           </section>
-        ) : null}
+        </div>
       </div>
     );
   } else {
     //닉네임, 프로필 사진 변경
     return (
-      <div className={open ? 'openModal modal' : 'modal'}>
-        {open ? (
-          <section style={{ width: '300px', height: '195px' }}>
+      <div onClick={close}>
+        <div className={open ? 'openModal modal' : 'modal'}>
+          <section style={{ width: '300px', height: '195px' }} onClick={onChildClick}>
             <header style={{ paddingLeft: '60px' }}>
               {header}
               <button className="close" onClick={close}>
@@ -65,7 +67,7 @@ const Modal = props => {
                 <div className="check-nickname">&nbsp;</div>
               )}
             </main>
-            <footer>
+            <footer style={{ padding: '2px 16px 12px 16px' }}>
               <button
                 className="modify"
                 onClick={nickname.length > 1 ? onAccept : null}
@@ -75,7 +77,7 @@ const Modal = props => {
               </button>
             </footer>
           </section>
-        ) : null}
+        </div>
       </div>
     );
   }

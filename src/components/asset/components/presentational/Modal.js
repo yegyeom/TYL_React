@@ -108,19 +108,17 @@ const Modal = props => {
   return (
     <div onClick={close}>
       <div className={open ? 'openModal modal' : 'modal'}>
-        {open ? (
-          <section style={{ width: '420px' }} onClick={onChildClick}>
-            <header style={{ paddingLeft: '60px', fontSize: '16px' }}>
-              {header}
-              <button className="close" onClick={close}>
-                &times;
-              </button>
-            </header>
-            <div id="lists-container" onScroll={onScroll}>
-              {showList(tradeList)}
-            </div>
-          </section>
-        ) : null}
+        <section style={{ width: '420px' }} onClick={onChildClick}>
+          <header style={{ paddingLeft: '60px', fontSize: '16px' }}>
+            {header}
+            <button className="close" onClick={close}>
+              &times;
+            </button>
+          </header>
+          <div id="lists-container" onScroll={onScroll}>
+            {showList(tradeList)}
+          </div>
+        </section>
       </div>
     </div>
   );
