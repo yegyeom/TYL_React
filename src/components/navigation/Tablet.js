@@ -1,6 +1,7 @@
 import { Route, NavLink } from 'react-router-dom';
 import Home from '../home/index';
 import Investment from '../investment/index';
+import Prediction from '../prediction/index';
 import Ranking from '../ranking/index';
 import Asset from '../asset/index.js';
 import Profile from '../profile/index.js';
@@ -22,6 +23,9 @@ const Tablet = () => {
           <li>
             <NavLink to="/Investment">투자</NavLink>
           </li>
+          <li>
+            <NavLink to="/Prediction">예측</NavLink>
+          </li>
           <li id="bottom">
             <NavLink to="/Ranking">랭킹</NavLink>
           </li>
@@ -39,6 +43,7 @@ const Tablet = () => {
       <div className="tablet-content">
         <Route path="/" component={Home} exact />
         <Route path="/Investment" component={Investment} />
+        <Route path="/Prediction" component={Prediction} />
         <Route path="/Ranking" component={Ranking} />
         <Route path="/Asset" component={Asset} />
         <Route path="/Profile" component={Profile} />
