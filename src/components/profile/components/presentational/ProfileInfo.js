@@ -10,7 +10,7 @@ const ProfileInfo = ({ name, email, profile_img }) => {
         </div>
         <span
           className="user-name"
-          style={{ fontSize: '15px', lineHeight: '60px', paddingLeft: '15px' }}
+          style={{ fontSize: '15px', lineHeight: '60px', paddingLeft: '10px' }}
         >
           {name}&nbsp;
         </span>

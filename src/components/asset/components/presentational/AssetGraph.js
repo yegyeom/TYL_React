@@ -9,14 +9,21 @@ import { ResponsiveLine } from '@nivo/line';
 // you'll often use just a few of them.
 
 const AssetGraph = ({ data }) => {
-  const [selectedButton, setSelectButton] = useState('1-week');
+  const [selectedButton, setSelectButton] = useState('total');
   const [graphData, setGraphData] = useState([]);
-  const [inProgress, setInProgress] = useState('1-week');
+  const [minY, setMinY] = useState(0);
+  const [maxY, setMaxY] = useState(0);
+  const [inProgress, setInProgress] = useState();
 
   const clickButton = event => {
     setSelectButton(event.target.id);
     setInProgress(event.target.id);
   };
+
+  useEffect(() => {
+    setSelectButton('total');
+    setInProgress('total');
+  }, []);
 
   useEffect(() => {
     if (inProgress) {
@@ -25,8 +32,18 @@ const AssetGraph = ({ data }) => {
         if (list.title === inProgress) {
           arr.push(list);
           setGraphData(arr);
+          console.log(list.data.length);
+
+          var min = list.data[0].y;
+          var max = list.data[0].y;
+          for (var i = 0; i < list.data.length; i++) {
+            if (list.data[i].y < min) min = list.data[i].y;
+            if (list.data[i].y > max) max = list.data[i].y;
+          }
+
+          setMinY(min);
+          setMaxY(max);
         }
-        //console.log(arr);
       });
     }
   }, [inProgress]);
@@ -45,7 +62,13 @@ const AssetGraph = ({ data }) => {
           data={graphData}
           margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
           xScale={{ type: 'point' }}
-          yScale={{ type: 'linear', min: 500000, max: 1500000, stacked: true, reverse: false }}
+          yScale={{
+            type: 'linear',
+            min: minY * 0.7,
+            max: maxY * 1.7,
+            stacked: true,
+            reverse: false,
+          }}
           yFormat={value => `${Number(value).toLocaleString('ko-KR')}`}
           axisTop={null}
           axisRight={null}
@@ -54,20 +77,8 @@ const AssetGraph = ({ data }) => {
             tickSize: 0,
             tickPadding: 5,
             tickRotation: 0,
-            //legend: 'transportation',
-            // legendOffset: 36,
-            // legendPosition: 'middle',
           }}
           axisLeft={false}
-          // axisLeft={{
-          //   orient: 'left',
-          //   tickSize: 0,
-          //   tickPadding: 15,
-          //   tickRotation: 0,
-          //   legend: '',
-          //   legendOffset: -40,
-          //   legendPosition: 'middle',
-          // }}
           pointSize={10}
           pointColor={{ theme: 'background' }}
           pointBorderWidth={2}
@@ -82,11 +93,11 @@ const AssetGraph = ({ data }) => {
         <hr width="480px" color="#c4c4c4" noshade="true" />
         <div className="graph-buttons">
           <button
-            id="1-week"
-            className={'1-week' === selectedButton ? 'selected-button' : 'graph-button'}
+            id="total"
+            className={'total' === selectedButton ? 'selected-button' : 'graph-button'}
             onClick={clickButton}
           >
-            1주일
+            전체
           </button>
           <button
             id="1-month"
@@ -101,13 +112,6 @@ const AssetGraph = ({ data }) => {
             onClick={clickButton}
           >
             3개월
-          </button>
-          <button
-            id="6-month"
-            className={'6-month' === selectedButton ? 'selected-button' : 'graph-button'}
-            onClick={clickButton}
-          >
-            6개월
           </button>
         </div>
       </div>

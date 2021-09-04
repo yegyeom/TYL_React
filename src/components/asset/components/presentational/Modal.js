@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, MouseEvent } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { checkValidity } from '../../../auth/userSlice';
@@ -49,6 +49,7 @@ const Modal = props => {
 
   useEffect(() => {
     if (inProgress) return;
+    const arr = stockTradeBox.order.reverse();
     const TradeList = stockTradeBox.order.map((list, idx) => {
       var date = new Date(list.date);
       var res =
@@ -80,20 +81,45 @@ const Modal = props => {
     setTradeList(TradeList);
   }, [inProgress]);
 
+  const [N_Scroll, setN_Scroll] = useState(1);
+
+  const onScroll = e => {
+    console.log('onScroll', e);
+    const scrollHeight = e.target.scrollHeight;
+    const scrollTop = e.target.scrollTop;
+    const clientHeight = e.target.clientHeight;
+    if (scrollTop + clientHeight >= scrollHeight * 0.6) {
+      setN_Scroll(N_Scroll + 1);
+    }
+  };
+
+  const showList = tradeList => {
+    return tradeList.map((list, idx) => {
+      if (idx < N_Scroll * 5) {
+        return list;
+      }
+    });
+  };
+
+  const onChildClick = e => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className={open ? 'openModal modal' : 'modal'}>
-      {open ? (
-        <section>
+    <div onClick={close}>
+      <div className={open ? 'openModal modal' : 'modal'}>
+        <section style={{ width: '420px' }} onClick={onChildClick}>
           <header style={{ paddingLeft: '60px', fontSize: '16px' }}>
             {header}
             <button className="close" onClick={close}>
               &times;
             </button>
           </header>
-          {tradeList}
-          <footer></footer>
+          <div id="lists-container" onScroll={onScroll}>
+            {showList(tradeList)}
+          </div>
         </section>
-      ) : null}
+      </div>
     </div>
   );
 };
