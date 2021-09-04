@@ -164,6 +164,28 @@ ul.detail-trade-right{
     font-size: 12px;
 }
 
+div#lists-container {
+    border-radius: 10px;   
+    width: 420px; 
+    height: 234px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  #lists-container::-webkit-scrollbar{
+    width: 6px;
+  }
+
+#lists-container::-webkit-scrollbar-thumb{
+    height: 17%;
+    background-color: rgb(204, 204, 204);
+    border-radius: 10px;    
+  }
+  
+  #lists-container::-webkit-scrollbar-track{
+    background-color: rgba(0,0,0,0);
+  }
+
 .modal-input{
     width: 95%;
     height: 50px;
