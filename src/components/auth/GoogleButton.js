@@ -1,5 +1,5 @@
-// GoogleButton.js
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import dotenv from 'dotenv';
 import axios from 'axios';
@@ -11,7 +11,9 @@ dotenv.config();
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_KEY;
 axios.defaults.baseURL = process.env.REACT_APP_HOST;
 
-export default function googleButton() {
+export default function googleButton(props) {
+  const { closeModal } = props;
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const handleLogin = async data => {
@@ -29,7 +31,11 @@ export default function googleButton() {
     axios
       .post('/auth/login', body, { headers })
       .then(onLoginSuccess)
-      .then(user => dispatch(login(user)))
+      .then(user => {
+        dispatch(login(user));
+        history.push('/');
+        if (closeModal) closeModal();
+      })
       .catch(onFailure);
   };
 

@@ -1,0 +1,93 @@
+
+  .mobile-menu-bar {
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    flex-direction: column;
+    box-sizing: border-box;
+    // height:20%;
+    width:100%;
+    padding-top: 4px;
+    background-color: #fff;
+    z-index: 999;
+  }
+
+  .mobile-top-menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+  }
+
+  .mobile-top-menu > img {
+      height: 52px;
+  }
+
+  .mobile-top-menu > #menu-logo {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    width: 18px;
+  }
+
+  .mobile-main-menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      padding: 1vh 0px 1vh 0px;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #fff;
+  }
+
+  .mobile-main-menu > .horizontal-scroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #fff;
+}
+
+.menu-item {
+    width: 25vw;
+    height: 24px;
+}
+
+.mobile-profile-img-box{
+    position: absolute;
+    top: 13px;
+    right: 14px;
+    width: 30px;
+    height: 30px; 
+    border-radius: 70%;
+    overflow:hidden;
+}
+
+.profile {
+    object-fit:cover;
+    width: 30px;
+    height: 30px; 
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+    max-width: 100vw;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .react-horizontal-scrolling-menu--scroll-container {
+    -ms-overflow-style: none;
+    padding: 0px;
+  }
+
+  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }

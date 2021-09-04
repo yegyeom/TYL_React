@@ -1,3 +1,4 @@
+
 .modal {
     display: none;
     position: fixed;
@@ -23,8 +24,10 @@
     overflow: hidden;
 }
 .modal > section > header {
+    display: flex;
+    justify-content: center;
     position: relative;
-    padding: 16px 64px 16px 16px;
+    padding: 16px 64px 16px 64px;
     background-color: #f1f1f1;
     font-weight: 700;
 }
@@ -32,7 +35,7 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    width: 30px;
+    width: 26px;
     font-size: 21px;
     font-weight: 700;
     text-align: center;
@@ -199,4 +202,17 @@ div#lists-container {
 
 input::placeholder{
     font-size: 13px;
+}
+
+.modal .mobile-modal-section {
+    border-radius: 16px;
+    background-color: #fff;
+}
+
+.modal .mobile-modal-header {
+    background-color: #fff;
+}
+
+.mobile-modal {
+    padding: 0px 6% 0px 6%;
 }
