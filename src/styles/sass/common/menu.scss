@@ -97,17 +97,19 @@ a {
   }
 
   .profile-img-box{
+        border: 1px solid #c4c4c4;
         width: 38px;
-        height: 38px; 
-        border-radius: 70%;
-        overflow:hidden;
+        height: 38px;
+        border-radius: 50%;
     }
 
-    .profile {
-        width: 100%;
-        height: 100%;
+    .profile-img-box > img {
+        width: 38px;
+        height: 38px;
         object-fit:cover;
+        border-radius: 50%;
     }
+
 
     .logo{
         box-sizing: border-box;
