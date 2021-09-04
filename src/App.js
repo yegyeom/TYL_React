@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './styles/sass/main.css';
 import Pc from './components/navigation/Page';
-import Tablet from './components/navigation/Tablet.js';
+import Mobile from './components/navigation/Mobile.js';
 import { BrowserRouter } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { onSilentRefresh } from './components/auth/auth';
@@ -12,11 +12,11 @@ function App() {
   const dispatch = useDispatch();
 
   const isPc = useMediaQuery({
-    query: '(min-width: 1000px)',
+    query: '(min-width: 481px)',
   });
 
-  const isTablet = useMediaQuery({
-    query: '(max-width: 999px)',
+  const isMobile = useMediaQuery({
+    query: '(max-width: 480px)',
   });
 
   useEffect(() =>
@@ -31,9 +31,9 @@ function App() {
             <Pc />
           </BrowserRouter>
         )}
-        {isTablet && (
+        {isMobile && (
           <BrowserRouter>
-            <Tablet />
+            <Mobile />
           </BrowserRouter>
         )}
       </div>
