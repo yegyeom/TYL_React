@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import Home from '../home/index';
 import Investment from '../investment/index';
@@ -9,10 +9,9 @@ import Profile from '../profile/index.js';
 import Auth from '../auth/index.js';
 import MyAssetContainer from '../asset/components/container/MyAssetContainer';
 
-const MobileTab = ({ list }) => {
+const MobileContent = () => {
   return (
     <>
-      <div className="mobile-main-menu"></div>
       <div className="mobile-content">
         <Route path="/" component={Home} exact />
         <Route path="/Investment" component={Investment} />
@@ -29,4 +28,4 @@ const MobileTab = ({ list }) => {
   );
 };
 
-export default MobileTab;
+export default MobileContent;
