@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, MouseEvent } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { checkValidity } from '../../../auth/userSlice';
-import { useInView } from 'react-intersection-observer';
 import '../../../../styles/sass/main.css';
 
 const Modal = props => {
