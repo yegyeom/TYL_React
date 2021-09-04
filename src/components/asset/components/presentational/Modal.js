@@ -49,6 +49,7 @@ const Modal = props => {
 
   useEffect(() => {
     if (inProgress) return;
+
     const TradeList = stockTradeBox.order.map((list, idx) => {
       var date = new Date(list.date);
       var res =
@@ -81,19 +82,21 @@ const Modal = props => {
   }, [inProgress]);
 
   return (
-    <div className={open ? 'openModal modal' : 'modal'}>
-      {open ? (
-        <section>
-          <header style={{ paddingLeft: '60px', fontSize: '16px' }}>
-            {header}
-            <button className="close" onClick={close}>
-              &times;
-            </button>
-          </header>
-          {tradeList}
-          <footer></footer>
-        </section>
-      ) : null}
+    <div onClick={close}>
+      <div className={open ? 'openModal modal' : 'modal'}>
+        {open ? (
+          <section>
+            <header style={{ paddingLeft: '60px', fontSize: '16px' }}>
+              {header}
+              <button className="close" onClick={close}>
+                &times;
+              </button>
+            </header>
+            {tradeList}
+            <footer></footer>
+          </section>
+        ) : null}
+      </div>
     </div>
   );
 };
