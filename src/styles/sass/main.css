@@ -152,6 +152,7 @@ ul#profile-menu {
 ul#profile-menu li {
   border-bottom: 1px solid #c4c4c4;
   color: #464D52;
+  cursor: pointer;
 }
 
 ul#profile-menu li a:hover {
@@ -240,6 +241,7 @@ ul#profile-menu li a:hover {
   font-weight: bold;
   color: #BBBAB8;
   margin: 0px 2px;
+  cursor: pointer;
 }
 
 .selected-button {
@@ -251,6 +253,7 @@ ul#profile-menu li a:hover {
   color: #464D52;
   border-radius: 10px;
   margin: 0px 2px;
+  cursor: pointer;
 }
 
 .graph-buttons > button:hover {

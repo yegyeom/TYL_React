@@ -25,7 +25,8 @@ ul#profile-menu {
 
 ul#profile-menu li{
     border-bottom: 1px solid #c4c4c4;
-    color: $font-color
+    color: $font-color;
+    cursor: pointer;
 }
 
 ul#profile-menu li a:hover{
