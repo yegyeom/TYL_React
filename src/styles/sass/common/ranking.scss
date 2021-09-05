@@ -1,16 +1,20 @@
 @import './color.scss';
 
 ul.category-container {
-    width: 100%;
+    width: 95%;
     display: inline-flex;
     justify-content: space-between;
-    padding: 3% 0% 3% 0%;
-    margin: 0% 0% 7% 0%;
+    padding: 3% 2.5% 3% 2.5%;
+    margin: 0% 0% 8px 0%;
     font-size: smaller;
     background-color: #fff;
     border: 1px solid #c4c4c420;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+ul.category-container#m {
+    border-radius: 0px;
 }
 
 .selected-category {
@@ -22,6 +26,16 @@ ul.category-container {
     color: #6C6FC6;
     cursor: pointer;
 }
+
+#m.selected-category {
+    display:inline;
+    font-weight: normal;
+    background-color: #5673EB;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 11px;
+}
   
 .unselected-category {
     display: inline;
@@ -31,26 +45,38 @@ ul.category-container {
     cursor: pointer;
 }
 
+#m.unselected-category {
+    display:inline;
+    font-weight: normal;
+    color: #C2C2C2;
+    cursor: pointer;
+    font-size: 11px;
+}
+
 ul.ranking-container {
     width: 100%;
     padding: 3% 0% 3% 0%;
-    margin: 0% 0% 7% 0%;
+    margin: 0;
     background-color: #fff;
     border: 1px solid #c4c4c420;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
+ul.ranking-container#m {
+    border-radius: 0px;
+}
+
 .select-container {
-    width: 20%;
+    //width: 20%;
     float: left;
-    margin: 0.5% 0% 0% 4%;
-    padding: 1.5% 0% 1.5% 5%;
+    margin: 2% 0% 0% 4%;
+    padding: 1.5% 0% 1.5% 1.5%;
     border: 1px solid #c4c4c420;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
     font-size: small;
-    font-weight: bolder;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -60,7 +86,6 @@ ul.ranking-container {
 }
 
 .searchform-container {
-    float: right;
     padding: 0.5%;
     margin: 0% 4% 10% 0%;
     border: 1px solid #c4c4c420;
@@ -71,10 +96,10 @@ ul.ranking-container {
 .search-image {
     width: 13%;
     vertical-align: middle;
-    object-fit: cover;
 }
   
 .searchform-input {
+    //width: 80%;
     border: 0;
 }
 
@@ -83,9 +108,9 @@ ul.ranking-container {
     display: inline-flex;
     justify-content: space-between;
     padding: 2% 5% 2% 5%;
-    margin: 1.5%;
+    margin: 0% 0% 2% 0%;
     background-color: #fff;
-    border: 1px solid #c4c4c4;
+    border: 1px solid #c4c4c470;
     border-radius: 10px 10px 10px 10px;
 }
 

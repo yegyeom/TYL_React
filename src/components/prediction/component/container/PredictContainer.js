@@ -1,7 +1,15 @@
 import React from 'react';
 import Predict from '../presentation/Predict';
+import { useMediaQuery } from 'react-responsive';
 
 const PredictContainer = () => {
+  const isPc = useMediaQuery({
+    query: '(min-width: 481px)',
+  });
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 480px)',
+  });
   // const [inProgress, setInProgress] = useState(true);
   // const [predict, setPredict] = useState([]);
 
@@ -26,9 +34,13 @@ const PredictContainer = () => {
     { name: '카카오뱅크', average: '-3.5', rf: '-3.5', xgb: '-3.5' },
   ];
 
+  for (let i = 0; i < tmpPredict.length; i++) {
+    tmpPredict[i].order = i + 1;
+  }
+
   return (
     <>
-      <Predict info={tmpPredict} />
+      <Predict info={tmpPredict} isPc={isPc} />
     </>
   );
 };

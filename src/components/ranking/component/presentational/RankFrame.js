@@ -3,8 +3,8 @@ import React from 'react';
 const RankFrame = ({ info, str }) => {
   const { nickname, ranking } = info;
 
-  let sign = '',
-    data;
+  let sign = '';
+  let data;
   if (str == 'total-asset') {
     const { asset } = info;
     sign = ' 틸';

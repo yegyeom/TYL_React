@@ -6,20 +6,20 @@ import DepositTab from './container/DepositTab';
 import GoldTab from './container/GoldTab';
 import EstateTab from './container/EstateTab';
 
-const RankingBox = ({ id }) => {
+const RankingBox = ({ id, isPc }) => {
   function SelectedItem() {
     if (id == 'all') {
-      return <AllTab />;
+      return <AllTab isPc={isPc} />;
     } else if (id == 'stock') {
-      return <StockTab />;
+      return <StockTab isPc={isPc} />;
     } else if (id == 'coin') {
-      return <CoinTab />;
+      return <CoinTab isPc={isPc} />;
     } else if (id == 'deposit') {
-      return <DepositTab />;
+      return <DepositTab isPc={isPc} />;
     } else if (id == 'gold') {
-      return <GoldTab />;
+      return <GoldTab isPc={isPc} />;
     } else {
-      return <EstateTab />;
+      return <EstateTab isPc={isPc} />;
     }
   }
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import search_img from '../../../../styles/images/search_icon.png';
 import RankList from './RankList';
+import SearchFilter from './SearchFilter';
 
-const AllRank = ({ ainfo, yinfo, props }) => {
+const AllRank = ({ ainfo, yinfo, props, isPc }) => {
   const [selected, setSelected] = useState('total-asset');
   const [inputValue, setInputValue] = useState('');
 
@@ -31,6 +32,14 @@ const AllRank = ({ ainfo, yinfo, props }) => {
     }
   }
 
+  function InquiriesSearchFilter() {
+    if (selected == 'total-asset') {
+      return <SearchFilter info={ainfo} inputValue={inputValue} str="total-asset" />;
+    } else if (selected == 'yield') {
+      return <SearchFilter info={yinfo} inputValue={inputValue} str="yield" />;
+    }
+  }
+
   const SelectTag = (
     <>
       <select className="select-container" onChange={onChangeSelectOptionHandler}>
@@ -51,8 +60,8 @@ const AllRank = ({ ainfo, yinfo, props }) => {
         <input
           className="searchform-input"
           type="text"
-          value={inputValue}
           placeholder="유저를 찾아보세요"
+          value={inputValue}
           onChange={onChangeInput}
         ></input>
       </form>
@@ -61,12 +70,10 @@ const AllRank = ({ ainfo, yinfo, props }) => {
 
   return (
     <>
-      <ul className="ranking-container">
+      <ul className="ranking-container" id={isPc ? null : 'm'}>
         <div>{SelectTag}</div>
         <div>{SearchForm}</div>
-        <div>
-          <Inquiries />
-        </div>
+        <div>{inputValue.length <= 0 ? <Inquiries /> : <InquiriesSearchFilter />}</div>
       </ul>
     </>
   );

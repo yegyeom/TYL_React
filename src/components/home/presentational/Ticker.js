@@ -8,7 +8,6 @@ const Ticker = ({ info, str }) => {
   if (str == 'best') {
     sign = '+';
   } else {
-    sign = '-';
   }
 
   useEffect(() => setInterval(() => setIndex(state => (state + 1) % info.length), 3000), []);
