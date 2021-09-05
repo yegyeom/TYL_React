@@ -6,25 +6,22 @@ import Prediction from './components/Prediction/index.js';
 import Trade from './components/Trade/index.js';
 
 const index = () => {
+  const [selectedItem, setSelectedItem] = useState();
 
-    const [selectedItem, setSelectedItem] = useState();
+  const getItem = item => {
+    setSelectedItem(item);
+  };
 
-
-
-    const getItem = (item) => {
-        setSelectedItem(item);
-    }
-
-    return (
-        <>
-            <Category></Category>
-            <ItemList getItem={getItem}></ItemList>
-            <Chart sendItem={selectedItem}></Chart>
-            <Prediction></Prediction>
-            <Trade sendItem={selectedItem}></Trade>
-            <div id="empty-space"></div>
-        </>
-    );
+  return (
+    <>
+      <Category></Category>
+      <ItemList getItem={getItem}></ItemList>
+      <Chart sendItem={selectedItem}></Chart>
+      <Prediction sendItem={selectedItem}></Prediction>
+      <Trade sendItem={selectedItem}></Trade>
+      <div id="empty-space"></div>
+    </>
+  );
 };
 
 export default index;
