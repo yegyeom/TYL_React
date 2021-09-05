@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AllRank from '../presentational/AllRank';
 
-const AllTab = () => {
-  const [inProgress, setInProgress] = useState(true);
+const AllTab = ({ isPc }) => {
+  const [inProgress1, setInProgress1] = useState(true);
+  const [inProgress2, setInProgress2] = useState(true);
   const [assetRank, setAssetRank] = useState([]);
   const [profitRank, setProfitRank] = useState([]);
 
   useEffect(() => {
     axios.get('rank/asset').then(res => {
       setAssetRank(res.data.rank);
-      setInProgress(false);
+      setInProgress1(false);
       //console.log(res.data.rank);
     });
   }, []);
@@ -18,12 +19,12 @@ const AllTab = () => {
   useEffect(() => {
     axios.get('rank/preday-history').then(res => {
       setProfitRank(res.data.upperRank);
-      setInProgress(false);
+      setInProgress2(false);
       //console.log(res.data.upperRank);
     });
   }, []);
 
-  if (inProgress) {
+  if (inProgress1 || inProgress2) {
     return <div></div>;
   }
 
@@ -42,7 +43,7 @@ const AllTab = () => {
 
   return (
     <>
-      <AllRank ainfo={assetRank} yinfo={profitRank} />
+      <AllRank ainfo={assetRank} yinfo={profitRank} isPc={isPc} />
     </>
   );
 };

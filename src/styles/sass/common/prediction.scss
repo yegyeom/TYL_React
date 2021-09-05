@@ -2,7 +2,8 @@
 
 ul.prediction-container {
     width: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 3% 0% 3% 0%;
     margin: 0;
     background-color: #fff;
@@ -11,22 +12,28 @@ ul.prediction-container {
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
+ul.prediction-container#m {
+    border-radius: 0px;
+}
+
 .searchform-container {
-    float: right;
+    width: 42%;
+    display: flex;
     padding: 0.5%;
-    margin: 0% 4% 8% 0%;
+    margin: 2% 0% 8% 50%;
     border: 1px solid #c4c4c420;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 .search-image {
-    width: 13%;
+    width: 12%;
+    margin:1% 1% 0% 2%;
     vertical-align: middle;
-    object-fit: cover;
 }
   
 .searchform-input {
+    width: 80%;
     border: 0;
 }
 
@@ -57,41 +64,70 @@ ul.prediction-container {
     color: $decrease;
 }
 
-.prediction-category-text {
-    width: 100%;
-    float: right;
-    text-align: right;
-    margin: 0% 0% 3% 0%;
-    font-weight: bolder;
+.prediction-category-box {
+    width: 70%;
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 1%;
+    font-weight: 500;
+    font-size: smaller;
 }
 
+#prediction-category-text1 {
+    width: 28%;
+    height: 3ex;
+    margin-left: 12%;
+    padding: 0;
+}
+
+#prediction-category-text2 {
+    width: 28%;
+    height: 3ex;
+    margin-left: 0%;
+    padding: 0;
+}
+
+#prediction-category-text3 {
+    width: 28%;
+    height: 3ex;
+    margin-left: 1%;
+    padding: 0;
+}
+
+.predict-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.3%;
+}
 
 .predict-name-text {
-    width: 20%;
-    float: left;
-    margin: 0% 0% 2% 7%;
-    padding: 1% 0% 1% 0%;
-    font-weight: bolder;
+    width: 28%;
+    height: 3ex;
+    margin: 0% 0% 0% 2%;
+    padding: 2% 4% 2% 4%;
+    font-weight: 500;
+    font-size: smaller;
     background-color: $background;
-    border: 1px solid #c4c4c420;
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 .predict-listbox {
-    width: 45%;
-    float: right;
-    display:inline-flex;
-    justify-content: space-between;
-    margin: 0% 7% 2% 0%;
-    padding: 1% 7% 1% 7%;
+    width: 10%;
+    margin: 0% 0% 0% 0.5%;
+    padding: 2.2% 4.5% 2% 5%;
     font-weight: bolder;
+    font-size: smaller;
     background-color: $background;
-    border: 1px solid #c4c4c420;
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
-#predict-profit-text {
-    font-size: medium;
+.serach-available {
+    width: 90%;
+    margin: 0% 0% 0% 1%;
+    padding: 2% 4% 2% 4%;
+    font-weight: 500;
+    font-size: smaller;
+    background-color: $background;
+    border-radius: 10px 10px 10px 10px;
 }

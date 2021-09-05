@@ -735,11 +735,15 @@ ul.home-tickerbox {
   width: 100%;
   display: block;
   padding: 0%;
-  margin: 0% 0% 7% 0%;
+  margin: 0% 0% 8px 0%;
   background-color: #fff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+ul.home-tickerbox#m {
+  border-radius: 0px;
 }
 
 .home-small-info-text {
@@ -778,11 +782,15 @@ ul.home-tickerbox {
 .best-ticker-text-profit {
   width: 100%;
   font-weight: bolder;
-  color: #FF0000;
+  color: #EB5374;
   animation: motion 0.5s;
 }
 
 .worst-ticker-text-name {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 100%;
   font-weight: bolder;
   color: transparent;
@@ -794,7 +802,7 @@ ul.home-tickerbox {
 .worst-ticker-text-profit {
   width: 100%;
   font-weight: bolder;
-  color: #001AFF;
+  color: #5673EB;
   animation: motion 0.5s;
 }
 
@@ -803,7 +811,7 @@ ul.home-tickerbox {
     padding-top: 7%;
   }
 }
-ul.home-rankbox {
+.home-rankbox {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -811,6 +819,10 @@ ul.home-rankbox {
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+ul.home-rankbox#m {
+  border-radius: 0px;
 }
 
 .home-rankbox-title-text {
@@ -827,7 +839,7 @@ ul.ranking-list {
   padding: 2% 5% 2% 5%;
   margin: 0% 0% 2% 0%;
   background-color: #fff;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #c4c4c470;
   border-radius: 10px 10px 10px 10px;
 }
 
@@ -1367,16 +1379,20 @@ input::-webkit-inner-spin-button {
   }
 }
 ul.category-container {
-  width: 100%;
+  width: 95%;
   display: inline-flex;
   justify-content: space-between;
-  padding: 3% 0% 3% 0%;
-  margin: 0% 0% 7% 0%;
+  padding: 3% 2.5% 3% 2.5%;
+  margin: 0% 0% 8px 0%;
   font-size: smaller;
   background-color: #fff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+ul.category-container#m {
+  border-radius: 0px;
 }
 
 .selected-category {
@@ -1389,6 +1405,16 @@ ul.category-container {
   cursor: pointer;
 }
 
+#m.selected-category {
+  display: inline;
+  font-weight: normal;
+  background-color: #5673EB;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
 .unselected-category {
   display: inline;
   padding: 0 16px;
@@ -1397,26 +1423,37 @@ ul.category-container {
   cursor: pointer;
 }
 
+#m.unselected-category {
+  display: inline;
+  font-weight: normal;
+  color: #C2C2C2;
+  cursor: pointer;
+  font-size: 11px;
+}
+
 ul.ranking-container {
   width: 100%;
   padding: 3% 0% 3% 0%;
-  margin: 0% 0% 7% 0%;
+  margin: 0;
   background-color: #fff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
+ul.ranking-container#m {
+  border-radius: 0px;
+}
+
 .select-container {
-  width: 20%;
   float: left;
-  margin: 0.5% 0% 0% 4%;
-  padding: 1.5% 0% 1.5% 5%;
+  margin: 2% 0% 0% 4%;
+  padding: 1.5% 0% 1.5% 1.5%;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
   font-size: small;
-  font-weight: bolder;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -1426,7 +1463,6 @@ ul.ranking-container {
 }
 
 .searchform-container {
-  float: right;
   padding: 0.5%;
   margin: 0% 4% 10% 0%;
   border: 1px solid #c4c4c420;
@@ -1437,7 +1473,6 @@ ul.ranking-container {
 .search-image {
   width: 13%;
   vertical-align: middle;
-  object-fit: cover;
 }
 
 .searchform-input {
@@ -1449,9 +1484,9 @@ ul.ranking-container {
   display: inline-flex;
   justify-content: space-between;
   padding: 2% 5% 2% 5%;
-  margin: 1.5%;
+  margin: 0% 0% 2% 0%;
   background-color: #fff;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #c4c4c470;
   border-radius: 10px 10px 10px 10px;
 }
 
@@ -1462,7 +1497,8 @@ ul.ranking-container {
 
 ul.prediction-container {
   width: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 3% 0% 3% 0%;
   margin: 0;
   background-color: #fff;
@@ -1471,22 +1507,28 @@ ul.prediction-container {
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
+ul.prediction-container#m {
+  border-radius: 0px;
+}
+
 .searchform-container {
-  float: right;
+  width: 42%;
+  display: flex;
   padding: 0.5%;
-  margin: 0% 4% 8% 0%;
+  margin: 2% 0% 8% 50%;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 .search-image {
-  width: 13%;
+  width: 12%;
+  margin: 1% 1% 0% 2%;
   vertical-align: middle;
-  object-fit: cover;
 }
 
 .searchform-input {
+  width: 80%;
   border: 0;
 }
 
@@ -1517,42 +1559,72 @@ ul.prediction-container {
   color: #5673EB;
 }
 
-.prediction-category-text {
+.prediction-category-box {
+  width: 70%;
+  display: flex;
+  margin-left: auto;
+  margin-bottom: 1%;
+  font-weight: 500;
+  font-size: smaller;
+}
+
+#prediction-category-text1 {
+  width: 28%;
+  height: 3ex;
+  margin-left: 12%;
+  padding: 0;
+}
+
+#prediction-category-text2 {
+  width: 28%;
+  height: 3ex;
+  margin-left: 0%;
+  padding: 0;
+}
+
+#prediction-category-text3 {
+  width: 28%;
+  height: 3ex;
+  margin-left: 1%;
+  padding: 0;
+}
+
+.predict-box {
   width: 100%;
-  float: right;
-  text-align: right;
-  margin: 0% 0% 3% 0%;
-  font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.3%;
 }
 
 .predict-name-text {
-  width: 20%;
-  float: left;
-  margin: 0% 0% 2% 7%;
-  padding: 1% 0% 1% 0%;
-  font-weight: bolder;
+  width: 28%;
+  height: 3ex;
+  margin: 0% 0% 0% 2%;
+  padding: 2% 4% 2% 4%;
+  font-weight: 500;
+  font-size: smaller;
   background-color: #fafafa;
-  border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 .predict-listbox {
-  width: 45%;
-  float: right;
-  display: inline-flex;
-  justify-content: space-between;
-  margin: 0% 7% 2% 0%;
-  padding: 1% 7% 1% 7%;
+  width: 10%;
+  margin: 0% 0% 0% 0.5%;
+  padding: 2.2% 4.5% 2% 5%;
   font-weight: bolder;
+  font-size: smaller;
   background-color: #fafafa;
-  border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
-#predict-profit-text {
-  font-size: medium;
+.serach-available {
+  width: 90%;
+  margin: 0% 0% 0% 1%;
+  padding: 2% 4% 2% 4%;
+  font-weight: 500;
+  font-size: smaller;
+  background-color: #fafafa;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .mobile-menu-bar {
