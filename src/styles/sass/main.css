@@ -125,7 +125,7 @@ a {
 
 .profile-info {
   width: 80%;
-  padding-top: 5%;
+  padding-top: 2%;
 }
 
 .profile-tabs {
@@ -187,7 +187,6 @@ a {
 .info .user-info {
   display: inline-block;
   padding-top: 5px;
-  padding-left: 8px;
   text-align: center;
 }
 
