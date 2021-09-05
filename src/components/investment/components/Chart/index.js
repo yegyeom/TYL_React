@@ -1,209 +1,254 @@
-import React, { useState, useEffect } from "react";
-import ReactApexChart from "react-apexcharts";
+import React, { useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
 import ChartStorage from './ChartStorage.js';
+import axios from 'axios';
+
 // https://apexcharts.com/docs/chart-types/candlestick/ 참고
-// 툴팁 : 마우스 포인터라 불리는 커서와 함께 동작한다. 
+// 툴팁 : 마우스 포인터라 불리는 커서와 함께 동작한다.
 // 사용자가 커서에 항목을 클릭하지 않고 가리키면 조그마한 상자가 항목 위에 나타나서 보충 설명을 보여 준다.
-const Chart = (props) => {
+const Chart = props => {
+  const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+  const [series, setSeries] = useState([{}]);
+  const [selectedItem, setSelectedItem] = useState();
+  const [additionalData, setAdditionalData] = useState();
+  const [tooltipIndex, setTooltipIndex] = useState(0);
+  const [tooltipData, setTooltipData] = useState({
+    open: '',
+    high: '',
+    low: '',
+    close: '',
+    date: '',
+  });
 
-    let itemName = "시발";
-    const [selectedItem, setSelectedItem] = useState();
+  let newArr = { open: '', high: '', low: '', close: '', date: '' };
 
-    const [tooltipData, setTooltipData] = useState({ open: '', high: '', low: '', close: '', date: '' });
-    let newArr = { open: '', high: '', low: '', close: '', date: '' };
+  additionalData;
 
-    useEffect(() => { // props.Name의 값이 변경될 때 마다 실행.
-        setSelectedItem(props.sendItem);
-    }, [props]);
+  useEffect(() => {
+    setSelectedItem(props.sendItem);
+  }, [props]);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (selectedItem != null) {
+      setOptions({
+        ...options,
+        title: { text: selectedItem.name },
+      });
 
-        if (selectedItem != null) {
-            setOptions({
-                ...options, // 기존의 input 객체를 복사한 뒤
-                title: { text: selectedItem.name } // name 키를 가진 값을 value 로 설정
-            });
+      let url = 'stock/history-data?code=' + String(selectedItem.code);
+      axios.get(url).then(res => {
+        console.log('뭐냐 ===> ', res.data.history);
+
+        if (res.data.history.length != 0) {
+          setTooltipData({
+            open: res.data.history[res.data.history.length - 1].startValue,
+            high: res.data.history[res.data.history.length - 1].highValue,
+            low: res.data.history[res.data.history.length - 1].lowValue,
+            close: res.data.history[res.data.history.length - 1].endValue,
+            date: res.data.history[res.data.history.length - 1].date,
+          });
+
+          setAdditionalData(
+            res.data.history.map((res_data, index) => {
+              let className = 'chartInfo-data';
+              if (res_data.rate > 0) {
+                className = 'chartInfo-increased';
+              } else if (res_data.rate < 0) {
+                className = 'chartInfo-decreased';
+              }
+
+              return {
+                tradeAmount: res_data.tradeAmount,
+                rate: res_data.rate,
+                className: className,
+              };
+            }),
+          );
+
+          setTooltipIndex(res.data.history.length - 1);
+
+          setSeries([
+            {
+              data: res.data.history.map((res_data, index) => {
+                return {
+                  x: res_data.date,
+                  y: [
+                    res_data.startValue,
+                    res_data.highValue,
+                    res_data.lowValue,
+                    res_data.endValue,
+                  ],
+                };
+              }),
+            },
+          ]);
+        } else {
+          setSeries([{}]);
+          setAdditionalData();
+          setTooltipIndex(0);
+          setTooltipData({
+            open: '',
+            high: '',
+            low: '',
+            close: '',
+            date: '',
+          });
         }
+      });
+    }
+  }, [selectedItem]);
 
-    }, [selectedItem]);
+  const [options, setOptions] = React.useState({
+    title: {
+      text: '',
+      style: {
+        fontSize: '18px',
+        fontWeight: 'bolder',
+        color: '#263238',
+      },
+    },
 
-    const [series, setSeries] = useState([
-        {
-            name: "삼성전자",
-            data: [
-                {
-                    x: new Date(1538866800000),// 어떤식으로 데이터가 들어오는지 보고 레이블 수정하자.
-                    y: [6591.97, 6596.07, 6585, 6588.39]
-                },
-                {
-                    x: new Date(1538868600000),
-                    y: [6587.6, 6598.21, 6587.6, 6594.27]
-                },
-                {
-                    x: new Date(1538870400000),
-                    y: [6596.44, 6601, 6590, 6596.55]
-                },
-                {
-                    x: new Date(1538872200000),
-                    y: [6598.91, 6605, 6596.61, 6600.02]
-                },
-                {
-                    x: new Date(1538874000000),
-                    y: [6600.55, 6605, 6589.14, 6593.01]
-                },
-                {
-                    x: new Date(1538875800000),
-                    y: [6593.15, 6605, 6592, 6603.06]
-                },
-                {
-                    x: new Date(1538877600000),
-                    y: [6603.07, 6604.5, 6599.09, 6603.89]
-                },
-                {
-                    x: new Date(1538879400000),
-                    y: [6604.44, 6604.44, 6600, 6603.5]
-                },
-                {
-                    x: new Date(1538881200000),
-                    y: [6603.5, 6603.99, 6597.5, 6603.86]
-                },
-                {
-                    x: new Date(1634883000000),
-                    y: [6603.85, 6605, 6600, 6604.07]
-                },
-                {
-                    x: new Date(1648884800000),
-                    y: [6604.98, 6606, 6604.07, 6606]
-                }
-            ]
-        }
-    ]);
-
-
-    const [options, setOptions] = React.useState({
-
-        title: {
-            text: '',
-            style: {
-                fontSize: '16px',
-                fontWeight: 'bold',
-                color: '#263238'
-            },
+    chart: {
+      toolbar: {
+        tools: {
+          download: false,
+          selection: false,
+          zoom: false,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: false,
+          customIcons: [],
         },
+        autoSelected: 'pan',
+      },
+      sparkline: {
+        enabled: true,
+      },
+    },
 
-        chart: {
-            toolbar: {
-                tools: {
-                    download: false,
-                    selection: false,
-                    zoom: false,
-                    zoomin: true,
-                    zoomout: true,
-                    pan: true,
-                    reset: false,
-                    customIcons: []
-                },
-                autoSelected: 'pan',
-            },
+    xaxis: {
+      type: 'category',
 
+      labels: {
+        show: false,
+        format: 'MM yyyy',
+      },
+
+      axisBorder: {
+        show: false,
+        color: '#FF0000',
+      },
+
+      tooltip: {
+        enabled: false,
+      },
+    },
+
+    yaxis: {
+      legend: {
+        title: 'dan',
+      },
+      labels: {
+        show: false,
+      },
+    },
+
+    // 툴팁 옵션
+    tooltip: {
+      custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+        const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
+        const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
+        const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
+        const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
+        const d = w.globals.categoryLabels[dataPointIndex];
+        newArr = { open: o, high: h, low: l, close: c, date: d };
+
+        setTooltipIndex(dataPointIndex);
+        setTooltipData({ open: o, high: h, low: l, close: c, date: d });
+        return '<div><div>';
+      },
+    },
+
+    // 색깔 옵션
+    plotOptions: {
+      candlestick: {
+        colors: {
+          upward: '#EB5374',
+          downward: '#5673EB',
         },
-
-        xaxis: {
-
-            type: 'category',
-
-            labels: {
-                show: false,
-                format: 'MM yyyy'
-            },
-
-
-            axisBorder: {
-                show: false,
-                color: "#FF0000",
-            },
-
-            tooltip: {
-                enabled: false,
-            },
-
+        wick: {
+          useFillColor: true,
         },
+      },
+    },
+  });
 
-        yaxis: {
-            legend: {
-                title: "dan"
+  const getFormatDate = d => {
+    var date = new Date(d);
+    var year = date.getFullYear(); //yyyy
+    var month = 1 + date.getMonth(); //M
+    month = month >= 10 ? month : '0' + month; // month 두자리로 저장
+    var day = date.getDate(); //d
+    day = day >= 10 ? day : '0' + day; //day 두자리로 저장
+    return year + '.' + month + '.' + day;
+  };
 
-            },
-            labels: {
-                show: false,
-            },
+  return (
+    <div className="chart-container">
+      <ReactApexChart options={options} series={series} type="candlestick" height={320} />
 
-        },
+      <div id="chartInfo-div">
+        <div className="chartInfo-date">{getFormatDate(tooltipData.date)}</div>
 
-        // 툴팁 옵션
-        tooltip: {
-            custom: function ({ seriesIndex, dataPointIndex, w }) {
-                const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
-                const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
-                const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
-                const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
-                const d = w.globals.categoryLabels[dataPointIndex];
-                newArr = { open: o, high: h, low: l, close: c, date: d };
-                setTooltipData({ open: o, high: h, low: l, close: c, date: d });
-                return ('');
+        <div className="chartInfo">
+          <div className="chartInfo-container">
+            <div className="chartInfo-text">시작</div>
+            <div className="chartInfo-data">{tooltipData.open}</div>
+          </div>
+          <div className="chartInfo-container">
+            {' '}
+            <div className="chartInfo-text">마지막</div>
+            <div className="chartInfo-data">{tooltipData.high}</div>
+          </div>
+        </div>
 
-            },
-        },
+        <div className="chartInfo">
+          <div className="chartInfo-container">
+            {' '}
+            <div className="chartInfo-text">최고</div>
+            <div className="chartInfo-data">{tooltipData.low}</div>
+          </div>
+          <div className="chartInfo-container">
+            {' '}
+            <div className="chartInfo-text">최저</div>
+            <div className="chartInfo-data">{tooltipData.close}</div>
+          </div>
+        </div>
 
-        // 색깔 옵션
-        plotOptions: {
-            candlestick: {
-                colors: {
-                    upward: '#EB5374',
-                    downward: '#5673EB'
-                },
-                wick: {
-                    useFillColor: true,
-                }
-            }
-        }
-    });
-
-
-
-
-
-    return (
-        <div className="chart-container">
-            <ReactApexChart
-                options={options}
-                series={series}
-                type="candlestick"
-                height={300}
-            />
-
-            <div id="chartInfo-div">
-
-                <div className="chartInfo-date">{tooltipData.date}</div>
-
-                <div className="chartInfo">
-                    <div className="chartInfo-container"><div className="chartInfo-text">시작</div><div className="chartInfo-data">{tooltipData.open}</div></div>
-                    <div className="chartInfo-container"> <div className="chartInfo-text">마지막</div><div className="chartInfo-data">{tooltipData.high}</div></div>
-                </div>
-
-                <div className="chartInfo">
-                    <div className="chartInfo-container"> <div className="chartInfo-text">최고</div><div className="chartInfo-data">{tooltipData.low}</div></div>
-                    <div className="chartInfo-container"> <div className="chartInfo-text">최저</div><div className="chartInfo-data">{tooltipData.close}</div></div>
-                </div>
-
-                <div className="chartInfo">
-                    <div className="chartInfo-container"> <div className="chartInfo-text">거래량</div><div className="chartInfo-data">{ }</div></div>
-                    <div className="chartInfo-container">  <div className="chartInfo-text">등락률</div><div className="chartInfo-data">{ }</div></div>
-                </div>
+        <div className="chartInfo">
+          <div className="chartInfo-container">
+            {' '}
+            <div className="chartInfo-text">거래량</div>
+            <div className="chartInfo-data">
+              {additionalData != null ? additionalData[tooltipIndex].tradeAmount : null}
             </div>
-        </div >
-    );
+          </div>
+          <div className="chartInfo-container">
+            {' '}
+            <div className="chartInfo-text">등락률</div>
+            <div
+              className={
+                additionalData != null ? additionalData[tooltipIndex].className : 'chartInfo-data'
+              }
+            >
+              {additionalData != null ? additionalData[tooltipIndex].rate : null}%
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
-
 
 export default Chart;

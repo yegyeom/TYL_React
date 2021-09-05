@@ -2,7 +2,7 @@
 
 
 
-div.category-container, .itemlist-container, .chart-container, .prediction-container{
+.itemlist-container, .chart-container, .prediction-container{
   width: 510px;
   box-sizing: border-box;
   padding: 3%;
@@ -10,7 +10,18 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
   background-color: #ffffff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+div.category-container {
+  width: 510px;
+  box-sizing: border-box;
+  padding: 3%;
+  margin: 0 5% 5% 5%;
+  background-color: #ffffff;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .itemlist-container{
@@ -44,15 +55,24 @@ div.category-container, .itemlist-container, .chart-container, .prediction-conta
 
 #itemlist-searchform {
   float: right;
+  margin-bottom: 3%;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.itemlist-searchform-image {
+  width: 13%;
+  vertical-align: middle;
+  object-fit: cover;
 }
 
 #itemlist-searchform-input {
-  border-color: #C2C2C2;
   // border-top: 1px solid #C2C2C2;
   // border-left: 1px solid #C2C2C2;
-  border: 1px solid #C2C2C2;
-  border-radius: 10px;   
+  border: 0;
 }
+
+
 
 #itemlist-searchform-img {
   height: 10px;
@@ -152,6 +172,7 @@ img.item {
 div.chartInfo-date {
   text-align: center;
   color: #9c9c9c;
+  font-size: medium;
   margin: 3px;
 }
 
@@ -176,6 +197,18 @@ div.chartInfo-text{
 div.chartInfo-data{
   width: 50%;
   text-align: right;
+}
+
+div.chartInfo-increased{
+  width: 50%;
+  text-align: right;
+  color: #EB5374;
+}
+
+div.chartInfo-decreased{
+  width: 50%;
+  text-align: right;
+  color: #5673EB;
 }
 
 div.prediction-item-container {
@@ -258,7 +291,7 @@ div.trade-item {
   font-size: x-large;
   white-space:nowrap;
   cursor: pointer;
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 div#trade-purchase {
@@ -300,7 +333,7 @@ div#empty-space {
   width: 90%;
   max-width: 450px;
   margin:0 auto;
-  border-radius: .3rem;
+  border-radius: 25px;
   background-color: #fff;
   animation: trade-modal-show .3s;
   overflow: hidden;
@@ -309,9 +342,11 @@ div#empty-space {
 
 .trade-modal.trade-openModal {
   display: flex;
+  border-radius: .3rem;
   align-items: center;
   animation: trade-modal-bg-show .3s;
 }
+
 
 
 
@@ -443,6 +478,19 @@ div.modal-item-myinfo {
   text-align: right;
 }
 
+div#modal-item-info-custom{
+  margin-bottom: 2px;
+}
+
+div#trade-error {
+  height: 15px;
+  padding: 0px;
+  margin: 0px 30px 0px 30px;
+  text-align: right;
+  font-size: small;
+  font-weight: bold;
+  color:#FF0000;
+}
 input:focus {outline:none;}
 
 div.modal-item-myinput {
