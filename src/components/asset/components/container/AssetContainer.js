@@ -16,10 +16,6 @@ const AssetConatiner = () => {
     query: '(min-width: 481px)',
   });
 
-  const isMobile = useMediaQuery({
-    query: '(max-width: 480px)',
-  });
-
   const validity = useSelector(checkValidity);
   const [asset, setAsset] = useState(0);
   const [cash, setCash] = useState(0);

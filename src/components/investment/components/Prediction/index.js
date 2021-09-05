@@ -28,7 +28,7 @@ const Prediction = props => {
 
   return (
     <>
-      <div className="prediction-container">
+      <div className="prediction-container" id={props.isPc ? null : 'm'}>
         <div id="prediction-top-text">
           {selectedItem != null ? selectedItem.name : '종목'}에 대한 AI예측 결과를 확인해보세요!
         </div>

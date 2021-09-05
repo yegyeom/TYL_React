@@ -3,25 +3,35 @@
 
 
 .itemlist-container, .chart-container, .prediction-container{
-  width: 510px;
+  width: 100%;
   box-sizing: border-box;
   padding: 3%;
-  margin: 5%;
+  margin: 5% 0%;
   background-color: #ffffff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+#m.itemlist-container, #m.chart-container, #m.prediction-container{
+  border-radius: 0px;
+  margin: 0px;
+  margin-top: 8px;
 }
 
 div.category-container {
-  width: 510px;
+  width: 100%;
   box-sizing: border-box;
   padding: 3%;
-  margin: 0 5% 5% 5%;
+  margin: 0%;
   background-color: #ffffff;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+#m.category-container{
+  border-radius: 0px;
 }
 
 .itemlist-container{
@@ -224,6 +234,10 @@ div#prediction-top-text {
   padding-bottom: 7px;
 }
 
+#m #prediction-top-text{
+  font-size: 15px;
+}
+
 div#prediction-item {
   display: flex;
   flex-direction: column;
@@ -260,6 +274,9 @@ div.trade-container{
   flex-direction: row;
 }
 
+#m.trade-container{
+  margin-top: 8px;
+}
 
 
 // div.trade-img {

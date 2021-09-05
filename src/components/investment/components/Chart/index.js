@@ -195,7 +195,7 @@ const Chart = props => {
   };
 
   return (
-    <div className="chart-container">
+    <div className="chart-container" id={props.isPc ? null : 'm'}>
       <ReactApexChart options={options} series={series} type="candlestick" height={320} />
 
       <div id="chartInfo-div">

@@ -49,7 +49,7 @@ const Trade = props => {
 
   return (
     <>
-      <div className="trade-container">
+      <div className="trade-container" id={props.isPc ? null : 'm'}>
         <div className="trade-item" id="trade-purchase" onClick={openModal}>
           구매하기
         </div>
