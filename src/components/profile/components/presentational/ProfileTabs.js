@@ -42,7 +42,7 @@ const ProfileTabs = () => {
       setModalData({
         id: 'modify',
         header: '닉네임 변경',
-        text: '한글, 영어, 숫자 조합 2-6자리',
+        text: '한글, 영어, 숫자 조합 2-8자리',
         onAccept: closeModal,
       });
     setModalOpen(true);

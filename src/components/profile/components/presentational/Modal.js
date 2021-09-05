@@ -58,7 +58,7 @@ const Modal = props => {
                 className="modal-input"
                 placeholder={props.children}
                 onChange={handleChangeInput}
-                maxLength="6"
+                maxLength="8"
                 autoFocus
               />
               {nickname.length > 1 ? (
