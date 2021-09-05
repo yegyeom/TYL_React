@@ -48,7 +48,7 @@ const Page = () => {
       return (
         <li key={idx} className="user-profile">
           <div className="profile-img-box">
-            <img src={profile_img} className="profile" />
+            <img src={profile_img} />
           </div>
           <span className="user-name">{menu.title}</span>
           <span className="user-ment">님, 반가워요!</span>

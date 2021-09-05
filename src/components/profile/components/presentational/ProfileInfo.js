@@ -8,12 +8,7 @@ const ProfileInfo = ({ name, email, profile_img }) => {
         <div className="profile-img-box-large">
           <img src={profile_img} className="profile" />
         </div>
-        <span
-          className="user-name"
-          style={{ fontSize: '15px', lineHeight: '60px', paddingLeft: '10px' }}
-        >
-          {name}&nbsp;
-        </span>
+        <span className="user-name">{name}&nbsp;</span>
         <span className="user-ment" style={{ fontSize: '13px', lineHeight: '60px' }}>
           ({email})
         </span>
