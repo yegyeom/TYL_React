@@ -11,15 +11,6 @@ import stock_icon from '../../../../styles/images/stock_icon.png';
 import coin_icon from '../../../../styles/images/coin_icon.png';
 
 const AssetConatiner = () => {
-  const todayTime = () => {
-    var today = new Date();
-    var month = ('0' + (today.getMonth() + 1)).slice(-2);
-    var day = ('0' + today.getDate()).slice(-2);
-    var dateString = month + '/' + day;
-
-    return dateString;
-  };
-
   const validity = useSelector(checkValidity);
   const [asset, setAsset] = useState(0);
   const [cash, setCash] = useState(0);
@@ -37,7 +28,6 @@ const AssetConatiner = () => {
   const [history, setHistory] = useState([]);
   const [inProgress, setInProgress] = useState(true);
   const [data, setData] = useState([]);
-  //const historyTotalBox = [];
 
   let match = useRouteMatch();
 

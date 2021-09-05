@@ -90,7 +90,7 @@ const AssetGraph = ({ data }) => {
           enableCrosshair={false}
           enableSlices={'x'}
         />
-        <hr width="480px" color="#c4c4c4" noshade="true" />
+        <hr width="95%" color="#c4c4c4" noshade="true" />
         <div className="graph-buttons">
           <button
             id="total"
