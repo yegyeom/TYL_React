@@ -6,9 +6,9 @@ import { checkValidity } from '../../../auth/userSlice';
 import AssetTotal from '../presentational/AssetTotal';
 import AssetGraph from '../presentational/AssetGraph';
 import AssetList from '../presentational/AssetList';
-import cash_icon from '../../../../styles/images/cash_icon.png';
-import stock_icon from '../../../../styles/images/stock_icon.png';
-import coin_icon from '../../../../styles/images/coin_icon.png';
+import cash_icon from '../../../../styles/images/cash_icon.svg';
+import stock_icon from '../../../../styles/images/stock_icon.svg';
+import coin_icon from '../../../../styles/images/coin_icon.svg';
 
 const AssetConatiner = () => {
   const validity = useSelector(checkValidity);

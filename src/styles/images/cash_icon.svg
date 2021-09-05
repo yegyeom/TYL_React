@@ -1,0 +1,17 @@
+<svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="37.5" cy="37.5" r="37.5" fill="#2FB400" fill-opacity="0.45"/>
+<path d="M37.7501 36.625C34.9126 35.8875 34.0001 35.125 34.0001 33.9375C34.0001 32.575 35.2626 31.625 37.3751 31.625C39.6001 31.625 40.4251 32.6875 40.5001 34.25H43.2626C43.1751 32.1 41.8626 30.125 39.2501 29.4875V26.75H35.5001V29.45C33.0751 29.975 31.1251 31.55 31.1251 33.9625C31.1251 36.85 33.5126 38.2875 37.0001 39.125C40.1251 39.875 40.7501 40.975 40.7501 42.1375C40.7501 43 40.1376 44.375 37.3751 44.375C34.8001 44.375 33.7876 43.225 33.6501 41.75H30.9001C31.0501 44.4875 33.1001 46.025 35.5001 46.5375V49.25H39.2501V46.5625C41.6876 46.1 43.6251 44.6875 43.6251 42.125C43.6251 38.575 40.5876 37.3625 37.7501 36.625Z" fill="#127609"/>
+<rect x="8.25" y="25.25" width="57.5" height="25.5" rx="1.75" stroke="#127609" stroke-width="2.5"/>
+<line x1="38.5148" y1="20.9955" x2="58.534" y2="12.7097" stroke="#127609" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="58.6855" y1="13.323" x2="62.4101" y2="19.1717" stroke="#127609" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="39.2517" y1="55.517" x2="21.0072" y2="62.7198" stroke="#127609" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="20.8455" y1="62.1657" x2="18.2622" y2="55.7309" stroke="#127609" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="11" y1="28.092" x2="15" y2="28.092" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="11.092" y1="32" x2="11.092" y2="28" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="11.092" y1="48" x2="11.092" y2="44" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="15" y1="47.908" x2="11" y2="47.908" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="62.908" y1="28" x2="62.908" y2="32" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="59" y1="28.092" x2="63" y2="28.092" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="63" y1="47.908" x2="59" y2="47.908" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+<line x1="62.908" y1="44" x2="62.908" y2="48" stroke="#127609" stroke-width="2" stroke-linecap="round"/>
+</svg>
