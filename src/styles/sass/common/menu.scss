@@ -72,33 +72,40 @@ a {
       border-bottom: 1px solid #c4c4c480;
   }
 
-.user-name{
+.tabs .user-name{
     font-size:13.5px;
     font-weight: bold;
-    padding-left: 5px;
+    padding-left: 48px;
     padding-right: 0px;
     line-height: 40px;
+    overflow: hidden;
   }
 
- .user-ment{
+ .tabs .user-ment{
       font-size: 12px;
       font-weight: normal;
       padding-left: 0px;
-      line-height: 42px;
+      line-height: 40px;
   }
 
   .profile-img-box{
-        border: 1px solid #c4c4c4;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        border: 2px solid #c4c4c480;
         width: 38px;
         height: 38px;
-        border-radius: 50%;
+        border-radius: 70%;
+        background-color: #fff;
     }
 
     .profile-img-box > img {
-        width: 38px;
-        height: 38px;
-        object-fit:cover;
-        border-radius: 50%;
+        width: 43px;
+        height: 43px;
+        object-fit: cover;
     }
 
 
@@ -111,7 +118,6 @@ a {
         border-radius: 10px 10px 10px 10px;
         padding-left: 0;
         box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
-       // margin-top: 14%;
         margin-bottom: 16px;
         padding: 10px;
         color: #5673EB;

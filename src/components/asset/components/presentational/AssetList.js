@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../../../styles/sass/main.css';
 
-const AssetList = ({ AssetBox, CashBox, match }) => {
+const AssetList = ({ isPc, AssetBox, CashBox, match }) => {
   const AssetList = AssetBox.map((menu, idx) => (
     <li key={idx}>
       <Link to={`${match.url}/${menu.link}`}>
@@ -40,7 +40,7 @@ const AssetList = ({ AssetBox, CashBox, match }) => {
   return (
     <>
       <div className="asset-list-container">
-        <ul id="asset">
+        <ul id="asset" className={isPc ? null : 'm'}>
           <li className="list-cash">
             <div style={{ width: '50px', paddingTop: '5px' }}>
               <img src={CashBox.img} width="100%" />

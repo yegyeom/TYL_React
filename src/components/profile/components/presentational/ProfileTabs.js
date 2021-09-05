@@ -5,7 +5,7 @@ import Modal from './Modal.js';
 import { logout } from '../../../auth/userSlice';
 import axios from 'axios';
 
-const ProfileTabs = ({ url }) => {
+const ProfileTabs = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState({});
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const ProfileTabs = ({ url }) => {
       setModalData({
         id: 'modify',
         header: '닉네임 변경',
-        text: '한글, 영어, 숫자 조합 2-6자리',
+        text: '한글, 영어, 숫자 조합 2-8자리',
         onAccept: closeModal,
       });
     setModalOpen(true);

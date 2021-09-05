@@ -72,33 +72,40 @@ a {
   border-bottom: 1px solid #c4c4c480;
 }
 
-.user-name {
+.tabs .user-name {
   font-size: 13.5px;
   font-weight: bold;
-  padding-left: 5px;
+  padding-left: 48px;
   padding-right: 0px;
   line-height: 40px;
+  overflow: hidden;
 }
 
-.user-ment {
+.tabs .user-ment {
   font-size: 12px;
   font-weight: normal;
   padding-left: 0px;
-  line-height: 42px;
+  line-height: 40px;
 }
 
 .profile-img-box {
-  border: 1px solid #c4c4c4;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border: 2px solid #c4c4c480;
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: 70%;
+  background-color: #fff;
 }
 
 .profile-img-box > img {
-  width: 38px;
-  height: 38px;
+  width: 43px;
+  height: 43px;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .logo {
@@ -117,8 +124,8 @@ a {
 }
 
 .profile-info {
-  width: 100%;
-  padding-top: 15%;
+  width: 80%;
+  padding-top: 2%;
 }
 
 .profile-tabs {
@@ -126,15 +133,72 @@ a {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding-top: 15px;
 }
 
 .info {
-  display: inline-flex;
+  display: inline-block;
   width: 100%;
-  padding-left: 20%;
-  padding-right: 20%;
   font-size: larger;
   box-sizing: border-box;
+  justify-content: center;
+}
+
+.profile-img-box-pc {
+  margin-left: 35%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+  border: 3px solid #c4c4c480;
+  width: 110px;
+  height: 110px;
+  border-radius: 70%;
+  background-color: #fff;
+}
+
+.profile-img-box-mobile {
+  margin-left: 35%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+  border: 3px solid #c4c4c480;
+  width: 80px;
+  height: 80px;
+  border-radius: 70%;
+  background-color: #fff;
+}
+
+.profile-img-box-pc > img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.profile-img-box-mobile > img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.info .user-info {
+  display: inline-block;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.info div.user-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.info div.user-email {
+  font-size: 11px;
+  font-weight: normal;
+  padding-left: 0px;
 }
 
 ul#profile-menu {
@@ -152,20 +216,6 @@ ul#profile-menu li a:hover {
   font-weight: bold;
   text-decoration: none;
   color: #464D52;
-}
-
-.profile-img-box-large {
-  border: 1px solid #c4c4c4;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.profile-img-box-large > img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
 }
 
 .total-asset-container {
@@ -187,6 +237,10 @@ ul#profile-menu li a:hover {
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+#m.total-asset-box {
+  border-radius: 0px;
 }
 
 .total-asset-box li {
@@ -224,6 +278,11 @@ ul#profile-menu li a:hover {
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+#m.graph-container {
+  margin: 8px 0px;
+  border-radius: 0px;
 }
 
 .graph-buttons {
@@ -264,6 +323,10 @@ ul#profile-menu li a:hover {
 .asset-list-container {
   width: 100%;
   box-sizing: border-box;
+}
+
+#asset.m {
+  border-radius: 0px;
 }
 
 #asset {
@@ -620,7 +683,7 @@ ul.detail-trade-right {
 
 div#lists-container {
   border-radius: 10px;
-  width: 420px;
+  width: 100%;
   height: 234px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -1508,16 +1571,24 @@ ul.prediction-container {
 
 .mobile-profile-img-box {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 13px;
   right: 14px;
   width: 30px;
   height: 30px;
+  text-align: center;
   border-radius: 70%;
   overflow: hidden;
+  border: 1.5px solid #c4c4c480;
+  background-color: #fff;
 }
 
 .profile {
   object-fit: cover;
+  width: 30px;
+  height: 30px;
 }
 
 .react-horizontal-scrolling-menu--wrapper {

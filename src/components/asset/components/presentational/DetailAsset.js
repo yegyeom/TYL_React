@@ -63,7 +63,7 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
                 )}
               </div>
             </div>
-            <hr width="480px" color="#c4c4c4" noshade="true" style={{ marginTop: '0px' }} />
+            <hr width="90%" color="#c4c4c4" noshade="true" style={{ marginTop: '0px' }} />
             <div className="time">
               {todayTime.slice(0, 9)}
               <span>{todayTime.slice(9, 12)}</span>

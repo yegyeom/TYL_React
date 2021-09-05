@@ -6,19 +6,19 @@ import { checkValidity } from '../../../auth/userSlice';
 import AssetTotal from '../presentational/AssetTotal';
 import AssetGraph from '../presentational/AssetGraph';
 import AssetList from '../presentational/AssetList';
-import cash_icon from '../../../../styles/images/cash_icon.png';
-import stock_icon from '../../../../styles/images/stock_icon.png';
-import coin_icon from '../../../../styles/images/coin_icon.png';
+import cash_icon from '../../../../styles/images/cash_icon.svg';
+import stock_icon from '../../../../styles/images/stock_icon.svg';
+import coin_icon from '../../../../styles/images/coin_icon.svg';
+import { useMediaQuery } from 'react-responsive';
 
 const AssetConatiner = () => {
-  const todayTime = () => {
-    var today = new Date();
-    var month = ('0' + (today.getMonth() + 1)).slice(-2);
-    var day = ('0' + today.getDate()).slice(-2);
-    var dateString = month + '/' + day;
+  const isPc = useMediaQuery({
+    query: '(min-width: 481px)',
+  });
 
-    return dateString;
-  };
+  const isMobile = useMediaQuery({
+    query: '(max-width: 480px)',
+  });
 
   const validity = useSelector(checkValidity);
   const [asset, setAsset] = useState(0);
@@ -37,7 +37,6 @@ const AssetConatiner = () => {
   const [history, setHistory] = useState([]);
   const [inProgress, setInProgress] = useState(true);
   const [data, setData] = useState([]);
-  //const historyTotalBox = [];
 
   let match = useRouteMatch();
 
@@ -188,9 +187,9 @@ const AssetConatiner = () => {
   if (inProgress) return <div></div>;
   return (
     <>
-      <AssetTotal asset={asset.toLocaleString('ko-KR')} />
-      <AssetGraph data={data} />
-      <AssetList AssetBox={AssetBox} CashBox={CashBox} match={match} />
+      <AssetTotal isPc={isPc} asset={asset.toLocaleString('ko-KR')} />
+      <AssetGraph isPc={isPc} data={data} />
+      <AssetList isPc={isPc} AssetBox={AssetBox} CashBox={CashBox} match={match} />
     </>
   );
 };
