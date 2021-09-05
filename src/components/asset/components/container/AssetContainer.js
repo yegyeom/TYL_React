@@ -9,8 +9,17 @@ import AssetList from '../presentational/AssetList';
 import cash_icon from '../../../../styles/images/cash_icon.svg';
 import stock_icon from '../../../../styles/images/stock_icon.svg';
 import coin_icon from '../../../../styles/images/coin_icon.svg';
+import { useMediaQuery } from 'react-responsive';
 
 const AssetConatiner = () => {
+  const isPc = useMediaQuery({
+    query: '(min-width: 481px)',
+  });
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 480px)',
+  });
+
   const validity = useSelector(checkValidity);
   const [asset, setAsset] = useState(0);
   const [cash, setCash] = useState(0);
@@ -178,9 +187,9 @@ const AssetConatiner = () => {
   if (inProgress) return <div></div>;
   return (
     <>
-      <AssetTotal asset={asset.toLocaleString('ko-KR')} />
-      <AssetGraph data={data} />
-      <AssetList AssetBox={AssetBox} CashBox={CashBox} match={match} />
+      <AssetTotal isPc={isPc} asset={asset.toLocaleString('ko-KR')} />
+      <AssetGraph isPc={isPc} data={data} />
+      <AssetList isPc={isPc} AssetBox={AssetBox} CashBox={CashBox} match={match} />
     </>
   );
 };

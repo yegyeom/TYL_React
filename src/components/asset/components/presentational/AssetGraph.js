@@ -8,7 +8,7 @@ import { ResponsiveLine } from '@nivo/line';
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
-const AssetGraph = ({ data }) => {
+const AssetGraph = ({ isPc, data }) => {
   const [selectedButton, setSelectButton] = useState('total');
   const [graphData, setGraphData] = useState([]);
   const [minY, setMinY] = useState(0);
@@ -49,7 +49,7 @@ const AssetGraph = ({ data }) => {
   }, [inProgress]);
 
   return (
-    <div className="graph-container">
+    <div className="graph-container" id={isPc ? null : 'm'}>
       <div
         style={{
           height: '245px',
