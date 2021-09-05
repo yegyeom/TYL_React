@@ -72,15 +72,16 @@ a {
       border-bottom: 1px solid #c4c4c480;
   }
 
-.user-name{
+.tabs .user-name{
     font-size:13.5px;
     font-weight: bold;
-    padding-left: 42px;
+    padding-left: 48px;
     padding-right: 0px;
     line-height: 40px;
+    overflow: hidden;
   }
 
- .user-ment{
+ .tabs .user-ment{
       font-size: 12px;
       font-weight: normal;
       padding-left: 0px;
@@ -94,10 +95,11 @@ a {
         align-items: center;
         text-align: center;
         overflow: hidden;
-        border: 1px solid #c4c4c4;
+        border: 2px solid #c4c4c480;
         width: 38px;
         height: 38px;
         border-radius: 70%;
+        background-color: #fff;
     }
 
     .profile-img-box > img {

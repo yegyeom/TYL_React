@@ -62,12 +62,18 @@
 
 .mobile-profile-img-box{
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 13px;
     right: 14px;
     width: 30px;
     height: 30px; 
+    text-align: center;
     border-radius: 70%;
     overflow:hidden;
+    border: 1.5px solid #c4c4c480;
+    background-color: #fff;
 }
 
 .profile {

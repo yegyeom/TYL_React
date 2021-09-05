@@ -5,7 +5,7 @@ import Modal from './Modal.js';
 import { logout } from '../../../auth/userSlice';
 import axios from 'axios';
 
-const ProfileTabs = ({ url }) => {
+const ProfileTabs = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState({});
   const dispatch = useDispatch();
