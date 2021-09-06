@@ -29,15 +29,17 @@ const index = () => {
 
   return (
     <>
-      <Category getcategory={getcategory}></Category>
+      <Category isPc={isPc} getcategory={getcategory}></Category>
       {hide == true ? (
         <div id="empty-space">점검 중 입니다!</div>
       ) : (
         <>
-          <ItemList getItem={getItem} category={category}></ItemList>
-          <Chart sendItem={selectedItem} category={category}></Chart>
-          {category == 'stock' ? <Prediction sendItem={selectedItem}></Prediction> : null}
-          <Trade sendItem={selectedItem} category={category}></Trade>
+          <ItemList isPc={isPc} getItem={getItem} category={category}></ItemList>
+          <Chart isPc={isPc} sendItem={selectedItem} category={category}></Chart>
+          {category == 'stock' ? (
+            <Prediction isPc={isPc} sendItem={selectedItem}></Prediction>
+          ) : null}
+          <Trade isPc={isPc} sendItem={selectedItem} category={category}></Trade>
         </>
       )}
 

@@ -25,7 +25,6 @@ const AssetGraph = ({ isPc, data }) => {
         if (list.title === inProgress) {
           arr.push(list);
           setGraphData(arr);
-          console.log(list.data.length);
 
           var min = list.data[0].y;
           var max = list.data[0].y;

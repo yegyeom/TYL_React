@@ -14,25 +14,40 @@ const Modal = props => {
     query: '(max-width: 480px)',
   });
 
-  const { open, close, header } = props;
+  const { open, close, header, assetName } = props;
   const validity = useSelector(checkValidity);
   const [stockTradeBox, setStockTradeBox] = useState([]);
   const [tradeList, setTradeList] = useState([]);
   const [inProgress, setInProgress] = useState(true);
+  const [asset, setAsset] = useState('');
+
+  useEffect(() => {
+    if (assetName === '주식') setAsset('stock');
+    else if (assetName === '암호화폐') setAsset('coin');
+  }, []);
 
   useEffect(() => {
     if (!header) return;
     if (validity) {
       setInProgress(true);
       axios.get('asset').then(res => {
-        var arr = [];
-        res.data.stock.stockList.map(list => {
-          if (list.name === header) {
-            arr.push(list.code); //클릭한 종목 코드
-          }
-        });
+        let arr = [];
 
-        axios.get(`asset/transaction?code=${arr[0]}&type=stock`).then(res => {
+        if (assetName === '주식') {
+          res.data.stock.stockList.map(list => {
+            if (list.name === header) {
+              arr.push(list.code); //클릭한 종목 코드
+            }
+          });
+        } else if (assetName === '암호화폐') {
+          res.data.coin.coinList.map(list => {
+            if (list.name === header) {
+              arr.push(list.code); //클릭한 종목 코드
+            }
+          });
+        }
+
+        axios.get(`asset/transaction?code=${arr[0]}&type=${asset}`).then(res => {
           var data = {
             title: res.data.history[0].name,
             order: [],
@@ -119,7 +134,6 @@ const Modal = props => {
   const [N_Scroll, setN_Scroll] = useState(1);
 
   const onScroll = e => {
-    console.log('onScroll', e);
     const scrollHeight = e.target.scrollHeight;
     const scrollTop = e.target.scrollTop;
     const clientHeight = e.target.clientHeight;

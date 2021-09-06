@@ -23,20 +23,10 @@ const Prediction = props => {
   }, [props.sendItem]);
 
   useEffect(() => {
-    console.log('Result  ===>', Result);
-  }, [Result]);
-
-  useEffect(() => {
-    console.log('셀렉티드 ==> ', selectedItem);
     if (selectedItem != null) {
       axios.get('/api/prediction').then(res => {
         res.data.prediction.rf.map((item, idx) => {
-          console.log('먼데 ==> ', JSON.stringify(selectedItem.code));
-          console.log('아이템 =>', '/br', item.code, '셀렉티드 아이템 =>', selectedItem.code);
-
           if (item.code == selectedItem.code) {
-            console.log('드디어');
-            console.log(res.data.prediction.xgb[idx]);
             setResult([
               {
                 name: '평균',
@@ -54,7 +44,6 @@ const Prediction = props => {
             ]);
           }
         });
-        console.log('Prediction ==> ', res.data.prediction.rf);
       });
     }
   }, [selectedItem]);

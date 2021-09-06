@@ -48,8 +48,6 @@ const Chart = props => {
       }
       if (url != null) {
         axios.get(url).then(res => {
-          console.log('뭐냐 ===> ', res.data.candleData.length);
-
           if (res.data.candleData.length != 0) {
             setTooltipData({
               open: res.data.candleData[res.data.candleData.length - 1].startValue,
@@ -92,7 +90,6 @@ const Chart = props => {
                 }),
               },
             ]);
-            console.log('additionalData', additionalData);
           }
         });
       }
@@ -194,14 +191,11 @@ const Chart = props => {
     return year + '.' + month + '.' + day;
   };
 
-  const onClick = e => {
-    console.log(additionalData);
-  };
   return (
     <div className="chart-container" id={props.isPc ? null : 'm'}>
       <ReactApexChart options={options} series={series} type="candlestick" height={320} />
 
-      <div id="chartInfo-div" onClick={onClick}>
+      <div id="chartInfo-div">
         <div className="chartInfo-date">{getFormatDate(tooltipData.date)}</div>
 
         <div className="chartInfo">

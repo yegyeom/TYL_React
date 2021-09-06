@@ -21,7 +21,6 @@ const Modal = props => {
   useEffect(() => {
     window.addEventListener('click', handleClickOutside);
     inputRef.current.focus();
-    console.log(modalData);
 
     axios.get('asset').then(res => {
       setMyCash(res.data.cash.amount);
@@ -56,8 +55,6 @@ const Modal = props => {
   };
 
   const onClicklabel = ({ target }) => {
-    console.log('또니?', data.assetType);
-
     if (modalData.trsType == 'buy' && inputAmount * modalData.value > myCash) {
     } else if (modalData.trsType == 'sell' && inputAmount > myInvest) {
     } else if (inputAmount != null && inputAmount != 0) {
@@ -69,7 +66,6 @@ const Modal = props => {
       }
 
       axios.post(url, data).then(res => {
-        console.log('onClickBtn => ', res.data);
         closeModal({
           open: true,
           text: res.data.message,
@@ -83,7 +79,6 @@ const Modal = props => {
 
   const onChangeInput = e => {
     setValue(e.target.value);
-    console.log('myAssetmyAsset==> ', myCash, category);
   };
 
   return (
@@ -91,8 +86,11 @@ const Modal = props => {
       <div className="trade-openModal trade-modal">
         <section ref={modalEl}>
           <div className="modal-header-container">
-            <div className="modal-item-img">
-              {/* <img className="item" src={item.imageUrl} alt={item.name} /> */}
+            <div className="item" className="item-img-box">
+              <img
+                className="item-img"
+                src={`https://testyourlife.kro.kr/api/image/stock/${modalData.code}_logo`}
+              />
             </div>
 
             <div className="modal-name-Btn">
@@ -136,20 +134,15 @@ const Modal = props => {
                 {modalData.trsType == 'buy' ? '구매수량' : '판매수량'}
               </div>
 
-              <div className="modal-item-myinput">
-                <input
-                  id="modal-input"
-                  ref={inputRef}
-                  type="number"
-                  value={inputAmount}
-                  onChange={onChangeInput}
-                  placeholder="수량을 입력하세요"
-                ></input>
-              </div>
-              <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {category == 'stock' ? '주' : modalData.code.slice(4, modalData.code.length)}
-              </div>
+              <input
+                id="modal-input"
+                ref={inputRef}
+                type="number"
+                value={inputAmount}
+                onChange={onChangeInput}
+                placeholder="수량을 입력하세요"
+              ></input>
+              <span id="modal-unit">{category === 'stock' ? '주' : '개'}</span>
             </div>
 
             <div className="modal-item-info" id="modal-item-info-custom">

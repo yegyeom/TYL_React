@@ -9,10 +9,8 @@ axios.defaults.withCredentials = true;
 export const onLoginSuccess = response => {
   const { code, accessToken, message } = response.data;
 
-  console.log(code, message);
   if (code === 401) {
-    // alert('토큰이 만료되었습니다.');
-    console.log('토큰이 만료되었습니다.');
+    // console.log('토큰이 만료되었습니다.');
   } else if (code === 200) {
     // 로그인 로직
     const { email, nickname } = jwt.verify(accessToken, process.env.REACT_APP_JWT_SECRET);

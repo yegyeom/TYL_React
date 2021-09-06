@@ -1044,20 +1044,38 @@ div#item-name {
   width: 20%;
 }
 
-div#item-price {
+div.item-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
   padding: auto;
   margin: auto;
-  padding-left: 10%;
-  white-space: nowrap;
+}
+
+span#item-price {
+  font-size: 1rem;
+  padding: auto;
+  margin: auto;
 }
 
 div#item-changed {
+  width: 15%;
   padding: auto;
   margin: auto;
   padding-left: 5%;
   display: flex;
   flex-direction: column;
-  font-size: medium;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+div#item-changedprice {
+  width: fit-content;
+  font-size: 1rem;
+  color: #FF0000;
+  text-align: center;
 }
 
 img.item {
@@ -1092,23 +1110,23 @@ div.chartInfo-container {
 }
 
 div.chartInfo-text {
-  width: 50%;
+  width: fit-content;
   text-align: left;
 }
 
 div.chartInfo-data {
-  width: 50%;
+  flex: 1;
   text-align: right;
 }
 
 div.chartInfo-increased {
-  width: 50%;
+  flex: 1;
   text-align: right;
   color: #EB5374;
 }
 
 div.chartInfo-decreased {
-  width: 50%;
+  flex: 1;
   text-align: right;
   color: #5673EB;
 }
@@ -1253,7 +1271,7 @@ div#empty-space {
 }
 
 .message-modal > section {
-  width: 50%;
+  width: 80%;
   max-width: 350px;
   margin: 0 auto;
   border-radius: 25px;
@@ -1277,13 +1295,15 @@ div.message-header-container {
 }
 
 div.message-container {
-  margin: 10px 0px 15px 0px;
+  margin: 3vh 0px 3vh 0px;
 }
 
 div.modal-item-myinfo {
-  width: 50%;
+  flex: 1;
   float: right;
   text-align: right;
+  padding-left: 10px;
+  overflow: hidden;
 }
 
 div.message-item-info {
@@ -1369,7 +1389,7 @@ div.modal-name-Btn {
 }
 
 div.modal-item-name {
-  padding: 10px 10px 10px 0px;
+  padding: 10px 10px 10px 10px;
   margin: 10px 10px 10px 0px;
   width: 50%;
   float: left;
@@ -1398,6 +1418,7 @@ div.modal-item-dealBtn {
 div.modal-item-info {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background: #e2e2e2;
   border-radius: 10px 10px 10px 10px;
   padding: 10px 20px 10px 20px;
@@ -1406,15 +1427,10 @@ div.modal-item-info {
 }
 
 div.modal-item-text {
-  width: 50%;
+  font-size: 0.815rem;
+  width: fit-content;
   float: left;
   text-align: left;
-}
-
-div.modal-item-myinfo {
-  width: 50%;
-  float: right;
-  text-align: right;
 }
 
 div#modal-item-info-custom {
@@ -1448,10 +1464,16 @@ input::-webkit-inner-spin-button {
 }
 
 #modal-input {
+  flex: 1;
   background-color: transparent;
   border: none;
   font-weight: bold;
   text-align: right;
+  padding-right: 4px;
+}
+
+#modal-unit {
+  font-size: 0.8rem;
 }
 
 @keyframes trade-modal-show {
