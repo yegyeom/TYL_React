@@ -8,7 +8,6 @@ import MobileContent from './MobileContent';
 import MenuModal from './MenuModal';
 import Mobilelogo from '../../styles/images/mobile-logo.svg';
 import MobileMenulogo from '../../styles/images/mobile-menu-logo.svg';
-import profile_img from '../../styles/images/profile_img.png';
 
 const publicItems = [
   { link: '/', title: '홈' },
@@ -37,6 +36,7 @@ const Mobile = () => {
   const user = useSelector(selectUser);
   const [tabBarItems, setTabBarItems] = useState([]);
   const [modalState, setModalState] = useState(false);
+  const [gnbButton, setGnbButton] = useState(null);
   const openModal = () => setModalState(true);
   const closeModal = () => setModalState(false);
   const makeTabItemList = list => list.map((item, idx) => <MobileTabItem data={item} key={idx} />);
@@ -46,7 +46,19 @@ const Mobile = () => {
   }, []);
 
   useEffect(() => {
-    if (validity) setTabBarItems(makeTabItemList([...publicItems, ...privateItmes]));
+    if (validity) {
+      setTabBarItems(makeTabItemList([...publicItems, ...privateItmes]));
+      setGnbButton(
+        <div className="mobile-profile-img-box">
+          <img
+            className="profile"
+            src={`https://testyourlife.kro.kr/api/image/profile?email=${user.email}`}
+          />
+        </div>,
+      );
+    } else {
+      setGnbButton(<img id="menu-logo" src={MobileMenulogo} onClick={openModal} />);
+    }
   }, [validity]);
 
   return (
@@ -54,13 +66,7 @@ const Mobile = () => {
       <div className="mobile-menu-bar">
         <div className="mobile-top-menu">
           <img src={Mobilelogo}></img>
-          {validity ? (
-            <div className="mobile-profile-img-box">
-              <img className="profile" src={profile_img} />
-            </div>
-          ) : (
-            <img id="menu-logo" src={MobileMenulogo} onClick={openModal} />
-          )}
+          {gnbButton}
         </div>
         <div className="mobile-main-menu">
           <ScrollMenu wheel={true}>{tabBarItems}</ScrollMenu>

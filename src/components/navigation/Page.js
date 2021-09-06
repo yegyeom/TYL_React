@@ -48,7 +48,7 @@ const Page = () => {
       return (
         <li key={idx} className="user-profile">
           <div className="profile-img-box">
-            <img src={profile_img} />
+            <img src={`https://testyourlife.kro.kr/api/image/profile?email=${user.email}`} />
           </div>
           <span className="user-name">{menu.title}</span>
           <span className="user-ment">님, 반가워요!</span>

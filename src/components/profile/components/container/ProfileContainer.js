@@ -1,5 +1,4 @@
 import React from 'react';
-import profile_img from '../../../../styles/images/profile_img.png';
 import ProfileInfo from '../presentational/ProfileInfo.js';
 import ProfileTabs from '../presentational/ProfileTabs.js';
 import { useSelector } from 'react-redux';
@@ -10,7 +9,11 @@ const ProfileContainer = () => {
 
   return (
     <>
-      <ProfileInfo name={user.nickname} email={user.email} profile_img={profile_img} />
+      <ProfileInfo
+        name={user.nickname}
+        email={user.email}
+        profile_img={`https://testyourlife.kro.kr/api/image/profile?email=${user.email}`}
+      />
       <ProfileTabs />
     </>
   );
