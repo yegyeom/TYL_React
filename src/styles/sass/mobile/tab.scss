@@ -38,7 +38,7 @@
       justify-content: space-around;
       align-items: center;
       width: 100%;
-      padding: 1vh 0px 1vh 0px;
+      padding: 1vh 0px 0vh 0px;
       font-size: 16px;
       font-weight: 500;
       background-color: #fff;
@@ -57,7 +57,7 @@
 
 .menu-item {
     width: 25vw;
-    height: 24px;
+    height: 32px;
 }
 
 .mobile-profile-img-box{
@@ -90,10 +90,12 @@
   
   .react-horizontal-scrolling-menu--scroll-container {
     -ms-overflow-style: none;
+    scrollbar-width: none;
     padding: 0px;
   }
 
   .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
     width: 0px;
     height: 0px;
+    display: none;
   }

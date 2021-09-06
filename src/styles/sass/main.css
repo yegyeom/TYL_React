@@ -475,11 +475,21 @@ ul.asset-tabs-right {
 }
 
 .asset-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 46px;
-  height: 40.29px;
+  height: 42px;
   border-radius: 70%;
   overflow: hidden;
   margin-top: 5px;
+  border: 2px solid #c4c4c480;
+}
+
+.asset-img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
 }
 
 .time {
@@ -1665,7 +1675,7 @@ ul.prediction-container#m {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 1vh 0px 1vh 0px;
+  padding: 1vh 0px 0vh 0px;
   font-size: 16px;
   font-weight: 500;
   background-color: #fff;
@@ -1684,7 +1694,7 @@ ul.prediction-container#m {
 
 .menu-item {
   width: 25vw;
-  height: 24px;
+  height: 32px;
 }
 
 .mobile-profile-img-box {
@@ -1717,12 +1727,14 @@ ul.prediction-container#m {
 
 .react-horizontal-scrolling-menu--scroll-container {
   -ms-overflow-style: none;
+  scrollbar-width: none;
   padding: 0px;
 }
 
 .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
   width: 0px;
   height: 0px;
+  display: none;
 }
 
 * {
