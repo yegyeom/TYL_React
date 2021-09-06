@@ -31,8 +31,6 @@ const Chart = props => {
     }
   }, [props.category]);
 
-  useEffect(() => {}, [additionalData]);
-
   let newArr = { open: '', high: '', low: '', close: '', date: '' };
 
   useEffect(() => {

@@ -3,15 +3,27 @@ import axios from 'axios';
 import Trade from '../Trade/index.js';
 
 const ItemStorage = props => {
-  const [items, setItem] = useState([]);
+  const [stock, setStock] = useState([]);
+  const [coin, setCoin] = useState([]);
   const [N_Scroll, setN_Scroll] = useState(1);
-  const [selected, setSelected] = useState();
-  const [category, setCategory] = useState();
+  const [selected, setSelected] = useState(false);
+  const [category, setCategory] = useState('stock');
   var cnt = 0;
 
   useEffect(() => {
-    getItem();
-    var interval = setInterval(getItem, 3000);
+    axios.get('/api/coin/real-data').then(res => {
+      setCoin(
+        res.data.map((item, i) => {
+          return { ...item, rate: ((item.endValue - item.startValue) / item.startValue) * 100 };
+        }),
+      );
+    });
+    axios.get('/stock/real-data').then(res => {
+      props.getItem(res.data[0]);
+      setStock(res.data);
+    });
+
+    let interval = setInterval(getItem, 3000);
     return () => {
       clearInterval(interval);
     };
@@ -20,45 +32,37 @@ const ItemStorage = props => {
   useEffect(() => {
     if (props.category == 'stock') {
       setCategory('stock');
-      setSelected();
+      setSelected(false);
     } else if (props.category == 'coin') {
       setCategory('coin');
-      setSelected();
-    } else {
+      setSelected(false);
     }
   }, [props.category]);
 
   useEffect(() => {
+    if (category == 'stock') {
+      props.getItem(stock[0]);
+    } else if (category == 'coin') {
+      props.getItem(coin[0]);
+    }
+  }, [category]);
+
+  useEffect(() => {
     console.log('category 바뀌었다 ==> ', category);
-    getItem();
+    // getItem();
   }, [category]);
 
   const getItem = () => {
-    console.log('getItem함수실행 category ==> ', category);
-    console.log('getItem함수실행 cnt ==> ', cnt);
-    if (category == 'coin') {
-      axios.get('/api/coin/real-data').then(res => {
-        if (selected == null) {
-          props.getItem(res.data[0]);
-        }
-        let newArr = res.data.map((item, i) => {
+    axios.get('/api/coin/real-data').then(res => {
+      setCoin(
+        res.data.map((item, i) => {
           return { ...item, rate: ((item.endValue - item.startValue) / item.startValue) * 100 };
-        });
-        setItem(newArr);
-      });
-    } else if (category == 'stock' || cnt == 0) {
-      axios.get('/stock/real-data').then(res => {
-        if (selected == null) {
-          props.getItem(res.data[0]);
-        }
-        let newArr = res.data.map((item, i) => {
-          return { item };
-        });
-        setItem(res.data);
-      });
-    }
-
-    cnt += 1;
+        }),
+      );
+    });
+    axios.get('/stock/real-data').then(res => {
+      setStock(res.data);
+    });
   };
 
   const fluctuationCal = (value, rate) => {
@@ -83,6 +87,8 @@ const ItemStorage = props => {
   };
 
   const allResult = items => {
+    cnt += 1;
+
     return items.map((item, index) => {
       if (index < N_Scroll * 50) {
         const positive = item.rate > 0 ? true : false;
@@ -121,7 +127,7 @@ const ItemStorage = props => {
                 id="item-changedpercent"
                 style={positive > 0 ? { color: '#EB5374' } : { color: '#5673EB' }}
               >
-                ({item.rate.toFixed(2)}%)
+                ({item.rate.toFixed(5)}%)
               </div>
             </div>
           </div>
@@ -179,7 +185,13 @@ const ItemStorage = props => {
 
   return (
     <div id="items-container" onScroll={onScroll}>
-      {props.inputValue.length <= 0 ? allResult(items) : filteredResult(items)}
+      {props.inputValue.length <= 0
+        ? category == 'stock'
+          ? allResult(stock)
+          : allResult(coin)
+        : category == 'stock'
+        ? filteredResult(stock)
+        : filteredResult(coin)}
     </div>
   );
 };

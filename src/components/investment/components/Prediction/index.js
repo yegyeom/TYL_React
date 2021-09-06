@@ -5,7 +5,7 @@ const Prediction = props => {
 
   useEffect(() => {
     setSelectedItem(props.sendItem);
-  }, [props]);
+  }, [props.sendItem]);
 
   const [Result, setResult] = React.useState([
     {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Category from './components/Category.js';
 import ItemList from './components/ItemList/index.js';
 import Chart from './components/Chart/index.js';
@@ -22,7 +22,9 @@ const index = () => {
     <>
       <Category getcategory={getcategory}></Category>
       <ItemList getItem={getItem} category={category}></ItemList>
+
       <Chart sendItem={selectedItem} category={category}></Chart>
+
       <Prediction sendItem={selectedItem}></Prediction>
       <Trade sendItem={selectedItem}></Trade>
       <div id="empty-space"></div>

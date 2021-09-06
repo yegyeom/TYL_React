@@ -8,9 +8,11 @@ const ItemList = props => {
   };
   const [category, setCategory] = useState();
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
     setCategory(props.category);
-  }, [props]);
+  }, [props.category]);
 
   const [inputValue, setInputValue] = useState('');
 
@@ -42,6 +44,7 @@ const ItemList = props => {
   return (
     <div className="itemlist-container">
       {SearchForm}
+
       <ItemStorage getItem={getItem} inputValue={inputValue} category={category}></ItemStorage>
     </div>
   );

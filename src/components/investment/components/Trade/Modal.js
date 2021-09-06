@@ -16,9 +16,9 @@ const Modal = props => {
   useEffect(() => {
     window.addEventListener('click', handleClickOutside);
     inputRef.current.focus();
+    console.log(modalData);
 
     axios.get('asset').then(res => {
-      console.log('구매버튼 클릭 ==> ', res.data.cash.amount);
       setMyCash(res.data.cash.amount);
     });
 
