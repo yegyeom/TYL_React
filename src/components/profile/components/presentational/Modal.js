@@ -1,19 +1,42 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../../../../styles/sass/main.css';
 
 const Modal = props => {
-  // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, onAccept, id } = props;
+  const [nickname, setNickname] = useState('');
+  const [overlap, setOverlap] = useState(false);
+  const [wrongLength, setWrongLength] = useState(false);
 
   const handleChangeInput = event => {
-    //   console.log(event.target.value);
     setNickname(event.target.value);
   };
 
-  const [nickname, setNickname] = useState('');
+  const handleComplete = () => {
+    if (nickname.length < 2) {
+      setWrongLength(true);
+      return;
+    }
+    axios
+      .post('api/user/change/nickname', {
+        nickname: nickname,
+      })
+      .then(res => {
+        const { code } = res.data;
+
+        if (code === 400) {
+          console.log('중복임~');
+          setOverlap(true);
+        } else if (code === 200) {
+          window.location.reload();
+        }
+      });
+  };
+
   const onChildClick = e => {
     e.stopPropagation();
   };
+
   if (id === 'out') {
     //로그아웃, 탈퇴
     return (
@@ -59,10 +82,13 @@ const Modal = props => {
                 placeholder={props.children}
                 onChange={handleChangeInput}
                 maxLength="8"
+                minlength="2"
                 autoFocus
               />
-              {nickname.length > 1 ? (
-                <div className="check-nickname">사용 가능한 닉네임입니다!</div>
+              {overlap ? (
+                <div className="check-nickname">사용 중인 닉네임 입니다!</div>
+              ) : wrongLength ? (
+                <div className="check-nickname">2자 이상 입력해주세요!</div>
               ) : (
                 <div className="check-nickname">&nbsp;</div>
               )}
@@ -70,8 +96,9 @@ const Modal = props => {
             <footer style={{ padding: '2px 16px 12px 16px' }}>
               <button
                 className="modify"
-                onClick={nickname.length > 1 ? onAccept : null}
-                id={nickname.length > 1 ? 'possible' : null}
+                id={wrongLength ? '' : null}
+                id={overlap ? '' : null}
+                onClick={handleComplete}
               >
                 완료
               </button>

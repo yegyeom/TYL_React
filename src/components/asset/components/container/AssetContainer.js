@@ -16,10 +16,6 @@ const AssetConatiner = () => {
     query: '(min-width: 481px)',
   });
 
-  const isMobile = useMediaQuery({
-    query: '(max-width: 480px)',
-  });
-
   const validity = useSelector(checkValidity);
   const [asset, setAsset] = useState(0);
   const [cash, setCash] = useState(0);
@@ -83,10 +79,13 @@ const AssetConatiner = () => {
   useEffect(() => {
     if (inProgress) return;
     const data = [];
-    const totalObj = { title: 'total', id: 'TYL', data: [] };
+    const totalObj = { title: 'total', id: 'TYL', data: [] }; //전체 버튼
+    const oneMonthObj = { title: '1-month', id: 'TYL', data: [] }; //1개월 버튼
+    const threeMonthObj = { title: '3-month', id: 'TYL', data: [] }; //3개월 버튼
 
     history.map((menu, idx) => {
       if (menu.hasOwnProperty('asset')) {
+        //key 이름 변경
         menu.y = menu.asset;
         delete menu.asset;
       }
@@ -97,9 +96,9 @@ const AssetConatiner = () => {
         delete menu.date;
       }
       totalObj.data.push(menu);
+      data.push(totalObj);
     });
 
-    data.push(totalObj);
     data.push(
       {
         title: '1-month',
@@ -136,20 +135,16 @@ const AssetConatiner = () => {
         id: 'TYL',
         data: [
           {
-            x: '20.4',
-            y: 256600,
-          },
-          {
-            x: '20.5',
+            x: '20.7',
             y: 170000,
           },
           {
-            x: '20.6',
+            x: '20.8',
             y: 210000,
           },
           {
-            x: '20.7',
-            y: 34460,
+            x: '20.9',
+            y: 34460000,
           },
         ],
       },

@@ -58,7 +58,7 @@
     text-align: left;
     padding-top: 3px;
     padding-left: 8px;
-    color: rgb(105, 135, 253);
+    color: red;
     font-weight: bolder;
 }
 
@@ -84,11 +84,6 @@
     border-radius: 10px;
     font-size: 14px;
     font-weight: bold;
-}
-
-.modal > section > footer button.modify#possible {
-    color: rgb(105, 135, 253);
-    border: 2px solid rgb(105, 135, 253);
 }
 
 .modal.openModal {

@@ -15,46 +15,85 @@ const Category = props => {
   }, [selected]);
 
   return (
-    <div className="category-container">
-      <div id="category-div">
+    <div className="category-container" id={props.isPc ? null : 'm'}>
+      <div id={props.isPc ? 'category-div' : 'category-div-m'}>
         <div
-          className={selected == 'stock' ? 'selected-category' : 'unSelected-category'}
+          className={
+            selected == 'stock'
+              ? props.isPc
+                ? 'selected-category'
+                : 'selected-category-m'
+              : props.isPc
+              ? 'unSelected-category'
+              : 'unSelected-category-m'
+          }
           id="stock"
           onClick={onClick}
-          style={{ padding: '0px 20px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
-          {' '}
           주식
         </div>
         <div
-          className={selected == 'coin' ? 'selected-category' : 'unSelected-category'}
+          className={
+            selected == 'coin'
+              ? props.isPc
+                ? 'selected-category'
+                : 'selected-category-m'
+              : props.isPc
+              ? 'unSelected-category'
+              : 'unSelected-category-m'
+          }
           id="coin"
           onClick={onClick}
-          style={{ padding: '0px 20px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           암호화폐
         </div>
         <div
-          className={selected == 'deposit' ? 'selected-category' : 'unSelected-category'}
+          className={
+            selected == 'deposit'
+              ? props.isPc
+                ? 'selected-category'
+                : 'selected-category-m'
+              : props.isPc
+              ? 'unSelected-category'
+              : 'unSelected-category-m'
+          }
           id="deposit"
           onClick={onClick}
-          style={{ padding: '0px 20px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           예·적금
         </div>
         <div
-          className={selected == 'realestate' ? 'selected-category' : 'unSelected-category'}
+          className={
+            selected == 'realestate'
+              ? props.isPc
+                ? 'selected-category'
+                : 'selected-category-m'
+              : props.isPc
+              ? 'unSelected-category'
+              : 'unSelected-category-m'
+          }
           id="realestate"
           onClick={onClick}
-          style={{ padding: '0px 20px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           부동산
         </div>
         <div
-          className={selected == 'gold' ? 'selected-category' : 'unSelected-category'}
+          className={
+            selected == 'gold'
+              ? props.isPc
+                ? 'selected-category'
+                : 'selected-category-m'
+              : props.isPc
+              ? 'unSelected-category'
+              : 'unSelected-category-m'
+          }
           id="gold"
           onClick={onClick}
-          style={{ padding: '0px 20px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           금
         </div>

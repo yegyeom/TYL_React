@@ -4,8 +4,13 @@ import ItemList from './components/ItemList/index.js';
 import Chart from './components/Chart/index.js';
 import Prediction from './components/Prediction/index.js';
 import Trade from './components/Trade/index.js';
+import { useMediaQuery } from 'react-responsive';
 
 const index = () => {
+  const isPc = useMediaQuery({
+    query: '(min-width: 481px)',
+  });
+
   const [selectedItem, setSelectedItem] = useState();
   const [category, setCategory] = useState();
 
@@ -20,13 +25,11 @@ const index = () => {
 
   return (
     <>
-      <Category getcategory={getcategory}></Category>
-      <ItemList getItem={getItem} category={category}></ItemList>
-
-      <Chart sendItem={selectedItem} category={category}></Chart>
-
-      <Prediction sendItem={selectedItem}></Prediction>
-      <Trade sendItem={selectedItem}></Trade>
+      <Category isPc={isPc} getcategory={getcategory}></Category>
+      <ItemList isPc={isPc} getItem={getItem} category={category}></ItemList>
+      <Chart isPc={isPc} sendItem={selectedItem} category={category}></Chart>
+      <Prediction isPc={isPc} sendItem={selectedItem}></Prediction>
+      <Trade isPc={isPc} sendItem={selectedItem}></Trade>
       <div id="empty-space"></div>
     </>
   );
