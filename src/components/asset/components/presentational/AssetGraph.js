@@ -1,12 +1,5 @@
-// install (please make sure versions match peerDependencies)
-// yarn add @nivo/core @nivo/line
 import React, { useEffect, useState } from 'react';
 import { ResponsiveLine } from '@nivo/line';
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
 
 const AssetGraph = ({ isPc, data }) => {
   const [selectedButton, setSelectButton] = useState('total');
@@ -56,6 +49,17 @@ const AssetGraph = ({ isPc, data }) => {
           width: '100%',
         }}
       >
+        <span
+          style={{
+            display: 'block',
+            fontSize: '10px',
+            textAlign: 'right',
+            paddingRight: '5px',
+            color: '#464D52',
+          }}
+        >
+          해당 날짜 자정 기준입니다.
+        </span>
         <ResponsiveLine
           colors={['#5673EB']}
           colorBy="index"
