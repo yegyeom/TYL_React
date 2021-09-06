@@ -1182,9 +1182,9 @@ div#empty-space {
 
 .message-modal > section {
   width: 50%;
-  max-width: 250px;
+  max-width: 350px;
   margin: 0 auto;
-  border-radius: 0.3rem;
+  border-radius: 25px;
   background-color: #fff;
   animation: trade-modal-show 0.3s;
   overflow: hidden;
@@ -1194,9 +1194,77 @@ div#empty-space {
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: large;
+  font-size: medium;
   font-weight: 500;
   animation: trade-modal-bg-show 0.3s;
+}
+
+div.message-header-container {
+  font-weight: bolder;
+  font-size: large;
+}
+
+div.message-container {
+  margin: 10px 0px 15px 0px;
+}
+
+div.modal-item-myinfo {
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+
+div.message-item-info {
+  display: flex;
+  flex-direction: row;
+  background: #e2e2e2;
+  border-radius: 10px 10px 10px 10px;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 30px 10px 30px;
+  font-weight: bold;
+}
+
+div.message-item-text {
+  width: 50%;
+  float: left;
+  text-align: left;
+}
+
+div.message-item-text-custom {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+
+div.message-item-myinfo-custom1 {
+  float: right;
+  text-align: right;
+}
+
+div.message-item-myinfo {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+div.message-item-myinfo-increase {
+  color: #EB5374;
+  float: right;
+  text-align: right;
+  font-size: x-small;
+}
+
+div.message-item-myinfo-decrease {
+  color: #5673EB;
+  float: right;
+  text-align: right;
+  font-size: x-small;
+}
+
+div.modal-body-container {
+  margin: 20px 0px;
 }
 
 .message-container {

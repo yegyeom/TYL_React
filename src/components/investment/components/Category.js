@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Category = () => {
+const Category = props => {
   const [selected, setSelected] = useState('stock');
 
   const onClick = e => {
     setSelected(e.target.id);
-    console.log('클릭발생', e);
+    console.log('[category]클릭발생', e.target.id);
     console.log(e.target.id);
+    props.getcategory(e.target.id);
   };
+
+  useEffect(() => {
+    console.log('[category]useEffect', selected);
+  }, [selected]);
 
   return (
     <div className="category-container">

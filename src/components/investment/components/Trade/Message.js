@@ -18,29 +18,43 @@ const Message = props => {
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
-    <div className="trade-openModal trade-modal">
+    <div className="message-modal message-openModal">
       <section>
-        <div className="modal-body-container">
-          {data.name}&nbsp;
-          {inputAmount}
-          {data.trsType == 'buy' ? '주를 구매했어요!' : '주를 판매했어요!'}
-        </div>
-
-        <div className="modal-body-container">
-          <div className="modal-item-info">
-            <div className="modal-item-text">{data.trsType == 'buy' ? '구매가격' : '판매가격'}</div>
-            <div className="modal-item-myinfo">
+        <div className="message-container">
+          <div className="message-header-container">
+            {data.name}&nbsp;
+            {inputAmount}
+            {data.trsType == 'buy' ? '주를 구매했어요!' : '주를 판매했어요!'}
+          </div>
+          <div className="message-item-info">
+            <div className="message-item-text">
+              {data.trsType == 'buy' ? '구매가격' : '판매가격'}
+            </div>
+            <div className="message-item-myinfo">
               {parseInt(data.value).toLocaleString('ko-KR')} TYL
             </div>
           </div>
-
-          <div className="modal-item-info">
-            <div className="modal-item-text">보유자산</div>
-            <div className="modal-item-myinfo">
-              {parseInt(myAsset.myCash - data.value * inputAmount).toLocaleString('ko-KR')} TYL
-            </div>
-            <div className="modal-item-myinfo">
-              {parseInt(inputAmount * data.value).toLocaleString('ko-KR')}
+          <div className="message-item-info">
+            <div className="message-item-text">보유자산</div>
+            <div className="message-item-text-custom">
+              <div className="message-item-myinfo-custom1">
+                {data.trsType == 'buy'
+                  ? parseInt(myAsset.myCash - data.value * inputAmount).toLocaleString('ko-KR')
+                  : parseInt(myAsset.myCash + data.value * inputAmount).toLocaleString(
+                      'ko-KR',
+                    )}{' '}
+                TYL
+              </div>
+              <div
+                className={
+                  data.trsType == 'buy'
+                    ? 'message-item-myinfo-decrease'
+                    : 'message-item-myinfo-increase'
+                }
+              >
+                {data.trsType == 'buy' ? '-' : '+'}
+                {parseInt(inputAmount * data.value).toLocaleString('ko-KR')} TYL
+              </div>
             </div>
           </div>
         </div>

@@ -1,46 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Trade from '../Trade/index.js';
-//https://search.pstatic.net/sunny/?src=https%3A%2F%…%2F_images%2Ffavicon.ico&type=f30_30_png_expire24 삼성이미지
-// 라이프 사이클,
-// useeffect 렌더링 전 , 후 표시?
-// 렌더링 되기 전 데이터를 받아와야 함
+
 const ItemStorage = props => {
-  //이름, 코드?(필요한가), 값, rate만 가져올 수 있도록한다.
   const [items, setItem] = useState([]);
   const [N_Scroll, setN_Scroll] = useState(1);
-  const [selectedItem, setSelectedItem] = useState({});
+  const [selected, setSelected] = useState();
+  const [category, setCategory] = useState();
   var cnt = 0;
 
   useEffect(() => {
-    // updateData() => setInterval 10초마다 장이열리는 시간이면 ㅋㅋ
     getItem();
-    var interval = setInterval(getItem, 10000);
+    var interval = setInterval(getItem, 3000);
     return () => {
-      console.log("I'm dying...");
       clearInterval(interval);
     };
   }, []);
 
-  // 유즈이펙트 나갈때 타이머 종료 실행
-  //
+  useEffect(() => {
+    if (props.category == 'stock') {
+      setCategory('stock');
+      setSelected();
+    } else if (props.category == 'coin') {
+      setCategory('coin');
+      setSelected();
+    } else {
+    }
+  }, [props.category]);
 
-  useEffect(() => {}, [items]);
+  useEffect(() => {
+    console.log('category 바뀌었다 ==> ', category);
+    getItem();
+  }, [category]);
 
   const getItem = () => {
-    cnt += 1;
-    axios.get('/stock/real-data').then(res => {
-      if (cnt == 1) {
-        props.getItem(res.data[0]);
-      }
-
-      console.log('데이터를 불러왔습니다. =>', cnt, res.data);
-
-      let newArr = res.data.map((item, i) => {
-        return { item };
+    console.log('getItem함수실행 category ==> ', category);
+    console.log('getItem함수실행 cnt ==> ', cnt);
+    if (category == 'coin') {
+      axios.get('/api/coin/real-data').then(res => {
+        if (selected == null) {
+          props.getItem(res.data[0]);
+        }
+        let newArr = res.data.map((item, i) => {
+          return { ...item, rate: ((item.endValue - item.startValue) / item.startValue) * 100 };
+        });
+        setItem(newArr);
       });
-      setItem(res.data);
-    });
+    } else if (category == 'stock' || cnt == 0) {
+      axios.get('/stock/real-data').then(res => {
+        if (selected == null) {
+          props.getItem(res.data[0]);
+        }
+        let newArr = res.data.map((item, i) => {
+          return { item };
+        });
+        setItem(res.data);
+      });
+    }
+
+    cnt += 1;
   };
 
   const fluctuationCal = (value, rate) => {
@@ -60,6 +78,7 @@ const ItemStorage = props => {
   };
 
   const onClick = item => {
+    setSelected(true);
     props.getItem(item);
   };
 
@@ -71,7 +90,7 @@ const ItemStorage = props => {
           <div
             className="item"
             id="item-container"
-            key={item.id}
+            key={index}
             onClick={() => {
               onClick(item, item.name, item.value);
             }}
@@ -94,13 +113,15 @@ const ItemStorage = props => {
                 style={positive > 0 ? { color: '#EB5374' } : { color: '#5673EB' }}
               >
                 {positive > 0 ? '+' : ''}
-                {parseInt(fluctuationCal(item.value, item.rate)).toLocaleString('ko-KR')}
+                {category == 'stock'
+                  ? parseInt(fluctuationCal(item.value, item.rate)).toLocaleString('ko-KR')
+                  : parseInt(item.endValue - item.startValue).toLocaleString('ko-KR')}
               </div>
               <div
                 id="item-changedpercent"
                 style={positive > 0 ? { color: '#EB5374' } : { color: '#5673EB' }}
               >
-                ({item.rate}%)
+                ({item.rate.toFixed(2)}%)
               </div>
             </div>
           </div>
@@ -118,7 +139,7 @@ const ItemStorage = props => {
           <div
             className="item"
             id="item-container"
-            key={item.id}
+            key={index}
             onClick={() => {
               onClick(item, item.name, item.value);
             }}
@@ -147,7 +168,7 @@ const ItemStorage = props => {
                 id="item-changedpercent"
                 style={positive > 0 ? { color: '#EB5374' } : { color: '#5673EB' }}
               >
-                ({item.rate}%)
+                ({item.rate.toFixed(2)}%)
               </div>
             </div>
           </div>
