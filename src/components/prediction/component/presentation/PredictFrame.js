@@ -5,7 +5,7 @@ const PredictFrame = ({ info }) => {
 
   function ProfitColor({ name }) {
     if (name > 0) {
-      return <div style={{ color: '#EB5374' }}>{name}%</div>;
+      return <div style={{ color: '#EB5374' }}>+{name}%</div>;
     } else if (name < 0) {
       return <div style={{ color: '#5673EB' }}>{name}%</div>;
     } else {

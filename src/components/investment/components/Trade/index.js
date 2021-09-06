@@ -9,6 +9,11 @@ const Trade = props => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState();
   const [message, setMessage] = useState({ open: false, text: '' });
+  const [category, setCategory] = useState();
+
+  useEffect(() => {
+    setCategory(props.category);
+  }, [props.category]);
 
   useEffect(() => {
     setSelectedItem(props.sendItem);
@@ -57,7 +62,12 @@ const Trade = props => {
         </div>
       </div>
       {modalOpen ? (
-        <Modal closeModal={closeModal} modalData={modalData} getMessage={getMessage}></Modal>
+        <Modal
+          closeModal={closeModal}
+          modalData={modalData}
+          getMessage={getMessage}
+          category={category}
+        ></Modal>
       ) : null}
       {message.open ? (
         <Message
@@ -66,6 +76,7 @@ const Trade = props => {
           inputAmount={message.inputAmount}
           closeMessage={closeMessage}
           myAsset={message.myAsset}
+          category={category}
         ></Message>
       ) : null}
     </>

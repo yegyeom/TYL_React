@@ -15,7 +15,6 @@ const Predict = ({ info, isPc }) => {
   };
 
   return (
-    <>
       <ul className="prediction-container" id={isPc ? null : 'm'}>
         <SearchForm onSubmit={onSubmit} onChangeInput={onChangeInput} inputValue={inputValue} />
         <div className="prediction-textbox">
@@ -43,7 +42,6 @@ const Predict = ({ info, isPc }) => {
           <SearchFilter info={info} inputValue={inputValue} />
         )}
       </ul>
-    </>
   );
 };
 

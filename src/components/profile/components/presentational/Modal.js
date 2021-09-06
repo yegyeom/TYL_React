@@ -25,7 +25,6 @@ const Modal = props => {
         const { code } = res.data;
 
         if (code === 400) {
-          console.log('중복임~');
           setOverlap(true);
         } else if (code === 200) {
           window.location.reload();
@@ -82,7 +81,7 @@ const Modal = props => {
                 placeholder={props.children}
                 onChange={handleChangeInput}
                 maxLength="8"
-                minlength="2"
+                minLength="2"
                 autoFocus
               />
               {overlap ? (

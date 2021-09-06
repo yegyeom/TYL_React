@@ -11,7 +11,6 @@ const BestRank = () => {
     axios.get('rank/preday-history').then(res => {
       setRank(res.data.upperRank);
       setInProgress(false);
-      //console.log(res.data.upperRank);
     });
   }, []);
 
@@ -19,6 +18,8 @@ const BestRank = () => {
   if (inProgress) {
     return <div></div>;
   }
+
+  //console.log(rank);
 
   return <Ticker info={rank} str="best" />;
 };

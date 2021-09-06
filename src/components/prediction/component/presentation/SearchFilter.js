@@ -22,44 +22,41 @@ const SearchFilter = ({ info, inputValue }) => {
   }
 
   return newItems.map((item, idx) => {
-    //   if (idx < N_Scroll * 50) {
-    //const positive = item.rate > 0 ? true : false;
-    console.log(info);
     return (
       <div className="predict-box">
-      <ul
-        className="predict-name-text"
-        style={
-          info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
-        }
-      >
-        {item.name}
-      </ul>
-      <ul
-        className="predict-listbox"
-        style={
-          info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
-        }
-      >
-        <ProfitColor name={item.average} />
-      </ul>
-      <ul
-        className="predict-listbox"
-        style={
-          info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
-        }
-      >
-        <ProfitColor name={item.rf} />
-      </ul>
-      <ul
-        className="predict-listbox"
-        style={
-          info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
-        }
-      >
-        <ProfitColor name={item.xgb} />
-      </ul>
-    </div>
+        <ul
+          className="predict-name-text"
+          style={
+            info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
+          }
+        >
+          {item.name}
+        </ul>
+        <ul
+          className="predict-listbox"
+          style={
+            info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
+          }
+        >
+          <ProfitColor name={item.average} />
+        </ul>
+        <ul
+          className="predict-listbox"
+          style={
+            info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
+          }
+        >
+          <ProfitColor name={item.rf} />
+        </ul>
+        <ul
+          className="predict-listbox"
+          style={
+            info.order % 2 != 0 ? { backgroundColor: '#e1e1e185' } : { backgroundColor: '#fafafa' }
+          }
+        >
+          <ProfitColor name={item.xgb} />
+        </ul>
+      </div>
     );
     //   }
   });

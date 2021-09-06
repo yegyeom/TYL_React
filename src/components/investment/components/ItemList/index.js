@@ -44,6 +44,7 @@ const ItemList = props => {
   return (
     <div className="itemlist-container" id={props.isPc ? null : 'm'}>
       {SearchForm}
+
       <ItemStorage getItem={getItem} inputValue={inputValue} category={category}></ItemStorage>
     </div>
   );

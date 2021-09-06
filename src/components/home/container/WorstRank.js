@@ -11,13 +11,18 @@ const WorstRank = () => {
     axios.get('rank/preday-history').then(res => {
       setRank(res.data.lowerRank);
       setInProgress(false);
-      // console.log(res.data);
     });
   }, []);
 
   if (inProgress) {
     return <div></div>;
   }
+
+  // 내림차순 정렬
+  rank.sort(function (b, a) {
+    return parseFloat(b.profit) - parseFloat(a.profit);
+  });
+  //console.log(rank);
 
   return <Ticker info={rank} str="worst" />;
 };

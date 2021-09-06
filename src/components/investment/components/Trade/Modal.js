@@ -11,12 +11,16 @@ const Modal = props => {
   const inputRef = useRef();
   const modalEl = useRef(); // modal Ref
   const btnEl = useRef(); // btn Ref
+  const [category, setCategory] = useState('stock');
   let data;
+
+  useEffect(() => {
+    if (props.category == 'stock' || props.category == 'coin') setCategory(props.category);
+  }, [props.category]);
 
   useEffect(() => {
     window.addEventListener('click', handleClickOutside);
     inputRef.current.focus();
-    console.log(modalData);
 
     axios.get('asset').then(res => {
       setMyCash(res.data.cash.amount);
@@ -29,7 +33,6 @@ const Modal = props => {
     });
 
     return () => {
-      console.log('myAssetmyAsset ==> ', modalData.trsType);
       window.removeEventListener('click', handleClickOutside);
     };
   }, []);
@@ -39,9 +42,9 @@ const Modal = props => {
       trsType: modalData.trsType,
       code: modalData.code,
       name: modalData.name,
-      assetType: 'STOCK',
+      assetType: category,
       value: modalData.value,
-      amount: parseInt(inputAmount),
+      amount: inputAmount,
     };
   }, [inputAmount]);
 
@@ -55,8 +58,14 @@ const Modal = props => {
     if (modalData.trsType == 'buy' && inputAmount * modalData.value > myCash) {
     } else if (modalData.trsType == 'sell' && inputAmount > myInvest) {
     } else if (inputAmount != null && inputAmount != 0) {
-      axios.post('stock/transaction', data).then(res => {
-        console.log('onClickBtn => ', res.data);
+      let url;
+      if (category == 'stock') {
+        url = 'stock/transaction';
+      } else if (category == 'coin') {
+        url = 'api/coin/transaction';
+      }
+
+      axios.post(url, data).then(res => {
         closeModal({
           open: true,
           text: res.data.message,
@@ -70,7 +79,6 @@ const Modal = props => {
 
   const onChangeInput = e => {
     setValue(e.target.value);
-    console.log('myAssetmyAsset==> ', myCash, myInvest);
   };
 
   return (
@@ -78,8 +86,11 @@ const Modal = props => {
       <div className="trade-openModal trade-modal">
         <section ref={modalEl}>
           <div className="modal-header-container">
-            <div className="modal-item-img">
-              {/* <img className="item" src={item.imageUrl} alt={item.name} /> */}
+            <div className="item" className="item-img-box">
+              <img
+                className="item-img"
+                src={`https://testyourlife.kro.kr/api/image/stock/${modalData.code}_logo`}
+              />
             </div>
 
             <div className="modal-name-Btn">
@@ -110,7 +121,11 @@ const Modal = props => {
                 {modalData.trsType == 'buy'
                   ? parseInt(myCash).toLocaleString('ko-KR')
                   : parseInt(myInvest).toLocaleString('ko-KR')}
-                {modalData.trsType == 'buy' ? ' TYL' : ' 주'}
+                {modalData.trsType == 'buy'
+                  ? ' TYL'
+                  : category == 'stock'
+                  ? '주'
+                  : ' ' + modalData.code.slice(4, modalData.code.length)}
               </div>
             </div>
 
@@ -119,17 +134,15 @@ const Modal = props => {
                 {modalData.trsType == 'buy' ? '구매수량' : '판매수량'}
               </div>
 
-              <div className="modal-item-myinput">
-                <input
-                  id="modal-input"
-                  ref={inputRef}
-                  type="number"
-                  value={inputAmount}
-                  onChange={onChangeInput}
-                  placeholder="수량을 입력하세요"
-                ></input>
-              </div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주</div>
+              <input
+                id="modal-input"
+                ref={inputRef}
+                type="number"
+                value={inputAmount}
+                onChange={onChangeInput}
+                placeholder="수량을 입력하세요"
+              ></input>
+              <span id="modal-unit">{category === 'stock' ? '주' : '개'}</span>
             </div>
 
             <div className="modal-item-info" id="modal-item-info-custom">

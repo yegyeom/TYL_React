@@ -19,15 +19,11 @@ const Chart = props => {
     date: '',
   });
 
-  var category_idx = 1;
-
   useEffect(() => {
     if (props.category == 'stock') {
       setCategory('stock');
-      category_idx = 1;
     } else if (props.category == 'coin') {
       setCategory('coin');
-      category_idx = 2;
     }
   }, [props.category]);
 
@@ -39,7 +35,6 @@ const Chart = props => {
   }, [props.sendItem]);
 
   useEffect(() => {
-    console.log('찐막:', category);
     if (selectedItem != null) {
       setOptions({
         ...options,
@@ -51,11 +46,8 @@ const Chart = props => {
       } else if (category == 'coin') {
         url = '/api/coin/candle-data?code=' + String(selectedItem.code);
       }
-      console.log('마지막이다 ==>', selectedItem);
       if (url != null) {
         axios.get(url).then(res => {
-          console.log('뭐냐 ===> ', res.data.candleData.length);
-
           if (res.data.candleData.length != 0) {
             setTooltipData({
               open: res.data.candleData[res.data.candleData.length - 1].startValue,
@@ -98,7 +90,6 @@ const Chart = props => {
                 }),
               },
             ]);
-            console.log('additionalData', additionalData);
           }
         });
       }
@@ -200,14 +191,11 @@ const Chart = props => {
     return year + '.' + month + '.' + day;
   };
 
-  const onClick = e => {
-    console.log(additionalData);
-  };
   return (
     <div className="chart-container" id={props.isPc ? null : 'm'}>
       <ReactApexChart options={options} series={series} type="candlestick" height={320} />
 
-      <div id="chartInfo-div" onClick={onClick}>
+      <div id="chartInfo-div">
         <div className="chartInfo-date">{getFormatDate(tooltipData.date)}</div>
 
         <div className="chartInfo">
@@ -263,7 +251,7 @@ const Chart = props => {
                   : 'chartInfo-data'
               }
             >
-              {additionalData != null ? additionalData[tooltipData.idx].rate.toFixed(2) : null}%
+              {additionalData != null ? additionalData[tooltipData.idx].rate.toFixed(5) : null}%
             </div>
           </div>
         </div>

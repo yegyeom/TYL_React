@@ -3,14 +3,18 @@ import axios from 'axios';
 
 const Message = props => {
   const { text, closeMessage, data, inputAmount, myAsset } = props;
+  const [category, setCategory] = useState('stock');
 
   useEffect(() => {
-    console.log('과연==>?', myAsset.myCash, myAsset.myInvest);
     window.addEventListener('click', handleClickOutsideforMsg);
     return () => {
       window.removeEventListener('click', handleClickOutsideforMsg);
     };
   }, []);
+
+  useEffect(() => {
+    if (props.category == 'stock' || props.category == 'coin') setCategory(props.category);
+  }, [props.category]);
 
   const handleClickOutsideforMsg = ({ target }) => {
     closeMessage();
@@ -24,7 +28,8 @@ const Message = props => {
           <div className="message-header-container">
             {data.name}&nbsp;
             {inputAmount}
-            {data.trsType == 'buy' ? '주를 구매했어요!' : '주를 판매했어요!'}
+            {category == 'stock' ? '주를 ' : '개를 '}
+            {data.trsType == 'buy' ? '구매했어요!' : '판매했어요!'}
           </div>
           <div className="message-item-info">
             <div className="message-item-text">

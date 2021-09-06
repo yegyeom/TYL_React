@@ -3,9 +3,7 @@ import PredictContainer from './component/container/PredictContainer';
 
 const index = () => {
   return (
-    <>
       <PredictContainer />
-    </>
   );
 };
 
