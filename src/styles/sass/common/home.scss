@@ -4,7 +4,7 @@ ul.home-tickerbox {
   width: 100%;
   display: block;
   padding: 0%;
-  margin: 0% 0% 8px 0%;
+  margin: 0% 0% 5% 0%;
   background-color: #fff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
@@ -13,6 +13,7 @@ ul.home-tickerbox {
 
 ul.home-tickerbox#m{
   border-radius: 0px;
+  margin-bottom: 8px;
 }
 
 .home-small-info-text {

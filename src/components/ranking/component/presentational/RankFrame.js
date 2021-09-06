@@ -7,7 +7,7 @@ const RankFrame = ({ info, str }) => {
   let data;
   if (str == 'total-asset') {
     const { asset } = info;
-    sign = ' 틸';
+    sign = ' TYL';
     data = asset;
   } else {
     const { profit } = info;

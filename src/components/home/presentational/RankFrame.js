@@ -23,7 +23,7 @@ const RankFrame = ({ info }) => {
             <Rank_123 />
           </div>
         <div className="list-text">{nickname}</div>
-        <div className="list-text">{asset} 틸</div>
+        <div className="list-text">{asset} TYL</div>
       </ul>
     </>
   );
