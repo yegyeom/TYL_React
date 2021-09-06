@@ -583,7 +583,7 @@ ul.asset-tabs-right {
   text-align: left;
   padding-top: 3px;
   padding-left: 8px;
-  color: #6987fd;
+  color: red;
   font-weight: bolder;
 }
 
@@ -609,11 +609,6 @@ ul.asset-tabs-right {
   border-radius: 10px;
   font-size: 14px;
   font-weight: bold;
-}
-
-.modal > section > footer button.modify#possible {
-  color: #6987fd;
-  border: 2px solid #6987fd;
 }
 
 .modal.openModal {
