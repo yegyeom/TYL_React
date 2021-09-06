@@ -7,21 +7,28 @@ const AllTab = ({ isPc }) => {
   const [inProgress2, setInProgress2] = useState(true);
   const [assetRank, setAssetRank] = useState([]);
   const [profitRank, setProfitRank] = useState([]);
+  let mounted = true;
 
   useEffect(() => {
     axios.get('rank/asset').then(res => {
-      setAssetRank(res.data.rank);
-      setInProgress1(false);
+      if (mounted) {
+        setAssetRank(res.data.rank);
+        setInProgress1(false);
+      }
       //console.log(res.data.rank);
     });
+    return () => (mounted = false);
   }, []);
 
   useEffect(() => {
     axios.get('rank/preday-history').then(res => {
-      setProfitRank(res.data.upperRank);
-      setInProgress2(false);
+      if (mounted) {
+        setProfitRank(res.data.upperRank);
+        setInProgress2(false);
+      }
       //console.log(res.data.upperRank);
     });
+    return () => (mounted = false);
   }, []);
 
   if (inProgress1 || inProgress2) {

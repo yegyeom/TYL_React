@@ -4,11 +4,6 @@ import '../../../styles/sass/main.css';
 
 const Ticker = ({ info, str }) => {
   const [index, setIndex] = useState(0);
-  let sign = '';
-  if (str == 'best') {
-    sign = '+';
-  } else {
-  }
 
   useEffect(() => setInterval(() => setIndex(state => (state + 1) % info.length), 3000), []);
 
@@ -25,7 +20,7 @@ const Ticker = ({ info, str }) => {
           {item.nickname}
         </animated.div>
         <animated.div className={str + '-ticker-text-profit'} style={{ ...style }}>
-          {sign}
+          {item.profit > 0 ? '+' : item.profit == 0 ? '' : '-'}
           {item.profit}%
         </animated.div>
       </>

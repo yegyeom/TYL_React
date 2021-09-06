@@ -24,22 +24,17 @@ const SearchFilter = ({ info, inputValue, str }) => {
   }
 
   return newItems.map((item, idx) => {
-    //   if (idx < N_Scroll * 50) {
-    //const positive = item.rate > 0 ? true : false;
     return (
-      <>
-        <ul className="ranking-list" key={idx}>
-          <div className="list-text">
-            <Rank_123 item={item} />
-          </div>
-          <div className="list-text">{item.nickname}</div>
-          <div className="list-text">
-            {str == 'total-asset' ? item.asset + ' 틸' : item.profit + '%'}
-          </div>
-        </ul>
-      </>
+      <ul className="ranking-list" key={idx}>
+        <div className="list-text">
+          <Rank_123 item={item} />
+        </div>
+        <div className="list-text">{item.nickname}</div>
+        <div className="list-text">
+          {str == 'total-asset' ? item.asset + ' 틸' : item.profit + '%'}
+        </div>
+      </ul>
     );
-    //   }
   });
 };
 

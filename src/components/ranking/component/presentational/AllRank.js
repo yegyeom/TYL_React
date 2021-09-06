@@ -7,9 +7,9 @@ const AllRank = ({ ainfo, yinfo, props, isPc }) => {
   const [selected, setSelected] = useState('total-asset');
   const [inputValue, setInputValue] = useState('');
 
-  const getItem = item => {
-    props.getItem(item);
-  };
+  // const getItem = item => {
+  //   props.getItem(item);
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const AllRank = ({ ainfo, yinfo, props, isPc }) => {
   const SelectTag = (
     <>
       <select className="select-container" onChange={onChangeSelectOptionHandler}>
-        <option className="select-option" selected value="total-asset">
+        <option className="select-option" defaultValue='default' value="total-asset">
           총자산
         </option>
         <option className="select-option" value="yield">

@@ -24,7 +24,7 @@ const SearchFilter = ({ info, inputValue }) => {
   return newItems.map((item, idx) => {
     //   if (idx < N_Scroll * 50) {
     //const positive = item.rate > 0 ? true : false;
-    console.log(info);
+    //console.log(info);
     return (
       <div className="predict-box">
       <ul
