@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Predict from '../presentation/Predict';
 import { useMediaQuery } from 'react-responsive';
 
@@ -10,37 +11,75 @@ const PredictContainer = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 480px)',
   });
-  // const [inProgress, setInProgress] = useState(true);
-  // const [predict, setPredict] = useState([]);
 
-  // useEffect(() => {
-  //   axios.get('').then(res => {
-  //     setPredict(res.data);
-  //     setInProgress(false);
-  //     //console.log(res.data);
-  //   });
-  // }, []);
+  const [inProgress1, setInProgress1] = useState(true);
+  const [inProgress2, setInProgress2] = useState(true);
+  const [rfPredict, setRfPredict] = useState([]);
+  const [xgbPredict, setXgbPredict] = useState([]);
 
-  // if (inProgress) {
-  //   return <div></div>;
+  useEffect(() => {
+    axios.get('/api/prediction').then(res => {
+      setRfPredict(res.data.prediction.rf);
+      setInProgress1(false);
+      //console.log(res.data.prediction);
+    });
+  }, []);
 
-  const tmpPredict = [
-    { name: '삼성전자', average: '+6.9', rf: '+6.9', xgb: '+6.9' },
-    { name: '카카오', average: '+1.9', rf: '+1.9', xgb: '+1.9' },
-    { name: '대한항공', average: '-0.9', rf: '-0.9', xgb: '-0.9' },
-    { name: '대한전선', average: '+4.6', rf: '+4.6', xgb: '+4.6' },
-    { name: '이트론', average: '+2.6', rf: '+2.6', xgb: '+2.6' },
-    { name: 'Sk하이닉스', average: '-2.1', rf: '-2.1', xgb: '-2.1' },
-    { name: '카카오뱅크', average: '-3.5', rf: '-3.5', xgb: '-3.5' },
-  ];
+  useEffect(() => {
+    axios.get('/api/prediction').then(res => {
+      setXgbPredict(res.data.prediction.xgb);
+      setInProgress2(false);
+      //console.log(res.data.prediction);
+    });
+  }, []);
 
-  for (let i = 0; i < tmpPredict.length; i++) {
-    tmpPredict[i].order = i + 1;
+  if (inProgress1 || inProgress2) {
+    return <div></div>;
   }
+
+  rfPredict.sort(function (a, b) {
+    return parseFloat(a.code) - parseFloat(b.code);
+  });
+  xgbPredict.sort(function (a, b) {
+    return parseFloat(a.code) - parseFloat(b.code);
+  });
+
+  let rfModified = rfPredict.map(({ code, name, rate: rf }) => ({
+    code,
+    name,
+    rf,
+  }));
+
+  let xgbModified = xgbPredict.map(({ code, name, rate: xgb }) => ({
+    code,
+    name,
+    xgb,
+  }));
+
+  // 평균값 계산
+  let average = [];
+  for (let i = 0; i < rfPredict.length; i++) {
+    average[i] = Math.round(((rfModified[i].rf + xgbModified[i].xgb) / 2) * 100) / 100;
+  }
+
+  // rfPredict + xgbPredict
+  let newObj = [];
+  for (let i = 0; i < rfPredict.length; i++) {
+    newObj[i] = Object.assign({}, rfModified[i], xgbModified[i]);
+  }
+
+  for (let i = 0; i < rfPredict.length; i++) {
+    newObj[i].average = average[i];
+  }
+
+  for (let i = 0; i < rfPredict.length; i++) {
+    newObj[i].order = i + 1;
+  }
+  console.log(newObj);
 
   return (
     <>
-      <Predict info={tmpPredict} isPc={isPc} />
+      <Predict info={newObj} isPc={isPc} />
     </>
   );
 };

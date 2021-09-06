@@ -33,14 +33,19 @@ const Category = () => {
                   color: '#fff',
                   borderRadius: '20px',
                   cursor: 'pointer',
-                  fontSize: '11px',
+                  fontSize: '12px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px',
+                  textDecorationLine: 'none',
                 }
               : {
                   display: 'inline',
                   fontWeight: 'normal',
                   color: '#c2c2c2',
                   cursor: 'pointer',
-                  fontSize: '11px',
+                  fontSize: '12px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px'
                 }
           }
           id="all"
@@ -61,14 +66,19 @@ const Category = () => {
                   color: '#fff',
                   borderRadius: '20px',
                   cursor: 'pointer',
-                  fontSize: '11px',
+                  fontSize: '12px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px',
+                  textDecorationLine: 'none',
                 }
               : {
                   display: 'inline',
                   fontWeight: 'normal',
                   color: '#c2c2c2',
                   cursor: 'pointer',
-                  fontSize: '11px',
+                  fontSize: '12px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px'
                 }
           }
           id="stock"
@@ -90,6 +100,9 @@ const Category = () => {
                   borderRadius: '20px',
                   cursor: 'pointer',
                   fontSize: '11px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px',
+                  textDecorationLine: 'none',
                 }
               : {
                   display: 'inline',
@@ -97,6 +110,8 @@ const Category = () => {
                   color: '#c2c2c2',
                   cursor: 'pointer',
                   fontSize: '11px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px'
                 }
           }
           id="coin"
@@ -118,6 +133,9 @@ const Category = () => {
                   borderRadius: '20px',
                   cursor: 'pointer',
                   fontSize: '11px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px',
+                  textDecorationLine: 'none',
                 }
               : {
                   display: 'inline',
@@ -125,6 +143,8 @@ const Category = () => {
                   color: '#c2c2c2',
                   cursor: 'pointer',
                   fontSize: '11px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px'
                 }
           }
           id="deposit"
@@ -145,14 +165,19 @@ const Category = () => {
                   color: '#fff',
                   borderRadius: '20px',
                   cursor: 'pointer',
-                  fontSize: '11px',
+                  fontSize: '12px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px',
+                  textDecorationLine: 'none',
                 }
               : {
                   display: 'inline',
                   fontWeight: 'normal',
                   color: '#c2c2c2',
                   cursor: 'pointer',
-                  fontSize: '11px',
+                  fontSize: '12px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px'
                 }
           }
           id="gold"
@@ -174,6 +199,9 @@ const Category = () => {
                   borderRadius: '20px',
                   cursor: 'pointer',
                   fontSize: '11px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px',
+                  textDecorationLine: 'none',
                 }
               : {
                   display: 'inline',
@@ -181,6 +209,8 @@ const Category = () => {
                   color: '#c2c2c2',
                   cursor: 'pointer',
                   fontSize: '11px',
+                  paddingTop: '7px',
+                  paddingBottom: '7px'
                 }
           }
           id="estate"

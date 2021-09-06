@@ -735,7 +735,7 @@ ul.home-tickerbox {
   width: 100%;
   display: block;
   padding: 0%;
-  margin: 0% 0% 8px 0%;
+  margin: 0% 0% 5% 0%;
   background-color: #fff;
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
@@ -744,6 +744,7 @@ ul.home-tickerbox {
 
 ul.home-tickerbox#m {
   border-radius: 0px;
+  margin-bottom: 8px;
 }
 
 .home-small-info-text {
@@ -1405,7 +1406,7 @@ ul.category-container {
   display: inline-flex;
   justify-content: space-between;
   padding: 3% 2.5% 3% 2.5%;
-  margin: 0% 0% 8px 0%;
+  margin: 0% 0% 5% 0%;
   font-size: smaller;
   background-color: #fff;
   border: 1px solid #c4c4c420;
@@ -1415,6 +1416,7 @@ ul.category-container {
 
 ul.category-container#m {
   border-radius: 0px;
+  margin-bottom: 8px;
 }
 
 .selected-category {
@@ -1427,30 +1429,12 @@ ul.category-container#m {
   cursor: pointer;
 }
 
-#m.selected-category {
-  display: inline;
-  font-weight: normal;
-  background-color: #5673EB;
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 11px;
-}
-
 .unselected-category {
   display: inline;
   padding: 0 16px;
   font-weight: bold;
   color: #C2C2C2;
   cursor: pointer;
-}
-
-#m.unselected-category {
-  display: inline;
-  font-weight: normal;
-  color: #C2C2C2;
-  cursor: pointer;
-  font-size: 11px;
 }
 
 ul.ranking-container {
