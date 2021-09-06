@@ -1005,6 +1005,7 @@ div#items-container {
 }
 
 div#item-container {
+  height: 70px;
   margin: 3px 0px;
   display: flex;
   flex-direction: row;
@@ -1017,14 +1018,23 @@ div#item-container:hover {
   background: #e2e2e2;
 }
 
-div#item-img {
-  padding: auto;
-  margin: 15px;
-  background: #BDBDBD;
+.item-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   border-radius: 70%;
   overflow: hidden;
+  margin-top: 15px;
+  margin-left: 15px;
+  border: 2px solid #c4c4c480;
+}
+
+.item-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 div#item-name {
