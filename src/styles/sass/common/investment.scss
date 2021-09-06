@@ -287,9 +287,17 @@ div#prediction-item-name {
   color: rgb(70, 77, 82);
 }
 
-div#prediction-item-valuePercent {
+div#prediction-item-increase {
   background-color: #C4C4C4;
   color: #EB5374;
+  margin: 10px;
+  border: 1px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+div#prediction-item-decrease {
+  background-color: #C4C4C4;
+  color: #5673EB;
   margin: 10px;
   border: 1px;
   border-radius: 3px 3px 3px 3px;
@@ -364,6 +372,8 @@ div#trade-sell {
 div#empty-space {
   margin: 150px 0px;
   padding: 16px 70px;
+  font-weight: 500;
+  color: #2c3ca8;
 }
 
 .trade-modal {

@@ -11,7 +11,12 @@ const Modal = props => {
   const inputRef = useRef();
   const modalEl = useRef(); // modal Ref
   const btnEl = useRef(); // btn Ref
+  const [category, setCategory] = useState('stock');
   let data;
+
+  useEffect(() => {
+    if (props.category == 'stock' || props.category == 'coin') setCategory(props.category);
+  }, [props.category]);
 
   useEffect(() => {
     window.addEventListener('click', handleClickOutside);
@@ -29,7 +34,6 @@ const Modal = props => {
     });
 
     return () => {
-      console.log('myAssetmyAsset ==> ', modalData.trsType);
       window.removeEventListener('click', handleClickOutside);
     };
   }, []);
@@ -39,9 +43,9 @@ const Modal = props => {
       trsType: modalData.trsType,
       code: modalData.code,
       name: modalData.name,
-      assetType: 'STOCK',
+      assetType: category,
       value: modalData.value,
-      amount: parseInt(inputAmount),
+      amount: inputAmount,
     };
   }, [inputAmount]);
 
@@ -52,10 +56,19 @@ const Modal = props => {
   };
 
   const onClicklabel = ({ target }) => {
+    console.log('또니?', data.assetType);
+
     if (modalData.trsType == 'buy' && inputAmount * modalData.value > myCash) {
     } else if (modalData.trsType == 'sell' && inputAmount > myInvest) {
     } else if (inputAmount != null && inputAmount != 0) {
-      axios.post('stock/transaction', data).then(res => {
+      let url;
+      if (category == 'stock') {
+        url = 'stock/transaction';
+      } else if (category == 'coin') {
+        url = 'api/coin/transaction';
+      }
+
+      axios.post(url, data).then(res => {
         console.log('onClickBtn => ', res.data);
         closeModal({
           open: true,
@@ -70,7 +83,7 @@ const Modal = props => {
 
   const onChangeInput = e => {
     setValue(e.target.value);
-    console.log('myAssetmyAsset==> ', myCash, myInvest);
+    console.log('myAssetmyAsset==> ', myCash, category);
   };
 
   return (
@@ -110,7 +123,11 @@ const Modal = props => {
                 {modalData.trsType == 'buy'
                   ? parseInt(myCash).toLocaleString('ko-KR')
                   : parseInt(myInvest).toLocaleString('ko-KR')}
-                {modalData.trsType == 'buy' ? ' TYL' : ' 주'}
+                {modalData.trsType == 'buy'
+                  ? ' TYL'
+                  : category == 'stock'
+                  ? '주'
+                  : ' ' + modalData.code.slice(4, modalData.code.length)}
               </div>
             </div>
 
@@ -129,7 +146,10 @@ const Modal = props => {
                   placeholder="수량을 입력하세요"
                 ></input>
               </div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주</div>
+              <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {category == 'stock' ? '주' : modalData.code.slice(4, modalData.code.length)}
+              </div>
             </div>
 
             <div className="modal-item-info" id="modal-item-info-custom">

@@ -12,24 +12,35 @@ const index = () => {
   });
 
   const [selectedItem, setSelectedItem] = useState();
-  const [category, setCategory] = useState();
-
+  const [category, setCategory] = useState('stock');
+  const [hide, setHide] = useState(false);
   const getItem = item => {
     setSelectedItem(item);
   };
 
   const getcategory = get_category => {
-    console.log('[investment index]useEffect', get_category);
-    setCategory(get_category);
+    if (get_category == 'stock' || get_category == 'coin') {
+      setCategory(get_category);
+      setHide(false);
+    } else {
+      setHide(true);
+    }
   };
 
   return (
     <>
-      <Category isPc={isPc} getcategory={getcategory}></Category>
-      <ItemList isPc={isPc} getItem={getItem} category={category}></ItemList>
-      <Chart isPc={isPc} sendItem={selectedItem} category={category}></Chart>
-      <Prediction isPc={isPc} sendItem={selectedItem}></Prediction>
-      <Trade isPc={isPc} sendItem={selectedItem}></Trade>
+      <Category getcategory={getcategory}></Category>
+      {hide == true ? (
+        <div id="empty-space">점검 중 입니다!</div>
+      ) : (
+        <>
+          <ItemList getItem={getItem} category={category}></ItemList>
+          <Chart sendItem={selectedItem} category={category}></Chart>
+          {category == 'stock' ? <Prediction sendItem={selectedItem}></Prediction> : null}
+          <Trade sendItem={selectedItem} category={category}></Trade>
+        </>
+      )}
+
       <div id="empty-space"></div>
     </>
   );
