@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Category = ({ isPc }) => {
+const Category = props => {
   const [selected, setSelected] = useState('stock');
 
   const onClick = e => {
@@ -15,85 +15,85 @@ const Category = ({ isPc }) => {
   }, [selected]);
 
   return (
-    <div className="category-container" id={isPc ? null : 'm'}>
-      <div id={isPc ? 'category-div' : 'category-div-m'}>
+    <div className="category-container" id={props.isPc ? null : 'm'}>
+      <div id={props.isPc ? 'category-div' : 'category-div-m'}>
         <div
           className={
             selected == 'stock'
-              ? isPc
+              ? props.isPc
                 ? 'selected-category'
                 : 'selected-category-m'
-              : isPc
+              : props.isPc
               ? 'unSelected-category'
               : 'unSelected-category-m'
           }
           id="stock"
           onClick={onClick}
-          style={isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           주식
         </div>
         <div
           className={
             selected == 'coin'
-              ? isPc
+              ? props.isPc
                 ? 'selected-category'
                 : 'selected-category-m'
-              : isPc
+              : props.isPc
               ? 'unSelected-category'
               : 'unSelected-category-m'
           }
           id="coin"
           onClick={onClick}
-          style={isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           암호화폐
         </div>
         <div
           className={
             selected == 'deposit'
-              ? isPc
+              ? props.isPc
                 ? 'selected-category'
                 : 'selected-category-m'
-              : isPc
+              : props.isPc
               ? 'unSelected-category'
               : 'unSelected-category-m'
           }
           id="deposit"
           onClick={onClick}
-          style={isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           예·적금
         </div>
         <div
           className={
             selected == 'realestate'
-              ? isPc
+              ? props.isPc
                 ? 'selected-category'
                 : 'selected-category-m'
-              : isPc
+              : props.isPc
               ? 'unSelected-category'
               : 'unSelected-category-m'
           }
           id="realestate"
           onClick={onClick}
-          style={isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           부동산
         </div>
         <div
           className={
             selected == 'gold'
-              ? isPc
+              ? props.isPc
                 ? 'selected-category'
                 : 'selected-category-m'
-              : isPc
+              : props.isPc
               ? 'unSelected-category'
               : 'unSelected-category-m'
           }
           id="gold"
           onClick={onClick}
-          style={isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
+          style={props.isPc ? { padding: '0px 20px' } : { padding: ' 7px 12px' }}
         >
           금
         </div>
