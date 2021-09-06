@@ -11,9 +11,8 @@ const Trade = props => {
   const [message, setMessage] = useState({ open: false, text: '' });
 
   useEffect(() => {
-    // props.Name의 값이 변경될 때 마다 실행.
     setSelectedItem(props.sendItem);
-  }, [props]);
+  }, [props.sendItem]);
 
   const getMessage = msg => {
     setMessage(msg);

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ItemStorage from './ItemStorage.js';
 import search_img from '../../../../styles/images/search_icon.png';
 
@@ -6,6 +6,13 @@ const ItemList = props => {
   const getItem = item => {
     props.getItem(item);
   };
+  const [category, setCategory] = useState();
+
+  useEffect(() => {}, []);
+
+  useEffect(() => {
+    setCategory(props.category);
+  }, [props.category]);
 
   const [inputValue, setInputValue] = useState('');
 
@@ -36,8 +43,8 @@ const ItemList = props => {
 
   return (
     <div className="itemlist-container" id={props.isPc ? null : 'm'}>
-      <div>{SearchForm}</div>
-      <ItemStorage getItem={getItem} inputValue={inputValue}></ItemStorage>
+      {SearchForm}
+      <ItemStorage getItem={getItem} inputValue={inputValue} category={category}></ItemStorage>
     </div>
   );
 };

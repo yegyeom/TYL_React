@@ -5,7 +5,7 @@ const Modal = props => {
   const { closeModal, modalData } = props;
 
   // const [data, setdata] = useState();
-  const [inputAmount, setValue] = useState('');
+  const [inputAmount, setValue] = useState();
   const [myCash, setMyCash] = useState();
   const [myInvest, setMyInvest] = useState();
   const inputRef = useRef();
@@ -16,9 +16,9 @@ const Modal = props => {
   useEffect(() => {
     window.addEventListener('click', handleClickOutside);
     inputRef.current.focus();
+    console.log(modalData);
 
     axios.get('asset').then(res => {
-      console.log('구매버튼 클릭 ==> ', res.data.cash.amount);
       setMyCash(res.data.cash.amount);
     });
 
@@ -52,11 +52,9 @@ const Modal = props => {
   };
 
   const onClicklabel = ({ target }) => {
-    console.log('버튼 클릭=>', data.amount);
-
     if (modalData.trsType == 'buy' && inputAmount * modalData.value > myCash) {
     } else if (modalData.trsType == 'sell' && inputAmount > myInvest) {
-    } else {
+    } else if (inputAmount != null && inputAmount != 0) {
       axios.post('stock/transaction', data).then(res => {
         console.log('onClickBtn => ', res.data);
         closeModal({
@@ -139,7 +137,7 @@ const Modal = props => {
                 {modalData.trsType == 'buy' ? '구매총액' : '판매총액'}
               </div>
               <div className="modal-item-myinfo">
-                {inputAmount.length <= 0
+                {inputAmount == null
                   ? 0
                   : parseInt(inputAmount * modalData.value).toLocaleString('ko-KR')}{' '}
                 TYL

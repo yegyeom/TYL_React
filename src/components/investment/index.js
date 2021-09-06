@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Category from './components/Category.js';
 import ItemList from './components/ItemList/index.js';
 import Chart from './components/Chart/index.js';
@@ -12,16 +12,22 @@ const index = () => {
   });
 
   const [selectedItem, setSelectedItem] = useState();
+  const [category, setCategory] = useState();
 
   const getItem = item => {
     setSelectedItem(item);
   };
 
+  const getcategory = get_category => {
+    console.log('[investment index]useEffect', get_category);
+    setCategory(get_category);
+  };
+
   return (
     <>
-      <Category isPc={isPc}></Category>
-      <ItemList isPc={isPc} getItem={getItem}></ItemList>
-      <Chart isPc={isPc} sendItem={selectedItem}></Chart>
+      <Category isPc={isPc} getcategory={getcategory}></Category>
+      <ItemList isPc={isPc} getItem={getItem} category={category}></ItemList>
+      <Chart isPc={isPc} sendItem={selectedItem} category={category}></Chart>
       <Prediction isPc={isPc} sendItem={selectedItem}></Prediction>
       <Trade isPc={isPc} sendItem={selectedItem}></Trade>
       <div id="empty-space"></div>

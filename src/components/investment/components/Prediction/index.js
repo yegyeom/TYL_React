@@ -5,7 +5,7 @@ const Prediction = props => {
 
   useEffect(() => {
     setSelectedItem(props.sendItem);
-  }, [props]);
+  }, [props.sendItem]);
 
   const [Result, setResult] = React.useState([
     {
@@ -33,9 +33,9 @@ const Prediction = props => {
           {selectedItem != null ? selectedItem.name : '종목'}에 대한 AI예측 결과를 확인해보세요!
         </div>
         <div className="prediction-item-container">
-          {Result.map((result, index) => {
+          {Result.map((result, idx) => {
             return (
-              <div id="prediction-item">
+              <div id="prediction-item" key={idx}>
                 <div id="prediction-item-name">{result.name}</div>
                 <div id="prediction-item-valuePercent">+{result.valuePercent}%</div>
               </div>
