@@ -38,7 +38,7 @@ const AssetConatiner = () => {
 
   useEffect(() => {
     if (!validity) return;
-    axios.get('asset').then(res => {
+    axios.get('api/asset').then(res => {
       setAsset(res.data.asset);
       setCash(res.data.cash.amount);
 
@@ -70,7 +70,7 @@ const AssetConatiner = () => {
       else if (res.data.coin.coinProfit > 0) setCoinToday('+');
     });
 
-    axios.get('asset/history').then(res => {
+    axios.get('api/asset/history').then(res => {
       setHistory(res.data.history);
       setInProgress(false);
     });

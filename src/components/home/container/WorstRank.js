@@ -8,7 +8,7 @@ const WorstRank = () => {
 
   useEffect(() => {
     // https://testyourlife.kro.kr/preday-history
-    axios.get('rank/preday-history').then(res => {
+    axios.get('api/rank/preday-history').then(res => {
       setRank(res.data.lowerRank);
       setInProgress(false);
     });

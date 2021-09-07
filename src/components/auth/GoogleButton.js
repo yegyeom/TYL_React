@@ -29,7 +29,7 @@ export default function googleButton(props) {
     };
 
     axios
-      .post('/auth/login', body, { headers })
+      .post('api/auth/login', body, { headers })
       .then(onLoginSuccess)
       .then(user => {
         dispatch(login(user));

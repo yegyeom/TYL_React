@@ -18,7 +18,7 @@ const ItemStorage = props => {
         }),
       );
     });
-    axios.get('/stock/real-data').then(res => {
+    axios.get('/api/stock/real-data').then(res => {
       props.getItem(res.data[0]);
       setStock(res.data);
     });
@@ -55,7 +55,7 @@ const ItemStorage = props => {
         }),
       );
     });
-    axios.get('/stock/real-data').then(res => {
+    axios.get('api/stock/real-data').then(res => {
       setStock(res.data);
     });
   };

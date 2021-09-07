@@ -42,7 +42,7 @@ const MyAssetContainer = () => {
 
   useEffect(() => {
     if (validity) {
-      axios.get('asset').then(res => {
+      axios.get('api/asset').then(res => {
         setCash(res.data.cash.amount);
 
         setCoinAsset(res.data.coin.coinAsset);
