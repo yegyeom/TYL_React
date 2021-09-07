@@ -182,7 +182,7 @@ const AssetConatiner = () => {
   if (inProgress) return <div></div>;
   return (
     <>
-      <AssetTotal isPc={isPc} asset={asset.toLocaleString('ko-KR')} />
+      <AssetTotal isPc={isPc} asset={Number(asset.toFixed(0)).toLocaleString('ko-KR')} />
       <AssetGraph isPc={isPc} data={data} />
       <AssetList isPc={isPc} AssetBox={AssetBox} CashBox={CashBox} match={match} />
     </>

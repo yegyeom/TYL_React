@@ -6,7 +6,7 @@ const AssetTotal = ({ isPc, asset }) => {
     <div className="total-asset-container">
       <ul className="total-asset-box" id={isPc ? null : 'm'}>
         <li> 총 자산 </li>
-        <li id="right">{asset.toFixed(0)} TYL</li>
+        <li id="right">{asset} TYL</li>
       </ul>
     </div>
   );
