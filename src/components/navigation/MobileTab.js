@@ -15,15 +15,15 @@ const MobileTab = ({ list }) => {
       <div className="mobile-main-menu"></div>
       <div className="mobile-content">
         <Route path="/" component={Home} exact />
-        <Route path="/Investment" component={Investment} />
-        <Route path="/Prediction" component={Prediction} />
-        <Route path="/Ranking" component={Ranking} />
-        <Route exact path="/Asset" component={Asset} />
-        <Route path="/Profile" component={Profile} />
+        <Route path="/investment" component={Investment} />
+        <Route path="/prediction" component={Prediction} />
+        <Route path="/ranking" component={Ranking} />
+        <Route exact path="/asset" component={Asset} />
+        <Route path="/profile" component={Profile} />
         <Route path="/login" component={Auth} />
-        <Route path="/Asset/cash" component={MyAssetContainer} />
-        <Route path="/Asset/stock" component={MyAssetContainer} />
-        <Route path="/Asset/coin" component={MyAssetContainer} />
+        <Route path="/asset/cash" component={MyAssetContainer} />
+        <Route path="/asset/stock" component={MyAssetContainer} />
+        <Route path="/asset/coin" component={MyAssetContainer} />
       </div>
     </>
   );

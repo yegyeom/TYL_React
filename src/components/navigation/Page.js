@@ -11,7 +11,6 @@ import '../../styles/sass/main.css';
 import { useSelector } from 'react-redux';
 import { checkValidity, selectUser } from '../auth/userSlice';
 import MyAssetContainer from '../asset/components/container/MyAssetContainer';
-import profile_img from '../../styles/images/profile_img.png';
 
 const Page = () => {
   const validity = useSelector(checkValidity);
@@ -22,17 +21,17 @@ const Page = () => {
     if (validity) {
       setBottomMenuBox([
         { link: '', title: user.nickname },
-        { link: '/Asset', title: '내 자산' },
-        { link: '/Profile', title: '내 정보' },
+        { link: '/asset', title: '내 자산' },
+        { link: '/profile', title: '내 정보' },
       ]);
     } else setBottomMenuBox([{ link: '/login', title: '로그인' }]);
   }, [validity]);
 
   const topMenuBox = [
     { link: '/', title: '홈' },
-    { link: '/Investment', title: '투자' },
-    { link: '/Prediction', title: '예측' },
-    { link: '/Ranking', title: '랭킹' },
+    { link: '/investment', title: '투자' },
+    { link: '/prediction', title: '예측' },
+    { link: '/ranking', title: '랭킹' },
   ];
 
   const topMenuList = topMenuBox.map((menu, idx) => (
@@ -74,15 +73,15 @@ const Page = () => {
 
       <div className="content">
         <Route path="/" component={Home} exact />
-        <Route path="/Investment" component={Investment} />
-        <Route path="/Prediction" component={Prediction} />
-        <Route path="/Ranking" component={Ranking} />
-        <Route exact path="/Asset" component={Asset} />
-        <Route path="/Profile" component={Profile} />
+        <Route path="/investment" component={Investment} />
+        <Route path="/prediction" component={Prediction} />
+        <Route path="/ranking" component={Ranking} />
+        <Route exact path="/asset" component={Asset} />
+        <Route path="/profile" component={Profile} />
         <Route path="/login" component={Auth} />
-        <Route path="/Asset/cash" component={MyAssetContainer} />
-        <Route path="/Asset/stock" component={MyAssetContainer} />
-        <Route path="/Asset/coin" component={MyAssetContainer} />
+        <Route path="/asset/cash" component={MyAssetContainer} />
+        <Route path="/asset/stock" component={MyAssetContainer} />
+        <Route path="/asset/coin" component={MyAssetContainer} />
       </div>
     </div>
   );

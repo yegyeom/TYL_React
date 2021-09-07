@@ -11,13 +11,13 @@ import MobileMenulogo from '../../styles/images/mobile-menu-logo.svg';
 
 const publicItems = [
   { link: '/', title: '홈' },
-  { link: '/Investment', title: '투자' },
-  { link: '/Prediction', title: '예측' },
-  { link: '/Ranking', title: '랭킹' },
+  { link: '/investment', title: '투자' },
+  { link: '/prediction', title: '예측' },
+  { link: '/ranking', title: '랭킹' },
 ];
 const privateItmes = [
-  { link: '/Asset', title: '내 자산' },
-  { link: '/Profile', title: '내 정보' },
+  { link: '/asset', title: '내 자산' },
+  { link: '/profile', title: '내 정보' },
 ];
 
 const MobileTabItem = item => {
