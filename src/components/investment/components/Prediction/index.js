@@ -57,22 +57,26 @@ const Prediction = props => {
         <div className="prediction-item-container">
           {Result.map((result, idx) => {
             return (
-              <div id="prediction-item" key={idx}>
-                <div id="prediction-item-name">{result.name}</div>
-                <div
-                  id={
-                    result.valuePercent >= 0
-                      ? 'prediction-item-increase'
-                      : 'prediction-item-decrease'
-                  }
-                >
-                  {result.valuePercent > 0 ? '+' : null}
-                  {result.valuePercent}%
+              <>
+                <div id="prediction-item" key={idx}>
+                  <div id="prediction-item-name">{result.name}</div>
+                  <div
+                    id={
+                      result.valuePercent >= 0
+                        ? 'prediction-item-increase'
+                        : 'prediction-item-decrease'
+                    }
+                  >
+                    {result.valuePercent > 0 ? '+' : null}
+                    {result.valuePercent}%
+                  </div>
                 </div>
-              </div>
+              </>
             );
           })}
         </div>
+
+        <span className="prediction-ment">위 예측은 TYL 자체 AI 예측입니다.</span>
       </div>
     </>
   );

@@ -11,12 +11,21 @@
   border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.prediction-container{
+  margin-top: 0%;
+}
+.chart-container{
+  margin-top: 0%;
 }
 
 #m.itemlist-container, #m.chart-container, #m.prediction-container{
   border-radius: 0px;
   margin: 0px;
   margin-top: 8px;
+  position: relative;
 }
 
 div.category-container {
@@ -95,6 +104,7 @@ div.category-container {
   margin-bottom: 3%;
   border: 1px solid #c4c4c4;
   border-radius: 10px 10px 10px 10px;
+  flex: 1;
 }
 
 .itemlist-searchform-image {
@@ -308,19 +318,21 @@ div#prediction-item-name {
 }
 
 div#prediction-item-increase {
-  background-color: #C4C4C4;
+  background-color: #C4C4C480;
   color: #EB5374;
   margin: 10px;
   border: 1px;
-  border-radius: 3px 3px 3px 3px;
+  border-radius: 10px;
+  padding: 6px 16px;
 }
 
 div#prediction-item-decrease {
-  background-color: #C4C4C4;
+  background-color: #C4C4C480;
   color: #5673EB;
   margin: 10px;
   border: 1px;
-  border-radius: 3px 3px 3px 3px;
+  border-radius: 10px;
+  padding: 6px 16px;
 }
 
 // div#prediction-bottom-text {
@@ -365,26 +377,26 @@ div.trade-container{
 div.trade-item {
   width: 50%;
   text-align: center;
-  padding: 16px;
+  padding: 4px 16px;
   margin: 10px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 20px;
   font-weight: bold;
-  font-size: x-large;
+  font-size: 22px;
   white-space:nowrap;
   cursor: pointer;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 div#trade-purchase {
-  background-color: #3c52e2;
-  color: #e3e3ec;
+  background-color: #EB5374;
+  color: #fff;
   overflow: hidden;
   object-fit: cover;
 }
 
 div#trade-sell {
-  background-color: #3c52e2;
-  color: #e3e3ec;
+  background-color: #5673EB;
+  color: #fff;
   overflow: hidden;
   object-fit: cover;
 }
@@ -689,4 +701,26 @@ input::-webkit-inner-spin-button {
   to {
       opacity: 1;
   }
+}
+
+.prediction-ment{
+  font-size: 11px;
+  color: #464D5280;
+  text-align: right;
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+}
+
+.gang2{
+  display: flex;
+  flex-direction: row;
+}
+
+#invest-time{
+  flex: 1;
+  text-align: left;
+  color: #464D5280;
+  padding-left: 10px;
+  padding-top: 5px;
 }

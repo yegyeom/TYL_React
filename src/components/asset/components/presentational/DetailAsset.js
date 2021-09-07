@@ -105,7 +105,7 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
                   style={{ fontSize: '12px' }}
                 >
                   {menu.profit > 0 ? '+' : ''}
-                  {menu.profit.toLocaleString('ko-KR')} (
+                  {(menu.profit.toFixed(0) * 1).toLocaleString('ko-KR')} (
                   {((menu.profit / (menu.price * menu.quantity - menu.profit)) * 100).toFixed(2)}
                   %)
                 </li>
