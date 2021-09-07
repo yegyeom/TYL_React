@@ -42,8 +42,6 @@ const index = () => {
           <Trade isPc={isPc} sendItem={selectedItem} category={category}></Trade>
         </>
       )}
-
-      <div id="empty-space"></div>
     </>
   );
 };
