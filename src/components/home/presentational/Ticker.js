@@ -34,7 +34,7 @@ const Ticker = ({ info, str }) => {
           {item.nickname}
         </animated.div>
         <animated.div className={str + '-ticker-text-profit'} style={{ ...style }}>
-          {item.profit > 0 ? '+' : item.profit == 0 ? '' : '-'}
+          {item.profit > 0 ? '+' : item.profit == 0 ? '' : ''}
           {item.profit}%
         </animated.div>
       </>
