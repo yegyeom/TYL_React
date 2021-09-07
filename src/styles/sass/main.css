@@ -882,6 +882,10 @@ ul.ranking-list {
   position: relative;
 }
 
+.chart-container {
+  margin: 0%;
+}
+
 #m.itemlist-container, #m.chart-container, #m.prediction-container {
   border-radius: 0px;
   margin: 0px;
