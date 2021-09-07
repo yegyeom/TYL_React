@@ -12,7 +12,7 @@ const AssetList = ({ isPc, AssetBox, CashBox, match }) => {
         <div className="gang" style={{ paddingLeft: '0px' }}>
           <ul className="asset-tabs-left">
             <li>{menu.title}</li>
-            <li>{menu.total.toLocaleString('ko-KR')} TYL</li>
+            <li>{(menu.total.toFixed(0) * 1).toLocaleString('ko-KR')} TYL</li>
           </ul>
           {
             <ul className="asset-tabs-right">
@@ -21,7 +21,8 @@ const AssetList = ({ isPc, AssetBox, CashBox, match }) => {
                   menu.today === '+' ? 'increase' : menu.today === '' ? 'maintain' : 'decrease'
                 }
               >
-                {menu.today === '+' ? '+' : ''} {menu.value.toLocaleString('ko-KR')}
+                {menu.today === '+' ? '+' : ''}{' '}
+                {(menu.value.toFixed(0) * 1).toLocaleString('ko-KR')}
               </li>
               <li
                 className={
