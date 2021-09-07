@@ -22,11 +22,11 @@ const Modal = props => {
     window.addEventListener('click', handleClickOutside);
     inputRef.current.focus();
 
-    axios.get('asset').then(res => {
+    axios.get('api/asset').then(res => {
       setMyCash(res.data.cash.amount);
     });
 
-    let url = 'stock/amount?code=' + String(modalData.code);
+    let url = 'api/stock/amount?code=' + String(modalData.code);
     axios.get(url).then(res => {
       //해야한다
       setMyInvest(res.data.amount);
@@ -60,7 +60,7 @@ const Modal = props => {
     } else if (inputAmount != null && inputAmount != 0) {
       let url;
       if (category == 'stock') {
-        url = 'stock/transaction';
+        url = 'api/stock/transaction';
       } else if (category == 'coin') {
         url = 'api/coin/transaction';
       }

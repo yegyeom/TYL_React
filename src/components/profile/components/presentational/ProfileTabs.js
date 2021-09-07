@@ -15,7 +15,7 @@ const ProfileTabs = () => {
   };
 
   const onLogout = () => {
-    axios.post('/auth/logout', null).then(() => {
+    axios.post('api/auth/logout', null).then(() => {
       dispatch(logout());
       axios.defaults.headers.common['Authorization'] = '';
       window.location.href = '/';

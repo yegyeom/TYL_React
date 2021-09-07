@@ -32,7 +32,7 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
               <div className="gang" style={{ paddingLeft: '25px' }}>
                 <ul className="asset-tabs-left">
                   <li>내 {menu.title}</li>
-                  <li>{menu.total.toLocaleString('ko-KR')} TYL</li>
+                  <li>{(menu.total.toFixed(0) * 1).toLocaleString('ko-KR')} TYL</li>
                 </ul>
                 {menu.link === 'cash' ? null : (
                   <ul className="asset-tabs-right">
@@ -45,7 +45,8 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
                           : 'decrease'
                       }
                     >
-                      {menu.today === '+' ? '+' : ''} {menu.value.toLocaleString('ko-KR')}
+                      {menu.today === '+' ? '+' : ''}
+                      {(menu.value.toFixed(0) * 1).toLocaleString('ko-KR')}
                     </li>
                     <li
                       className={
@@ -95,7 +96,7 @@ const DetailAsset = ({ todayTime, assetName, TotalAssetBox, AssetBox }) => {
               </ul>
               <ul className="asset-tabs-right">
                 <li style={{ fontSize: '14px' }}>
-                  {(menu.price * menu.quantity).toLocaleString('ko-KR')} TYL
+                  {((menu.price * menu.quantity).toFixed(0) * 1).toLocaleString('ko-KR')} TYL
                 </li>
                 <li
                   className={

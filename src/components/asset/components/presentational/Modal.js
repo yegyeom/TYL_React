@@ -30,7 +30,7 @@ const Modal = props => {
     if (!header) return;
     if (validity) {
       setInProgress(true);
-      axios.get('asset').then(res => {
+      axios.get('api/asset').then(res => {
         let arr = [];
 
         if (assetName === '주식') {
@@ -47,7 +47,7 @@ const Modal = props => {
           });
         }
 
-        axios.get(`asset/transaction?code=${arr[0]}&type=${asset}`).then(res => {
+        axios.get(`api/asset/transaction?code=${arr[0]}&type=${asset}`).then(res => {
           var data = {
             title: res.data.history[0].name,
             order: [],

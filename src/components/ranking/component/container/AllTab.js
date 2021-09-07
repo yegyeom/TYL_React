@@ -10,7 +10,7 @@ const AllTab = ({ isPc }) => {
   let mounted = true;
 
   useEffect(() => {
-    axios.get('rank/asset').then(res => {
+    axios.get('api/rank/asset').then(res => {
       if (mounted) {
         setAssetRank(res.data.rank);
         setInProgress1(false);
@@ -21,7 +21,7 @@ const AllTab = ({ isPc }) => {
   }, []);
 
   useEffect(() => {
-    axios.get('rank/preday-history').then(res => {
+    axios.get('api/rank/preday-history').then(res => {
       if (mounted) {
         setProfitRank(res.data.upperRank);
         setInProgress2(false);

@@ -42,7 +42,7 @@ const Chart = props => {
       });
       let url;
       if (category == 'stock') {
-        url = 'stock/candle-data?code=' + String(selectedItem.code);
+        url = '/api/stock/candle-data?code=' + String(selectedItem.code);
       } else if (category == 'coin') {
         url = '/api/coin/candle-data?code=' + String(selectedItem.code);
       }

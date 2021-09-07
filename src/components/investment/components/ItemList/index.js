@@ -34,7 +34,6 @@ const ItemList = props => {
           type="text"
           value={inputValue}
           placeholder="종목을 입력하세요!"
-          autoFocus
           onChange={onChangeInput}
         ></input>
       </form>

@@ -7,7 +7,7 @@ const AssetRank = () => {
   const [rank, setRank] = useState([]);
 
   useEffect(() => {
-    axios.get('rank/asset').then(res => {
+    axios.get('api/rank/asset').then(res => {
       setRank(res.data.rank);
       setInProgress(false);
       //console.log(res.data.rank);
