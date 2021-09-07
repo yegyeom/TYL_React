@@ -55,7 +55,6 @@ const ProfileTabs = () => {
           <li id="nickname-button" onClick={openModal}>
             닉네임 변경
           </li>
-          <li>프로필 사진 변경</li>
           <li id="logout-button" onClick={openModal}>
             로그아웃
           </li>
