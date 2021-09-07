@@ -47,16 +47,18 @@ const ItemList = props => {
         <span>{todayTime().slice(12, 19)}</span>
         <span> 기준</span>
       </div>
-      <form id="itemlist-searchform" onSubmit={onSubmit}>
-        <img className="itemlist-searchform-image" src={search_img}></img>
-        <input
-          id="itemlist-searchform-input"
-          type="text"
-          value={inputValue}
-          placeholder="종목을 입력하세요!"
-          onChange={onChangeInput}
-        ></input>
-      </form>
+      <div id="gang4">
+        <form id="itemlist-searchform" onSubmit={onSubmit}>
+          <img className="itemlist-searchform-image" src={search_img}></img>
+          <input
+            id="itemlist-searchform-input"
+            type="text"
+            value={inputValue}
+            placeholder="종목을 입력하세요!"
+            onChange={onChangeInput}
+          ></input>
+        </form>
+      </div>
     </div>
   );
 
