@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 💰 Test Your Life (TYL)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img src='https://user-images.githubusercontent.com/54929514/132981293-4e740777-0645-460b-bb07-a43a36b5c77a.gif'/>
+</p>
 
-## Available Scripts
+## 💻 배포
+[Test Your Life 💰](https://www.testyourlife.kro.kr/)
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🧐 배경
+- 코로나19 팬데믹 속에서도 전세계적으로 주식시장은 호황을 이룸
+- ‘2030 밀레니얼’ 세대 중심의 ‘입문 투자자’들 증가
+- 주식, 암호화폐, 금, 부동산 예적금 등 많은 투자 방식에 대한 경험의 장이 요구됨  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎖 기능
+1. 주식, 암호화폐 등 모의투자 서비스 통합 제공
+2. 실세계 데이터 기반으로 실시간 모의투자 기능 제공
+3. TYL만의 주식 예측 서비스를 통해 투자의 방향성 제공
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏗 아키텍쳐 구조
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1079" alt="스크린샷 2021-09-12 오후 5 27 47" src="https://user-images.githubusercontent.com/54929514/132979569-ee9624bb-92aa-4934-87bc-90ee15530527.png">
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠 개선점
+해당 프로젝트에서 개선해야할 사항입니다.
+<br>
+해당 개선 사항들을 이슈로 등록하겠습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. 회원가입 로직 추가 
+2. [투자 - 금] 기능 추가
+3. [투자 - 부동산] 기능 추가
+4. [투자 - 예적금] 기능 추가
+5. [랭킹 - 각 투자 카테고리] 기능 추가
+6. [내자산 - 그래프] 고도화
+7. 프로필 사진 변경 기능 추가
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📔 커밋 컨벤션
+```
+[feat] : 새로운 기능에 대한 커밋
+[fix] : 버그 수정에 대한 커밋
+[chore] : 프로젝트 세팅 및 그 외 커밋
+[docs] : 문서 수정에 대한 커밋
+[style] : 코드 스타일 및 포맷에 관한 커밋
+[refactor] : 리팩토링에 대한 커밋
+[test] : 테스트에 대한 커밋
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 👷 Git Workflow
+- [github-flow](https://guides.github.com/introduction/flow/) 사용
+- 추후 정리해서 업데이트 필요
